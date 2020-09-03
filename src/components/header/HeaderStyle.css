@@ -1,0 +1,16 @@
+.bold {
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+}
+.text {
+    font-size: 12px;
+}
+.instructionBox {
+    font-size: 11px;
+    color: red;
+    font-weight: bold;
+}
+ul {
+    list-style-type: none;
+}
