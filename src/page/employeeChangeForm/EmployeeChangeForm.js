@@ -1,11 +1,9 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import SectionA from "../../components/sectionA/SectionA";
-<<<<<<< HEAD
+import SectionB from "../../components/SectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
-=======
 import SectionD from "../../components/sectionD/SectionD";
->>>>>>> master
 
 function EmployeeChangeForm() {
   return (
@@ -27,11 +25,10 @@ function EmployeeChangeForm() {
       <br />
       <SectionA sectionA="Section A | Organisational Structure" />
       <br />
-<<<<<<< HEAD
+      <SectionB SectionB="Section B | Compensation (Salaried)" />
+      <br />
       <SectionC sectionC="Section C | COMPENSATION (waged employees)" />
-=======
       <SectionD sectionD="Approvals - Section D" />
->>>>>>> master
     </div>
   );
 }
