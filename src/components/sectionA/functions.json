@@ -1,0 +1,50 @@
+[
+    {
+        "name":"Select...",
+        "value":"null"
+    },
+    {
+        "name":"Admin and Facilities",
+        "value":"admin"
+    },
+    {
+        "name":"Commercial",
+        "value":"commercial"
+    },
+    {
+        "name":"Corporate",
+        "value":"corporate"
+    },
+    {
+        "name":"Human Resources",
+        "value":"hr"
+    },
+    {
+        "name":"Information Technology",
+        "value":"it"
+    },
+    
+    {
+        "name":"Legal",
+        "value":"legal"
+    },
+    
+    {
+        "name":"Manufacturing/Engineering",
+        "value":"man/eng"
+    },
+    
+    {
+        "name":"Strategy and Integration",
+        "value":"st&int"
+    },
+    {
+        "name":"Supply Chain",
+        "value":"supply"
+    },
+    {
+        "name":"Quantum Project",
+        "value":"quantum"
+    }
+
+]

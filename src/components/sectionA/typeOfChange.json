@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Select...",
+    "value": "null"
+  },
+  {
+    "name": "Change in Classification",
+    "value": "changeClass"
+  },
+  {
+    "name": "Change in Existing Position",
+    "value": "changePost"
+  },
+  {
+    "name": "Change in Pay",
+    "value": "changePay"
+  },
+  {
+    "name": "Contract Extension",
+    "value": "contractExt"
+  },
+  {
+    "name": "Employment Type Change",
+    "value": "typeChange"
+  },
+  {
+    "name": "Job ReEvaluation",
+    "value": "reEval"
+  },
+  {
+    "name": "Lateral Move",
+    "value": "lateral"
+  },
+  {
+    "name": "Promotion",
+    "value": "promotio"
+  },
+  {
+    "name": "Return to Work",
+    "value": "returnWork"
+  }
+]
