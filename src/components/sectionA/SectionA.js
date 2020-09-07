@@ -48,7 +48,7 @@ function SectionA(props) {
           <input className="ten wide column border"></input>
         </div>
 
-        
+
 
       </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import EmployeeChangeForm from "./page/employeeChangeForm/EmployeeChangeForm"
+import EmployeeChangeForm from "./page/employeeChangeForm/EmployeeChangeForm";
 
 function App() {
   return (
