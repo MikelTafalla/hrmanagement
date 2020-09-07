@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/header/Header";
 import SectionA from "../../components/sectionA/SectionA";
-import SectionB from "../../components/SectionB/SectionB";
+import SectionB from "../../components/sectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
 
