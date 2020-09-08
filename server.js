@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const routes = require("./routes/api/employeeRoutes")
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -10,18 +11,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
+//===============================================
+app.use(routes);
+
+
+
+//Mongo Database connection
+//===============================================
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hrmanagement", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
 });
-// app.use(routes);
 
-//Server 
+
+//Server Port connection
 //=================================================
 app.listen(PORT, function () {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
 
