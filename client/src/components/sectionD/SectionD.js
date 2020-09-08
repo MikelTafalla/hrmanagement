@@ -142,10 +142,8 @@ const SectionD = (props) => {
                         <label className="three wide column">Superannuation</label>
                         <div className="five wide column">
                             <select>
-                                <option className="superman">Superman</option>
-                                <option className="batman">Batman</option>
-                                <option className="wonder-woman">Wonder Woman</option>
-                                <option className="flash">Flash</option>
+                                <option className="dbfund">DB Fund</option>
+                                <option className="superannuation">Superannuation</option>
                             </select>
                         </div>
                     </div>
@@ -157,7 +155,6 @@ const SectionD = (props) => {
                             <select>
                                 <option className="yes">Yes</option>
                                 <option className="no">No</option>
-                                <option className="deport">Deport Immediately</option>
                             </select>
                         </div>
                     </div>
