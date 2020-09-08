@@ -1,10 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const { urlencoded } = require("express");
 
-const app = express();
 const PORT = process.env.PORT || 3001;
-
+const app = express();
 
 // Middleware 
 //================================================
@@ -12,14 +10,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-// app.use(routes);
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hrmanagement", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true
 });
-
+// app.use(routes);
 
 //Server 
 //=================================================
