@@ -14,8 +14,6 @@ app.use(express.json());
 //===============================================
 app.use(routes);
 
-
-
 //Mongo Database connection
 //===============================================
 
@@ -25,7 +23,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hrmanagement", 
   useFindAndModify: false,
   useCreateIndex: true
 });
-
 
 //Server Port connection
 //=================================================

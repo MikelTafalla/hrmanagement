@@ -1,11 +1,25 @@
-import React from "react";
+//eslint-disable-next-line
+import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import SectionA from "../../components/sectionA/SectionA";
 import SectionB from "../../components/sectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
+import API from "../../utils/API"
 
 function EmployeeChangeForm() {
+
+  useEffect(() => {
+    populateForm("5f57c098af0c0e0a341c6d2f");
+  }, [])
+
+  const populateForm = (id) => {
+    API.findById(id)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
+
   return (
     <div>
       <Header
