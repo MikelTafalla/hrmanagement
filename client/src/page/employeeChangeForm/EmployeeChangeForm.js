@@ -8,17 +8,19 @@ import SectionD from "../../components/sectionD/SectionD";
 import API from "../../utils/API"
 
 function EmployeeChangeForm() {
+  const [form, setForm] = useState({});
+
 
   useEffect(() => {
-    populateForm("5f57c098af0c0e0a341c6d2f");
+    populateForm("5f57eb32f88f7412400b3401");
   }, [])
 
   const populateForm = (id) => {
     API.findById(id)
-      .then(res => console.log(res))
+      .then(res => setForm(res.data))
       .catch(err => console.log(err));
   }
-
+  console.log(form);
 
   return (
     <div>
@@ -37,7 +39,26 @@ function EmployeeChangeForm() {
         wagedChange="Waged Change - Complete Section A, Section C and Section D"
       />
       <br />
-      <SectionA sectionA="Section A | Organisational Structure" />
+      <SectionA
+        sectionA="Section A | Organisational Structure"
+        employee_classification={form.employee_classification}
+        position={form.position}
+        employee_name={form.employee_name}
+        employeeId={form.employeeId}
+        typeOfChange={form.typeOfChange}
+        change_reasons={form.change_reasons}
+        effective_date={form.effective_date}
+        current_title={form.current_title}
+        new_title={form.new_title}
+        work_country={form.work_country}
+        location={form.location}
+        function={form.function}
+        department={form.department}
+        manager={form.manager}
+        salary_cost={form.salary_cost}
+        travel_cost={form.travel_cost}
+        business_unit={form.business_unit}
+      />
       <br />
       <SectionB SectionB="Section B | Compensation (Salaried)" />
       <br />
