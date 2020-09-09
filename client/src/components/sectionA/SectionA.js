@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./SectionA.css";
 import TypeOfChange from "./typeOfChange.json";
 import Functions from "./functions.json";
@@ -6,22 +6,23 @@ import Countries from "./countries.json";
 import Location from "./location.json"
 
 const SectionA = (props) => {
-  const[activeLocation, setActiveLocation] = useState([{name:"1st Select Country", value:"null"}]);
-  const[activePosition, setActivePosition] = useState("");
+  const [activeLocation, setActiveLocation] = useState([{ name: "1st Select Country", value: "null" }]);
+  const [activePosition, setActivePosition] = useState("");
 
-  const handleLocation = (selectedCountry) => { 
+
+  const handleLocation = (selectedCountry) => {
     for (let i = 0; i < Countries.length; i++) {
-      if(selectedCountry === Countries[i].value) {
+      if (selectedCountry === Countries[i].value) {
         return setActiveLocation(Location[i])
       }
-    } 
+    }
   }
 
   const handlePosition = (selectedPosition) => {
     if (selectedPosition === "new Position") {
       return setActivePosition(
         <div className="five wide column warning">DO NOT PROCEED. Please contact HR central to arrange a Job Evaluation</div>
-        )
+      )
     }
     if (selectedPosition === "existing Position") {
       return setActivePosition(
@@ -29,11 +30,11 @@ const SectionA = (props) => {
           <div className="two wide column">Name of previous Incumbent</div>
           <input className="five wide column border"></input>
         </React.Fragment>
-        )
+      )
     }
 
   }
- 
+
   return (
     <React.Fragment>
       <div className="ui equal width padded grid container">
@@ -78,11 +79,11 @@ const SectionA = (props) => {
 
         <div className="row">
           <div className="five wide column">Employee Name</div>
-          <input className="ten wide column border"></input>
+          <input className="ten wide column border" defaultValue={props.employee_name}></input>
         </div>
         <div className="row">
           <div className="five wide column">Employee ID</div>
-          <input className="ten wide column border"></input>
+          <input className="ten wide column border" defaultValue={props.employeeId}></input>
         </div>
 
         <div className="row">
@@ -98,7 +99,7 @@ const SectionA = (props) => {
 
         <div className="row">
           <div className="five wide column">Reason for Change</div>
-          <input className="ten wide column border"></input>
+          <input className="ten wide column border" defaultValue={props.change_reasons}></input>
         </div>
 
         <div className="row">
@@ -123,12 +124,12 @@ const SectionA = (props) => {
 
         <div className="row">
           <div className="five wide column">Current Position Title</div>
-          <input className="ten wide column border"></input>
+          <input className="ten wide column border" defaultValue={props.current_title}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">New Position Title</div>
-          <input className="ten wide column border"></input>
+          <input className="ten wide column border" defaultValue={props.new_title}></input>
         </div>
 
         <div className="row">
@@ -144,7 +145,7 @@ const SectionA = (props) => {
           <div className="four wide column">
             <select>
               {activeLocation.map(location => (
-              <option key={location.name}value={`${location.value}`}>{location.name}</option>
+                <option key={location.name} value={`${location.value}`}>{location.name}</option>
               ))}
             </select>
           </div>
@@ -163,20 +164,20 @@ const SectionA = (props) => {
 
         <div className="row">
           <div className="five wide column">Department</div>
-          <input className="ten wide column border"></input>
+          <input className="ten wide column border" defaultValue={props.department}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Manager</div>
-          <input className="ten wide column border"></input>
+          <input className="ten wide column border" defaultValue={props.manager}></input>
         </div>
 
         <div className="row">
           <div className="five wide column"></div>
           <div className="two wide column">Salary Cost Centre</div>
-          <input className="three wide column border"></input>
+          <input className="three wide column border" defaultValue={props.salary_cost}></input>
           <div className="two wide column">Travel Cost Centre (if different)</div>
-          <input className="three wide column border"></input>
+          <input className="three wide column border" defaultValue={props.travel_cost}></input>
         </div>
 
         <div className="row">
