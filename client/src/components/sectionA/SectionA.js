@@ -28,7 +28,7 @@ const SectionA = (props) => {
       return setActivePosition(
         <React.Fragment>
           <div className="two wide column">Name of previous Incumbent</div>
-          <input className="five wide column border"></input>
+          <input className="five wide column border" defaultValue={props.incumbent}></input>
         </React.Fragment>
       )
     }
@@ -57,7 +57,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Employee Classification</div>
           <div className="five wide column">
-            <select>
+            <select value={props.employee_classification}>
               <option value="null">Select...</option>
               <option value="permanent">Permanent</option>
               <option value="temporary">Temporary</option>
@@ -68,10 +68,10 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">New Position / Existing Position</div>
           <div className="three wide column">
-            <select onChange={(e) => handlePosition(e.target.value)}>
+            <select value={props.position} onChange={(e) => handlePosition(e.target.value)}>
               <option value="null">Select...</option>
-              <option value="new Position">New Position</option>
-              <option value="existing Position">Existing Position</option>
+              <option value="new position">New Position</option>
+              <option value="existing position">Existing Position</option>
             </select>
           </div>
           {activePosition}
@@ -89,7 +89,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Type of Change</div>
           <div className="ten wide column">
-            <select>
+            <select value={props.typeOfChange}>
               {TypeOfChange.map(type => (
                 <option value={`${type.value}`} key={type.name}>{type.name}</option>
               ))}
@@ -135,7 +135,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Work Country</div>
           <div className="five wide column">
-            <select onChange={(e) => handleLocation(e.target.value)}>
+            <select value={props.work_country} onChange={(e) => handleLocation(e.target.value)}>
               {Countries.map(country => (
                 <option key={country.name} value={`${country.value}`}>{country.name}</option>
               ))}
@@ -143,7 +143,7 @@ const SectionA = (props) => {
           </div>
           <div className="two wide column">Location</div>
           <div className="four wide column">
-            <select>
+            <select value={props.location}>
               {activeLocation.map(location => (
                 <option key={location.name} value={`${location.value}`}>{location.name}</option>
               ))}
@@ -154,7 +154,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Function</div>
           <div className="ten wide column">
-            <select>
+            <select value={props.function}>
               {Functions.map(funct => (
                 <option value={`${funct.value}`} key={funct.name}>{funct.name}</option>
               ))}
@@ -183,11 +183,11 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Business Unit</div>
           <div className="five wide column">
-            <select>
+            <select value={props.business_unit}>
               <option value="null">Select...</option>
-              <option value="anz">ANZ</option>
-              <option value="regional">Regional</option>
-              <option value="indonesia">Indonesia</option>
+              <option value="ANZ">ANZ</option>
+              <option value="Regional">Regional</option>
+              <option value="Indonesia">Indonesia</option>
             </select>
           </div>
         </div>

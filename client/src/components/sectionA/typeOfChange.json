@@ -5,38 +5,38 @@
   },
   {
     "name": "Change in Classification",
-    "value": "changeClass"
+    "value": "Change in Classification"
   },
   {
     "name": "Change in Existing Position",
-    "value": "changePost"
+    "value": "Change in Existing Position"
   },
   {
     "name": "Change in Pay",
-    "value": "changePay"
+    "value": "Change in Pay"
   },
   {
     "name": "Contract Extension",
-    "value": "contractExt"
+    "value": "Contract Extension"
   },
   {
     "name": "Employment Type Change",
-    "value": "typeChange"
+    "value": "Employment Type Change"
   },
   {
     "name": "Job ReEvaluation",
-    "value": "reEval"
+    "value": "Job ReEvaluation"
   },
   {
     "name": "Lateral Move",
-    "value": "lateral"
+    "value": "Lateral Move"
   },
   {
     "name": "Promotion",
-    "value": "promotio"
+    "value": "Promotion"
   },
   {
     "name": "Return to Work",
-    "value": "returnWork"
+    "value": "Return to Work"
   }
 ]
