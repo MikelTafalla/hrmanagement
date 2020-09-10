@@ -21,6 +21,7 @@ function EmployeeChangeForm() {
       .catch(err => console.log(err));
   }
   console.log(form);
+  console.log(form.effective_date);
 
   return (
     <div>
@@ -60,10 +61,49 @@ function EmployeeChangeForm() {
         business_unit={form.business_unit}
       />
       <br />
-      <SectionB SectionB="Section B | Compensation (Salaried)" />
+      <SectionB
+        SectionB="Section B | Compensation (Salaried)"
+        haypoint={form.haypoint}
+        currency={form.currency}
+        base_salary={form.base_salary}
+        vehicle={form.vehicle}
+        target_sti={form.target_sti}
+        superannuation_B={form.superannuation_B}
+        fixed_annual_reward={form.fixed_annual_reward}
+        percentage_change={form.percentage_change}
+        other_allowances_B={form.other_allowances_B}
+        hours_per_day_B={form.hours_per_day_B}
+        total_hours_B={form.total_hours_B}
+      />
       <br />
-      <SectionC sectionC="Section C | COMPENSATION (waged employees)" />
-      <SectionD sectionD="Approvals - Section D" />
+      <SectionC
+        sectionC="Section C | COMPENSATION (waged employees)"
+        employee_agreement={form.employee_agreement}
+        classification={form.classification}
+        team_leader_allowance={form.team_leader_allowance}
+        leading_hand_allowance={form.leading_hand_allowance}
+        dual_trade_allowance={form.dual_trade_allowance}
+        other_allowances_C={form.other_allowances_C}
+        work_schedule={form.work_schedule}
+        previous_incumbent={form.previous_incumbent}
+        hours_per_day_C={form.hours_per_day_C}
+        total_hours_C={form.total_hours_C}
+      />
+      <SectionD
+        sectionD="Approvals - Section D"
+        change_justification={form.change_justification}
+        submitted_by={form.submitted_by}
+        submition_date={form.submition_date}
+        hr_name={form.hr_name}
+        first_approver={form.first_approver}
+        second_approver={form.second_approver}
+        hr_central={form.hr_central}
+        payroll={form.payroll}
+        template={form.template}
+        superannuation_D={form.superannuation_D}
+        visa_check={form.visa_check}
+        comments={form.comments}
+      />
     </div>
   );
 }

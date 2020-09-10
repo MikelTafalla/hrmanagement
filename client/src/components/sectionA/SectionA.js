@@ -105,7 +105,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Effective Date</div>
           <div className="one wide column">Day</div>
-          <input className="two wide column border" placeholder="DD"></input>
+          <input className="two wide column border" placeholder="DD" defaultValue={props.effective_date}></input>
           <div className="one wide column">Month</div>
           <input className="two wide column border" placeholder="MM"></input>
           <div className="one wide column">Year</div>
