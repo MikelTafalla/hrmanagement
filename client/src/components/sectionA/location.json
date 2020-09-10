@@ -8,34 +8,34 @@
   [
     {
       "name": "Adelaide",
-      "value": "adelaide",
+      "value": "Adelaide",
       "country": "Australia"
     },
     {
       "name": "Brisbane",
-      "value": "brisbane",
+      "value": "Brisbane",
       "country": "Australia"
     },
     {
       "name": "Melbourne CBD",
-      "value": "melbourneCBD",
+      "value": "Melbourne CBD",
       "country": "Australia"
     },
     {
       "name": "Melbourne",
-      "value": "melbourne",
+      "value": "Melbourne",
       "country": "Australia"
     },
     {
       "name": "Sydney",
-      "value": "sydney",
+      "value": "Sydney",
       "country": "Australia"
     }
   ],
   [
     {
       "name": "Auckland",
-      "value": "auckland",
+      "value": "Auckland",
       "country": "New Zealand"
     }  
   ],

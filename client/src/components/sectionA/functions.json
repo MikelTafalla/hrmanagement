@@ -5,46 +5,46 @@
     },
     {
         "name":"Admin and Facilities",
-        "value":"admin"
+        "value":"Admin and Facilities"
     },
     {
         "name":"Commercial",
-        "value":"commercial"
+        "value":"Commercial"
     },
     {
         "name":"Corporate",
-        "value":"corporate"
+        "value":"Corporate"
     },
     {
         "name":"Human Resources",
-        "value":"hr"
+        "value":"Human Resources"
     },
     {
         "name":"Information Technology",
-        "value":"it"
+        "value":"Information Technology"
     },
     
     {
         "name":"Legal",
-        "value":"legal"
+        "value":"Legal"
     },
     
     {
         "name":"Manufacturing/Engineering",
-        "value":"man/eng"
+        "value":"Manufacturing/Engineering"
     },
     
     {
         "name":"Strategy and Integration",
-        "value":"st&int"
+        "value":"Strategy and Integration"
     },
     {
         "name":"Supply Chain",
-        "value":"supply"
+        "value":"Supply Chain"
     },
     {
         "name":"Quantum Project",
-        "value":"quantum"
+        "value":"Quantum Project"
     }
 
 ]
