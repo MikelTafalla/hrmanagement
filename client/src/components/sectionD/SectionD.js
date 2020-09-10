@@ -17,7 +17,7 @@ const SectionD = (props) => {
                     <div className="ui form">
                         <div className="field">
                             <label>Justification For Change</label>
-                            <textarea rows={2} className="textarea" />
+                            <textarea rows={2} className="textarea" defaultValue={props.change_justification} />
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@ const SectionD = (props) => {
                         <label className="three wide column">HR Central-Name</label>
                         <input className="four wide column" />
                         <label className="three wide column">Template to be used</label>
-                        <input className="four wide column" placeholder="Letter Template" />
+                        <input className="four wide column" placeholder="Letter Template" defaultValue={props.template} />
                     </div>
                     <div className="row">
                         <label className="three wide column">Signature</label>
@@ -165,7 +165,7 @@ const SectionD = (props) => {
                         <label className="three wide column">Signature</label>
                         <input className="four wide column" />
                         <label className="three wide column">Comments</label>
-                        <textarea rows={2} className="textarea" />
+                        <textarea rows={2} className="textarea" defaultValue={props.comments} />
                     </div>
                 </div>
             </div>

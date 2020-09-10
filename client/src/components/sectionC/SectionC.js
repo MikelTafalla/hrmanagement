@@ -75,7 +75,7 @@ function SectionC(props) {
           </div>
           <div className="ten wide field">
             <div className="field">
-              <input type="text" placeholder="Leader Allowance"></input>
+              <input type="text" placeholder="Leader Allowance" defaultValue={props.team_leader_allowance}></input>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@ function SectionC(props) {
           </div>
           <div className="ten wide field">
             <div className="field">
-              <input type="text" placeholder="Leading hand Allowance"></input>
+              <input type="text" placeholder="Leading hand Allowance" defaultValue={props.leading_hand_allowance}></input>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@ function SectionC(props) {
           </div>
           <div className="ten wide field">
             <div className="field">
-              <input type="text" placeholder="Trade Allowance"></input>
+              <input type="text" placeholder="Trade Allowance" defaultValue={props.dual_trade_allowance}></input>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ function SectionC(props) {
           </div>
           <div className="ten wide field">
             <div className="field">
-              <input type="text" placeholder="Other Allowances"></input>
+              <input type="text" placeholder="Other Allowances" defaultValue={props.other_allowances}></input>
             </div>
           </div>
         </div>
@@ -244,7 +244,7 @@ function SectionC(props) {
           </div>
           <div className="eight wide field">
             <div className="field">
-              <input type="text" placeholder="Total Hours"></input>
+              <input type="text" placeholder="Total Hours" defaultValue={props.total_hours_C}></input>
             </div>
           </div>
         </div>

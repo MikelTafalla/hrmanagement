@@ -25,7 +25,7 @@ function SectionB(props) {
                 <div className="row">
                     <div className="five wide column">
                         Currency
-          </div>
+                    </div>
                     <div className="row">
                         <div className="five wide column"></div>
                         <input className="ten wide column border"></input>
@@ -115,7 +115,7 @@ function SectionB(props) {
 
                 <div className="row">
                     <div className="five wide column">Other Allowances (Please Specify)</div>
-                    <input className="ten wide column border"></input>
+                    <input className="ten wide column border" defaultValue={props.other_allowances_B}></input>
                 </div>
 
                 <div className="row">
@@ -150,7 +150,7 @@ function SectionB(props) {
 
                 <div className="row">
                     <div className="five wide column"><h3>Total Hours Per Week</h3></div>
-                    <input className="two wide column border"></input>
+                    <input className="two wide column border" defaultValue={props.total_hours_B}></input>
                 </div>
 
 
