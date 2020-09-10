@@ -145,6 +145,7 @@ const employeeChangeFormSeed = [
       name: "Natasah Vilorant",
       signature: "NV",
       number: 888565,
+      // position needs to be number
       position: "Payroll Rep"
     },
     template: "Letter Template",

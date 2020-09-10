@@ -10,7 +10,6 @@ import API from "../../utils/API"
 function EmployeeChangeForm() {
   const [form, setForm] = useState({});
 
-
   useEffect(() => {
     populateForm("5f599ddb2bb29c2c66ba7d7a");
   }, [])
@@ -20,8 +19,7 @@ function EmployeeChangeForm() {
       .then(res => setForm(res.data))
       .catch(err => console.log(err));
   }
-  console.log(form);
-  console.log(form.effective_date);
+console.log(form)
 
   return (
     <div>
