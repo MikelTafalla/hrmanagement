@@ -34,6 +34,8 @@ const SectionA = (props) => {
     }
 
   }
+  // const day = props && props.effective_date ? props.effective_date.day : null
+  // console.log(day)
 
   return (
     <React.Fragment>
@@ -57,7 +59,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Employee Classification</div>
           <div className="five wide column">
-            <select value={props.employee_classification}>
+            <select>
               <option value="null">Select...</option>
               <option value="permanent">Permanent</option>
               <option value="temporary">Temporary</option>
@@ -68,7 +70,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">New Position / Existing Position</div>
           <div className="three wide column">
-            <select value={props.position} onChange={(e) => handlePosition(e.target.value)}>
+            <select onChange={(e) => handlePosition(e.target.value)}>
               <option value="null">Select...</option>
               <option value="new position">New Position</option>
               <option value="existing position">Existing Position</option>
@@ -89,7 +91,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Type of Change</div>
           <div className="ten wide column">
-            <select value={props.typeOfChange}>
+            <select>
               {TypeOfChange.map(type => (
                 <option value={`${type.value}`} key={type.name}>{type.name}</option>
               ))}
@@ -101,15 +103,15 @@ const SectionA = (props) => {
           <div className="five wide column">Reason for Change</div>
           <input className="ten wide column border" defaultValue={props.change_reasons}></input>
         </div>
-
+        {/* Because of nested objects, we need a ternary statement to render them */}
         <div className="row">
           <div className="five wide column">Effective Date</div>
           <div className="one wide column">Day</div>
-          <input className="two wide column border" placeholder="DD" defaultValue={props.effective_date}></input>
+          <input className="two wide column border" placeholder="DD" defaultValue={props && props.effective_date ? props.effective_date.day : null}></input>
           <div className="one wide column">Month</div>
-          <input className="two wide column border" placeholder="MM"></input>
+          <input className="two wide column border" placeholder="MM" defaultValue={props && props.effective_date ? props.effective_date.month : null}></input>
           <div className="one wide column">Year</div>
-          <input className="two wide column border" placeholder="YYYY"></input>
+          <input className="two wide column border" placeholder="YYYY" defaultValue={props && props.effective_date ? props.effective_date.year : null}></input>
         </div>
 
         <div className="grey row">
@@ -135,7 +137,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Work Country</div>
           <div className="five wide column">
-            <select value={props.work_country} onChange={(e) => handleLocation(e.target.value)}>
+            <select onChange={(e) => handleLocation(e.target.value)}>
               {Countries.map(country => (
                 <option key={country.name} value={`${country.value}`}>{country.name}</option>
               ))}
@@ -143,7 +145,7 @@ const SectionA = (props) => {
           </div>
           <div className="two wide column">Location</div>
           <div className="four wide column">
-            <select value={props.location}>
+            <select >
               {activeLocation.map(location => (
                 <option key={location.name} value={`${location.value}`}>{location.name}</option>
               ))}
@@ -154,7 +156,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Function</div>
           <div className="ten wide column">
-            <select value={props.function}>
+            <select >
               {Functions.map(funct => (
                 <option value={`${funct.value}`} key={funct.name}>{funct.name}</option>
               ))}
@@ -183,7 +185,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Business Unit</div>
           <div className="five wide column">
-            <select value={props.business_unit}>
+            <select>
               <option value="null">Select...</option>
               <option value="ANZ">ANZ</option>
               <option value="Regional">Regional</option>
