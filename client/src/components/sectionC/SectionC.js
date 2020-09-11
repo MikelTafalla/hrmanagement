@@ -12,8 +12,7 @@ function SectionC(props) {
       if (cities[i] === "Adelaide") {
         return setActiveAgreement(Agreement[i]);
       }
-    } console.log(activeAgreement);
-    console.log(props.location);
+    } 
   }, []);
 
   return (

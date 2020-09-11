@@ -1,10 +1,15 @@
 import React from 'react';
 import './App.css';
-import EmployeeChangeForm from "./page/employeeChangeForm/EmployeeChangeForm";
-
+//import EmployeeChangeForm from "./page/employeeChangeForm/EmployeeChangeForm";
+//import DepartmentValidationForm from "./page/departmentValidationForm/DepartmentValidationForm";
+import FormListPage from "./page/formListPage/FormListPage";
 function App() {
   return (
-    <EmployeeChangeForm />
+    <div>
+    {/* <DepartmentValidationForm /> */}
+    <FormListPage/>
+    {/* <EmployeeChangeForm /> */}
+    </div>
   );
 }
 
