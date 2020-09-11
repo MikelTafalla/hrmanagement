@@ -2,8 +2,7 @@ import React from "react";
 import "./SectionB.css"
 
 function SectionB(props) {
-  const jueves = (props && props.hours_per_day_B ? props.hours_per_day_B.thursday : null)
-  const viernes = (props && props.hours_per_day_B ? props.hours_per_day_B.friday : null)
+ 
   return (
     <div>
       <div className="ui equal width padded grid container">
