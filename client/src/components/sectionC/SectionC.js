@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Agreement from "./agreement.json"
+
 
 function SectionC(props) {
+  const [activeAgreement, setActiveAgreement] = useState([{}]);
+
+  useEffect(() => {
+    const cities = ["Adelaide", "Brisbane", "Melbourne", "Sydney"];
+
+    for (let i = 0; i < cities.length; i++) {
+      if (cities[i] === "Adelaide") {
+        return setActiveAgreement(Agreement[i]);
+      }
+    } console.log(activeAgreement);
+    console.log(props.location);
+  }, []);
+
   return (
     <div>
       <div className="ui form" style={{ margin: "100px" }}>
@@ -21,10 +36,9 @@ function SectionC(props) {
             <div className="field">
               <label>Current</label>
               <select>
-                <option value="">option one</option>
-                <option value="">option two</option>
-                <option value="">option three</option>
-                <option value="">option four</option>
+                {activeAgreement.map(agr => (
+                  <option key={agr.name} value={`${agr.value}`}>{agr.name}</option>
+                ))}
               </select>
             </div>
           </div>
