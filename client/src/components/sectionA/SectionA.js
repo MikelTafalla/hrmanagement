@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./SectionA.css";
 import TypeOfChange from "./typeOfChange.json";
 import Functions from "./functions.json";
