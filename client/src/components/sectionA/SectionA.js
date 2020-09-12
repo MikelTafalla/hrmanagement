@@ -11,6 +11,8 @@ const SectionA = (props) => {
   const[employeeClass, setEmployeeClass] = useState("");
   const[typeOfChange, setTypeOfChange] = useState("");
   const[country, setCountry] = useState("");
+  const[activeFunction, setActiveFunction] = useState("");
+  const[businessUnit, setBusinessUnit] = useState("");
   
   ///Logic to get dropdown list display the location from the database as selected on page load
   const citiesToDisplay = []
@@ -62,15 +64,19 @@ const SectionA = (props) => {
   }
 
   const handleEmployeeClassification = (selectedValue) => {
-    if(selectedValue === props.employee_classification){
-      setEmployeeClass(employeeClass)
-    } else setEmployeeClass(selectedValue)
+    setEmployeeClass(selectedValue)
   }
 
   const handleTypeOfChange = (selectedValue) => {
-    if(selectedValue === props.typeOfChange){
-      setTypeOfChange(typeOfChange)
-    } else setTypeOfChange(selectedValue)
+   setTypeOfChange(selectedValue)
+  }
+
+  const handleFunction = (selectedValue) => {
+    setActiveFunction(selectedValue)
+  }
+
+  const handleBusinessUnit = (selectedValue) => {
+    setBusinessUnit(selectedValue)
   }
 
 
@@ -198,7 +204,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Function</div>
           <div className="ten wide column">
-            <select >
+            <select value={ !activeFunction ? props.function : activeFunction} onChange={(e) => handleFunction(e.target.value)}>
               {Functions.map(funct => (
                 <option value={`${funct.value}`} key={funct.name}>{funct.name}</option>
               ))}
@@ -227,7 +233,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Business Unit</div>
           <div className="five wide column">
-            <select>
+            <select value={ !businessUnit ? props.business_unit : businessUnit} onChange={(e) => handleBusinessUnit(e.target.value)}>
               <option value="null">Select...</option>
               <option value="ANZ">ANZ</option>
               <option value="Regional">Regional</option>

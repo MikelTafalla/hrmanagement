@@ -7,8 +7,6 @@ function SectionB(props) {
     <div>
       <div className="ui padded grid container">
 
-        
-
         <div className="sixteen wide fluid centered blue column">{props.SectionB}</div>
         <div className="row">
           
@@ -120,7 +118,7 @@ function SectionB(props) {
             
             <div className="one wide column"></div>
               Percentage (%)
-            <input className="one wide column border" defaultValue={props && props.fixed_annual_reward ? props.fixed_annual_reward.proposed : null}></input>
+            <input className="one wide column border" defaultValue={props.percentage_change}></input>
           </div>
    
 
