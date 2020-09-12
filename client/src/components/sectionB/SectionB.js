@@ -2,7 +2,7 @@ import React from "react";
 import "./SectionB.css"
 
 function SectionB(props) {
-
+  
   return (
     <div>
       <div className="ui padded grid container">

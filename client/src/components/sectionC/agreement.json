@@ -3,93 +3,110 @@
     {
       "name": "Maintenance_Rates_Metal_Trades_Electrical_A",
       "value": "Maintenance_Rates_Metal_Trades_Electrical_A",
-      "city": "Adelaide"
+      "city": "Adelaide",
+      "key": 1
     },
     {
       "name": "Maintenance_Rates_Metal_Trades_Mechanical_A",
       "value": "Maintenance_Rates_Metal_Trades_Mechanical_A",
-      "city": "Adelaide"
+      "city": "Adelaide",
+      "key": 2
     },
     {
       "name": "Glassworker_Rates_A",
       "value": "Glassworker_Rates_A",
-      "city": "Adelaide"
+      "city": "Adelaide",
+      "key": 3
     }
   ],
   [
     {
       "name": "Maintenance_Rates_Mechanical_Trades_B",
       "value": "Maintenance_Rates_Mechanical_Trades_B",
-      "city": "Brisbane"
+      "city": "Brisbane",
+      "key": 4
     },
     {
       "name": "Maintenance_Rates_Electrical_Trades_B",
       "value": "Maintenance_Rates_Electrical_Trades_B",
-      "city": "Brisbane"
+      "city": "Brisbane",
+      "key": 5
     },
     {
       "name": "Maintenance_Rates_Apprentices_B",
       "value": "Maintenance_Rates_Apprentices_B",
-      "city": "Brisbane"
+      "city": "Brisbane",
+      "key": 6
     },
     {
       "name": "Glassworker_Rates_B",
       "value": "Glassworker_Rates_B",
-      "city": "Brisbane"
+      "city": "Brisbane",
+      "key": 7
     }
   ],
   [
     {
       "name": "Maintenance_Rates_Mechanical_Trades_M",
       "value": "Maintenance_Rates_Mechanical_Trades_M",
-      "city": "Melbourne"
+      "city": "Melbourne",
+      "key": 8
     },
     {
       "name": "Maintenance_Rates_Electrical_Trades_M",
       "value": "Maintenance_Rates_Electrical_Trades_M",
-      "city": "Melbourne"
+      "city": "Melbourne",
+      "key": 9
     },
     {
       "name": "Maintenance_Rates_Mechanical_Apprentices_M",
       "value": "Maintenance_Rates_Mechanical_Apprentices_M",
-      "city": "Melbourne"
+      "city": "Melbourne",
+      "key": 10
     },
     {
       "name": "Maintenance_Rates_Electrical_Apprentices_M",
       "value": "Maintenance_Rates_Electrical_Apprentices_M",
-      "city": "Melbourne"
+      "city": "Melbourne",
+      "key": 11
     },
     {
       "name": "Glassworker_Rates_M",
       "value": "Glassworker_Rates_M",
-      "city": "Melbourne"
+      "city": "Melbourne",
+      "key": 12
     }
   ],
   [
     {
       "name": "Maintenance_Rates_Mechanical_Trades_S",
       "value": "Maintenance_Rates_Mechanical_Trades_S",
-      "city": "Sydney"
+      "city": "Sydney",
+      "key": 13
     },
     {
       "name": "Maintenance_Rates_Electrical_Trades_S",
       "value": "Maintenance_Rates_Electrical_Trades_S",
-      "city": "Sydney"
+      "city": "Sydney",
+      "key": 14
     },
     {
       "name": "Maintenance_Rates_Mechanical_Apprentices_S",
       "value": "Maintenance_Rates_Mechanical_Apprentices_S",
-      "city": "Sydney"
+      "city": "Sydney",
+      "key": 15
     },
     {
       "name": "Maintenance_Rates_Electrical_Apprentices_S",
       "value": "Maintenance_Rates_Electrical_Apprentices_S",
-      "city": "Sydney"
+      "city": "Sydney",
+      "key": 16
     },
     {
       "name": "Glassworker_Rates_S",
       "value": "Glassworker_Rates_S",
-      "city": "Sydney"
+      "city": "Sydney",
+      "key": 16
     }
   ]
 ]
