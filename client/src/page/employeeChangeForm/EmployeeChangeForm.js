@@ -6,6 +6,7 @@ import SectionB from "../../components/sectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
 import API from "../../utils/API"
+import { Container } from "semantic-ui-react";
 
 function EmployeeChangeForm() {
   const [form, setForm] = useState({});
@@ -22,6 +23,7 @@ function EmployeeChangeForm() {
 console.log(form)
 
   return (
+    <Container>
     <div>
       <Header
         title="Employee Change Form"
@@ -37,8 +39,9 @@ console.log(form)
         salariedChange="Salaried Change - Complete Section A, Section B and Section D"
         wagedChange="Waged Change - Complete Section A, Section C and Section D"
       />
+      
       <br />
-      <SectionA
+      <SectionA 
         sectionA="Section A | Organisational Structure"
         employee_classification={form.employee_classification}
         position={form.position}
@@ -59,7 +62,7 @@ console.log(form)
         business_unit={form.business_unit}
       />
       <br />
-      <SectionB
+      <SectionB 
         SectionB="Section B | Compensation (Salaried)"
         haypoint={form.haypoint}
         currency={form.currency}
@@ -103,6 +106,7 @@ console.log(form)
         comments={form.comments}
       />
     </div>
+    </Container>
   );
 }
 export default EmployeeChangeForm;

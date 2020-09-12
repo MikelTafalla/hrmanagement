@@ -1,10 +1,23 @@
 import React from "react";
+import {
+  Segment,
+  Header,
+  Image
+} from 'semantic-ui-react'
 import "./HeaderStyle.css"
 
-function Header(props) {
+function HeaderOne(props) {
   return (
+
+    <div>
+      <Segment  padded='very' vertical color='white'>
+            <Image centered src={'./images/hrimage3.png'} size={'tiny'} />
+            <Header as='h1' textAlign='center'>Employee Change Form</Header>
+
+        </Segment>
+    
+    
     <div className="ui equal width padded grid container">
-      <div className="sixteen wide grey column">{props.title}</div>
       <div className="eight wide column">
         <ul className="bold">
           <li>{props.mandatory}</li>
@@ -34,7 +47,8 @@ function Header(props) {
         </ul>
       </div>
       </div>
+      </div>
   )
 };
 
-export default Header;
+export default HeaderOne;
