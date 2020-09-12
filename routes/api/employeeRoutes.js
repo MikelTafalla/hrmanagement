@@ -3,9 +3,8 @@ const employeeChangeFormController = require("../../controllers/employeeChangeFo
 
 
 router.route("/changeform/:id")
-    .get(employeeChangeFormController.findById);
-
-
+    .get(employeeChangeFormController.findById)
+    .put(employeeChangeFormController.update);
 
 
 module.exports = router;
