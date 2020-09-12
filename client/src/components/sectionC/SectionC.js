@@ -35,9 +35,9 @@ function SectionC(props) {
             <div className="field">
               <label>Current</label>
               <select>
-                {activeAgreement.map(agr => (
-                  <option key={agr.name} value={`${agr.value}`}>{agr.name}</option>
-                ))}
+                {/* {activeAgreement.map(agr => (
+                  <option key={agr.key} value={`${agr.value}`}>{agr.name}</option>
+                ))} */}
               </select>
             </div>
           </div>

@@ -1,22 +1,41 @@
 [
     {
         "name":"Select...",
-        "value":"null"
+        "value":"null",
+        "cities":[
+            "1st Select Country"
+        ]
     },
     {
         "name":"Australia",
-        "value":"Australia"
+        "value":"Australia",
+        "cities":[
+            "Adelaide",
+            "Brisbane",
+            "Melbourne CBD",
+            "Melbourne",
+            "Sydney"
+        ]
     },
     {
         "name":"New Zealand",
-        "value":"New zealand"
+        "value":"New zealand",
+        "cities":[
+            "Auckland"
+        ]
     },
     {
         "name":"Singapore",
-        "value":"Singapore"
+        "value":"Singapore",
+        "cities":[
+            "N/A"
+        ]
     },
     {
         "name":"Indonesia",
-        "value":"Indonesia"
+        "value":"Indonesia",
+        "cities":[
+            "N/A"
+        ]
     }
 ]

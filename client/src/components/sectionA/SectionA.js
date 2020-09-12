@@ -1,24 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SectionA.css";
 import TypeOfChange from "./typeOfChange.json";
 import Functions from "./functions.json";
 import Countries from "./countries.json";
-import Location from "./location.json"
 
 const SectionA = (props) => {
-  const [activeLocation, setActiveLocation] = useState([{ name: "1st Select Country", value: "null" }]);
+  const [activeLocation, setActiveLocation] = useState([]);
   const [activePosition, setActivePosition] = useState("");
-
+  const[position, setPosition] = useState("");
+  const[employeeClass, setEmployeeClass] = useState("");
+  const[typeOfChange, setTypeOfChange] = useState("");
+  const[country, setCountry] = useState("");
+  
+  ///Logic to get dropdown list display the location from the database as selected on page load
+  const citiesToDisplay = []
+  let cities = []
+  const place = !country ? props.work_country : country
+  for (let i = 1; i < Countries.length; i++){
+    if (place === Countries[i].name){
+    cities = Countries[i].cities
+    }
+  }
+  for(let j = 0; j < cities.length; j++){
+    if(props.location === cities[j]){
+      citiesToDisplay.unshift(cities[j])
+    }
+    citiesToDisplay.push(cities[j])
+  }
+  const unique = [...new Set(citiesToDisplay)]
+// Finish Logic
 
   const handleLocation = (selectedCountry) => {
+    setCountry(selectedCountry)
+    
     for (let i = 0; i < Countries.length; i++) {
       if (selectedCountry === Countries[i].value) {
-        return setActiveLocation(Location[i])
+        return setActiveLocation(Countries[i].cities)
       }
     }
   }
-
+  
   const handlePosition = (selectedPosition) => {
+
+    if(selectedPosition === props.position){
+      setPosition(position)
+    } else setPosition(selectedPosition)
+    
     if (selectedPosition === "new Position") {
       return setActivePosition(
         <div className="five wide column warning">DO NOT PROCEED. Please contact HR central to arrange a Job Evaluation</div>
@@ -32,12 +59,22 @@ const SectionA = (props) => {
         </React.Fragment>
       )
     }
-
   }
-  // const day = props && props.effective_date ? props.effective_date.day : null
-  // console.log(day)
 
-  return (
+  const handleEmployeeClassification = (selectedValue) => {
+    if(selectedValue === props.employee_classification){
+      setEmployeeClass(employeeClass)
+    } else setEmployeeClass(selectedValue)
+  }
+
+  const handleTypeOfChange = (selectedValue) => {
+    if(selectedValue === props.typeOfChange){
+      setTypeOfChange(typeOfChange)
+    } else setTypeOfChange(selectedValue)
+  }
+
+
+  return ( 
     <React.Fragment>
       <div className="ui equal width padded grid container">
 
@@ -59,7 +96,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Employee Classification</div>
           <div className="five wide column">
-            <select>
+            <select value={ !employeeClass ? props.employee_classification : employeeClass} onChange={(e) => handleEmployeeClassification(e.target.value)}>
               <option value="null">Select...</option>
               <option value="permanent">Permanent</option>
               <option value="temporary">Temporary</option>
@@ -70,7 +107,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">New Position / Existing Position</div>
           <div className="three wide column">
-            <select onChange={(e) => handlePosition(e.target.value)}>
+            <select value={ !position ? props.position : position} onChange={(e) => handlePosition(e.target.value)}>
               <option value="null">Select...</option>
               <option value="new position">New Position</option>
               <option value="existing position">Existing Position</option>
@@ -91,7 +128,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Type of Change</div>
           <div className="ten wide column">
-            <select>
+            <select value={ !typeOfChange ? props.typeOfChange : typeOfChange} onChange={(e) => handleTypeOfChange(e.target.value)}>
               {TypeOfChange.map(type => (
                 <option value={`${type.value}`} key={type.name}>{type.name}</option>
               ))}
@@ -136,19 +173,24 @@ const SectionA = (props) => {
 
         <div className="row">
           <div className="five wide column">Work Country</div>
-          <div className="five wide column">
-            <select onChange={(e) => handleLocation(e.target.value)}>
+          <div className="five wide column">   
+            <select value={ !country ? props.work_country : country} onChange={(e) => handleLocation(e.target.value)} >
               {Countries.map(country => (
                 <option key={country.name} value={`${country.value}`}>{country.name}</option>
               ))}
             </select>
           </div>
           <div className="two wide column">Location</div>
-          <div className="four wide column">
+          <div className="four wide column">                
             <select >
-              {activeLocation.map(location => (
-                <option key={location.name} value={`${location.value}`}>{location.name}</option>
-              ))}
+              {!country ?
+              unique.map(location => (
+                <option key={location} value={`${location}`}>{location}</option>
+              )) : 
+              activeLocation.map(location => (
+                <option key={location} value={`${location}`}>{location}</option>
+              ))
+              }
             </select>
           </div>
         </div>
