@@ -10,5 +10,11 @@ module.exports = {
         res.json(dbmodel)
       })
       .catch(err => console.log(err))
-  }
+  },
+  update: function ({ params, body }, res) {
+    db.EmployeeChangeForm
+      .findOneAndUpdate({ _id: params.id }, body)
+      .then(dbmodel => res.json(dbmodel))
+      .catch(err => console.log(err));
+  },
 }

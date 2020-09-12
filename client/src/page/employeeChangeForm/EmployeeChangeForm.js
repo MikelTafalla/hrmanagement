@@ -12,15 +12,15 @@ function EmployeeChangeForm() {
   const [form, setForm] = useState({});
 
   useEffect(() => {
-    populateForm("5f5be3eabb8fea1185f5e29e");
+    populateForm("5f57eb32f88f7412400b3401");
   }, [])
 
   const populateForm = (id) => {
     API.findById(id)
-      .then((res) => setForm(res.data))
-      .catch((err) => console.log(err));
-  };
-  console.log(form);
+      .then(res => setForm(res.data))
+      .catch(err => console.log(err));
+  }
+  console.log(form)
 
   return (
     <Container>
