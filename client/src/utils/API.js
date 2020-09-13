@@ -7,5 +7,8 @@ export default {
     },
     update: function (id) {
         return axios.put(`/changeform/${id}`);
+    },
+    create: function (formData) {
+        return axios.post("/newform", formData)
     }
 };

@@ -1,1 +1,3 @@
-module.exports = { EmployeeChangeForm: require("./employeeInfo") }
+module.exports = {
+    EmployeeChangeForm: require("./employeeInfo")
+};

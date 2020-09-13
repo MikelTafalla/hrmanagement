@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const EmployeeChangeFormSchema = new Schema({
     //Section A
+    employee_type: {
+        salaried: String,
+        waged: String
+    },
     employee_classification: {
         type: String
     },
@@ -153,7 +157,7 @@ const EmployeeChangeFormSchema = new Schema({
         name: String,
         position: String
     },
-    submition_date: {
+    submission_date: {
         day: Number,
         month: Number,
         year: Number
@@ -178,7 +182,7 @@ const EmployeeChangeFormSchema = new Schema({
         name: String,
         signature: String,
         number: Number,
-        position: String
+        position: Number
     },
     template: {
         type: String
@@ -191,8 +195,10 @@ const EmployeeChangeFormSchema = new Schema({
     },
     comments: {
         type: String
+    },
+    open: {
+        type: Boolean
     }
-
 });
 
 const EmployeeChangeForm = mongoose.model("EmployeeChangeForm", EmployeeChangeFormSchema);
