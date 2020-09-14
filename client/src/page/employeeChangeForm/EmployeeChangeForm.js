@@ -14,11 +14,11 @@ function EmployeeChangeForm() {
   const [form, setForm] = useState({});
   //Store the state related to the country and location/city from section A. So we can access them both on SectionA and C
   const [activeLocation, setActiveLocation] = useState([]);
-  const[country, setCountry] = useState("");
-  const[city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
   //Activates to retrive information from the API/DB
   useEffect(() => {
-    populateForm("5f5ebfd51d0c97257d20d68a");
+    populateForm("5f5ff69fdaf4471980c9c91b");
   }, [])
 
   const populateForm = (id) => {
@@ -30,13 +30,13 @@ function EmployeeChangeForm() {
   const citiesToDisplay = []
   let cities = []
   const place = !country ? form.work_country : country
-  for (let i = 1; i < Countries.length; i++){
-    if (place === Countries[i].name){
-    cities = Countries[i].cities
+  for (let i = 1; i < Countries.length; i++) {
+    if (place === Countries[i].name) {
+      cities = Countries[i].cities
     }
   }
-  for(let j = 0; j < cities.length; j++){
-    if(form.location === cities[j]){
+  for (let j = 0; j < cities.length; j++) {
+    if (form.location === cities[j]) {
       citiesToDisplay.unshift(cities[j])
     }
     citiesToDisplay.push(cities[j])
@@ -45,7 +45,7 @@ function EmployeeChangeForm() {
   //It gets activated onChange from dropdown on SectionA
   const handleLocation = (selectedCountry) => {
     setCountry(selectedCountry)
-    
+
     for (let i = 0; i < Countries.length; i++) {
       if (selectedCountry === Countries[i].value) {
         return setActiveLocation(Countries[i].cities)
@@ -58,7 +58,7 @@ function EmployeeChangeForm() {
   }
 
   return (
-    
+
     <Container>
       <div>
         <Header
@@ -135,7 +135,7 @@ function EmployeeChangeForm() {
           DBlocation={form.location}
           city={city}
           country={country}
-          
+
         />
         <SectionD
           sectionD="Approvals - Section D"
@@ -154,7 +154,7 @@ function EmployeeChangeForm() {
         />
       </div>
     </Container>
-    
+
   );
 }
 export default EmployeeChangeForm;
