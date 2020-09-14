@@ -10,12 +10,12 @@ function App() {
   return (
     <Router>
       <Switch>
-    <div>
-     <Route path="/" exact component={DepartmentValidationForm} />
-     <Route path="/employeetable" component={EmployeeTable} />
-     <Route path="/formlistpage" component={FormListPage} />
-     <Route path="/employeechangeForm" component={EmployeeChangeForm} />
-    </div>
+    
+        <Route path="/" exact component={DepartmentValidationForm} />
+        <Route path="/employeetable" component={EmployeeTable} />
+        <Route path="/formlistpage" component={FormListPage} />
+        <Route path="/employeechangeForm" component={EmployeeChangeForm} />
+    
     </Switch>
     </Router>
   );

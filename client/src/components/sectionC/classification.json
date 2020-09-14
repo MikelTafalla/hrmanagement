@@ -1,0 +1,90 @@
+[
+  {
+    "city": "Adelaide",
+    "agreement": [
+      {
+        "name":"Maintenance_Rates_Metal_Trades_Electrical_A",
+        "classification":["C4","C5","C6","C7","C8","C9","C10"]
+      },
+      {
+        "name":"Maintenance_Rates_Metal_Trades_Mechanical_A",
+        "classification":["C5","C6","C7","C8","C9","C10"]
+      },
+      {
+        "name":"Glassworker_Rates_A",
+        "classification":["G1","G2","G3","G4","G5","G6","G7"]
+      }
+    ]
+  },
+  {
+    "city": "Brisbane",
+    "agreement": [
+      {
+        "name":"Maintenance_Rates_Mechanical_Trades_B",
+        "classification":["C5","C6","C7","C8","C9","C10"]
+      },
+      {
+        "name":"Maintenance_Rates_Electrical_Trades_B",
+        "classification":["C4","C5","C6","C7","C8","C9","C10"]
+      },
+      {
+        "name":"Maintenance_Rates_Apprentices_B",
+        "classification":["Year 1","Year 2","Year 3","Year 4", "ADENGTG1","ADENGTG2","ADENGTG3","ADENGTL1","ENGPRDL3","ENGPRDL4","ENGTRDL1","ENGTRDL2","ENGTSCL1"]
+      },
+      {
+        "name":"Glassworker_Rates_B",
+        "classification":["BAT&FURN L1","FORMING L1","INS&PAK L1","MOULD SH L1","Logistics /St L1","BAT&FURN L2","FORMING L2","INS&PAK L2","MOULD SH L2","Logistics /St L2","BAT&FURN L3","FORMING L3","BAT&FURN 3B","INS&PAK L3","MOULD SH L3","Logistics /St L3", "B4 L4"]
+      }
+    ]
+  },
+  {
+    "city": "Melbourne",
+    "agreement": [
+      {
+        "name":"Maintenance_Rates_Mechanical_Trades_M",
+        "classification":["C5","C6","C7","C8","C9","C10"]
+      },
+      {
+        "name":"Maintenance_Rates_Electrical_Trades_M",
+        "classification":["C4","C5","C6","C7","C8","C9","C10"]
+      },
+      {
+        "name":"Maintenance_Rates_Mechanical_Apprentices_M",
+        "classification":["Year 1","Year 2","Year 3","Year 4"]
+      },
+      {
+        "name":"Maintenance_Rates_Electrical_Apprentices_M",
+        "classification":["Year 1","Year 2","Year 3","Year 4"]
+      },
+      {
+        "name":"Glassworker_Rates_M",
+        "classification":["G1","G2","G3","G4","G5","G6","G7"]
+      }
+    ]
+  },
+  {
+    "city": "Sydney",
+    "agreement": [
+      {
+        "name":"Maintenance_Rates_Mechanical_Trades_S",
+        "classification":["C5","C6","C7","C8","C9","C10"]
+      },
+      {
+        "name":"Maintenance_Rates_Electrical_Trades_S",
+        "classification":["C8","C6","C5"]
+      },
+      {
+        "name":"Maintenance_Rates_Mechanical_Apprentices_S",
+        "classification":["Year 1","Year 2","Year 3","Year 4"]
+      },
+      {
+        "name":"Maintenance_Rates_Electrical_Apprentices_S",
+        "classification":["Year 1","Year 2","Year 3","Year 4"]
+      },
+      {
+        "name":"Glassworker_Rates_S",
+        "classification":["G1","G2","G3","G4","G5","G6","G7"]
+      }
+    ]
+  }
+]

@@ -48,7 +48,7 @@ const SectionD = (props) => {
             <input className="three wide column" defaultValue={props && props.submitted_by ? props.submitted_by.name : null} />
             <label className="one wide column">Day</label>
             <div className="one wide column">
-              <select value={ !day ? (props && props.submition_date ? props.submition_date.day : null) : day} onChange={(e) => handleDay(e.target.value)}>
+              <select value={ !day ? (props && props.submition_date ? props.submition_date.day : "") : day} onChange={(e) => handleDay(e.target.value)}>
                 {Days.map(day => (
                 <option value={day.value} key={day.value}>{day.day}</option>
                 ))}
@@ -56,7 +56,7 @@ const SectionD = (props) => {
             </div>
             <label className="one wide column">Month</label>
             <div className="two wide column">
-              <select value={ !month ? (props && props.submition_date ? props.submition_date.month : null) : month} onChange={(e) => handleMonth(e.target.value)}>
+              <select value={ !month ? (props && props.submition_date ? props.submition_date.month : "") : month} onChange={(e) => handleMonth(e.target.value)}>
                 {Months.map(month => (
                 <option value={month.value} key={month.value}>{month.month}</option>
                 ))}

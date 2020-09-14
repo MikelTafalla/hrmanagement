@@ -4,43 +4,15 @@ import TypeOfChange from "./typeOfChange.json";
 import Functions from "./functions.json";
 import Countries from "./countries.json";
 
+
 const SectionA = (props) => {
-  const [activeLocation, setActiveLocation] = useState([]);
+  const [employeeType, setEmployeeType] = useState("");
   const [activePosition, setActivePosition] = useState("");
   const[position, setPosition] = useState("");
   const[employeeClass, setEmployeeClass] = useState("");
   const[typeOfChange, setTypeOfChange] = useState("");
-  const[country, setCountry] = useState("");
   const[activeFunction, setActiveFunction] = useState("");
   const[businessUnit, setBusinessUnit] = useState("");
-  
-  ///Logic to get dropdown list display the location from the database as selected on page load
-  const citiesToDisplay = []
-  let cities = []
-  const place = !country ? props.work_country : country
-  for (let i = 1; i < Countries.length; i++){
-    if (place === Countries[i].name){
-    cities = Countries[i].cities
-    }
-  }
-  for(let j = 0; j < cities.length; j++){
-    if(props.location === cities[j]){
-      citiesToDisplay.unshift(cities[j])
-    }
-    citiesToDisplay.push(cities[j])
-  }
-  const unique = [...new Set(citiesToDisplay)]
-// Finish Logic
-
-  const handleLocation = (selectedCountry) => {
-    setCountry(selectedCountry)
-    
-    for (let i = 0; i < Countries.length; i++) {
-      if (selectedCountry === Countries[i].value) {
-        return setActiveLocation(Countries[i].cities)
-      }
-    }
-  }
   
   const handlePosition = (selectedPosition) => {
 
@@ -79,6 +51,10 @@ const SectionA = (props) => {
     setBusinessUnit(selectedValue)
   }
 
+  const handleEmployeeType = (selectedValue) => {
+    setEmployeeType(selectedValue)
+  }
+
 
   return ( 
     <React.Fragment>
@@ -91,7 +67,7 @@ const SectionA = (props) => {
             Please Select Employment Type to Begin
           </div>
           <div className="five wide column">
-            <select>
+            <select value={ !employeeType ? props.employee_type : employeeType} onChange={(e) => handleEmployeeType(e.target.value)}>
               <option value="null">Select...</option>
               <option value="salaried">Salaried</option>
               <option value="waged">Waged</option>
@@ -180,7 +156,7 @@ const SectionA = (props) => {
         <div className="row">
           <div className="five wide column">Work Country</div>
           <div className="five wide column">   
-            <select value={ !country ? props.work_country : country} onChange={(e) => handleLocation(e.target.value)} >
+            <select value={ !props.country ? props.work_country : props.country} onChange={(e) => props.handleLocation(e.target.value)} >
               {Countries.map(country => (
                 <option key={country.name} value={`${country.value}`}>{country.name}</option>
               ))}
@@ -188,12 +164,12 @@ const SectionA = (props) => {
           </div>
           <div className="two wide column">Location</div>
           <div className="four wide column">                
-            <select >
-              {!country ?
-              unique.map(location => (
+            <select onChange={(e) => props.handleCity(e.target.value)}>
+              {!props.country ?
+              props.unique.map(location => (
                 <option key={location} value={`${location}`}>{location}</option>
               )) : 
-              activeLocation.map(location => (
+              props.activeLocation.map(location => (
                 <option key={location} value={`${location}`}>{location}</option>
               ))
               }
@@ -243,9 +219,11 @@ const SectionA = (props) => {
         </div>
 
       </div>
+      
 
     </React.Fragment>
   )
 };
 
 export default SectionA;
+  
