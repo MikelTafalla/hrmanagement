@@ -89,7 +89,7 @@ const employeeChangeFormSeed = [
     classification:
     {
       current: "G1",
-      proposed: "G2"
+      proposed: "C8"
     },
     team_leader_allowance: "N/A",
     leading_hand_allowance: "N/A",

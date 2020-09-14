@@ -10,6 +10,7 @@
         "name":"Australia",
         "value":"Australia",
         "cities":[
+            "Select",
             "Adelaide",
             "Brisbane",
             "Melbourne CBD",
@@ -19,8 +20,9 @@
     },
     {
         "name":"New Zealand",
-        "value":"New zealand",
+        "value":"New Zealand",
         "cities":[
+            "Select",
             "Auckland"
         ]
     },
@@ -28,6 +30,7 @@
         "name":"Singapore",
         "value":"Singapore",
         "cities":[
+            "Select",
             "N/A"
         ]
     },
@@ -35,6 +38,7 @@
         "name":"Indonesia",
         "value":"Indonesia",
         "cities":[
+            "Select",
             "N/A"
         ]
     }
