@@ -34,6 +34,7 @@ const NewChangeForm = () => {
 
     <Container>
       <div>
+        <form>
         <Header
           title="Employee Change Form"
           mandatory="All fields are considered mandatory"
@@ -72,6 +73,8 @@ const NewChangeForm = () => {
         <SectionD
           sectionD="Approvals - Section D"
         />
+        <button type="submit" >Click</button>
+        </form>
       </div>
     </Container>
 

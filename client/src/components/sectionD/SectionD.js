@@ -1,28 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import Days from "./days.json";
 import Months from "./months.json";
 
 const SectionD = (props) => {
-  const[day, setDay] = useState("");
-  const[month, setMonth] = useState("");
-  const[superannuationD, setSuperannuationD] = useState("");
-  const[visa, setVisa] = useState("");
-
-  const handleDay = (selectedValue) => {
-    setDay(selectedValue)
-  }
-
-  const handleMonth = (selectedValue) => {
-    setMonth(selectedValue)
-  }
-
-  const handleSuperannuation = (selectedValue) => {
-    setSuperannuationD(selectedValue)
-  }
-
-  const handleVisa = (selectedValue) => {
-    setVisa(selectedValue)
-  }
 
   return (
     <div>
@@ -48,7 +28,7 @@ const SectionD = (props) => {
             <input className="three wide column" defaultValue={props && props.submitted_by ? props.submitted_by.name : null} />
             <label className="one wide column">Day</label>
             <div className="one wide column">
-              <select value={ !day ? (props && props.submition_date ? props.submition_date.day : "") : day} onChange={(e) => handleDay(e.target.value)}>
+              <select value={ !props.day ? (props && props.submission_date ? props.submission_date.day : "") : props.day} onChange={(e) => props.handleDay(e.target.value)}>
                 {Days.map(day => (
                 <option value={day.value} key={day.value}>{day.day}</option>
                 ))}
@@ -56,7 +36,7 @@ const SectionD = (props) => {
             </div>
             <label className="one wide column">Month</label>
             <div className="two wide column">
-              <select value={ !month ? (props && props.submition_date ? props.submition_date.month : "") : month} onChange={(e) => handleMonth(e.target.value)}>
+              <select value={ !props.month ? (props && props.submission_date ? props.submission_date.month : "") : props.month} onChange={(e) => props.handleMonth(e.target.value)}>
                 {Months.map(month => (
                 <option value={month.value} key={month.value}>{month.month}</option>
                 ))}
@@ -64,7 +44,7 @@ const SectionD = (props) => {
             </div>
             <label className="one wide column">Year</label>
             <div className="one wide column">
-              <input defaultValue={props && props.submition_date ? props.submition_date.year : null}/>
+              <input defaultValue={props && props.submission_date ? props.submission_date.year : null}/>
             </div>
           </div>
           <div className="row">
@@ -125,7 +105,7 @@ const SectionD = (props) => {
             <input className="four wide column" defaultValue={props && props.hr_central ? props.hr_central.signature : null}/>
             <label className="three wide column">Superannuation</label>
             <div className="five wide column">
-              <select value={ !superannuationD ? props.superannuation_d : superannuationD} onChange={(e) => handleSuperannuation(e.target.value)}>
+              <select value={ !props.superannuationD ? props.superannuation_d : props.superannuationD} onChange={(e) => props.handleSuperannuation(e.target.value)}>
                 <option value="DB Fund" >DB Fund</option>
                 <option value="Superannuation" >Superannuation</option>
               </select>
@@ -136,7 +116,7 @@ const SectionD = (props) => {
             <input className="four wide column" defaultValue={props && props.payroll ? props.payroll.name : null}/>
             <label className="three wide column">Visa</label>
             <div className="two wide column">
-              <select value={ !visa ? props.visa_check : visa} onChange={(e) => handleVisa(e.target.value)}>
+              <select value={ !props.visa ? props.visa_check : props.visa} onChange={(e) => props.handleVisa(e.target.value)}>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
               </select>
