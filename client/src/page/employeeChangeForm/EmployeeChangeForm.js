@@ -6,62 +6,167 @@ import SectionB from "../../components/sectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
 import API from "../../utils/API";
-import { Container } from "semantic-ui-react";
+import { Container} from "semantic-ui-react";
 import Countries from "../../components/sectionA/countries.json";
 import Agreement from "../../components/sectionC/agreement.json";
 import Classification from "../../components/sectionC/classification.json";
-
+////start changes
 
 function EmployeeChangeForm() {
   //Store information from database
   const [form, setForm] = useState({});
-
-  //Store the state related to the country and location/city from section A. So we can access them both on SectionA and C
-  const [activeLocation, setActiveLocation] = useState([]);
-  const [country, setCountry] = useState("");
-  const [city, setCity] = useState("");
-
-  //States for section A
-  const [employeeType, setEmployeeType] = useState("");
-  const [activePosition, setActivePosition] = useState("");
-  const[renderPosition, setRenderPosition] = useState("");
-  const[employeeClass, setEmployeeClass] = useState("");
-  const[renderTypeOfChange, setRenderTypeOfChange] = useState("");
-  const[activeFunction, setActiveFunction] = useState("");
-  const[businessUnit, setBusinessUnit] = useState("");
-  const[inputName, setInputName] = useState("");
   
-  //States for section B
-
   //States for section C
   const [currentAgreement, setCurrentAgreement] = useState([]);
   const [proposedAgreement, setProposedAgreement] = useState([{}]);
-  const [renderWorkSchedule, setRenderWorkSchedule] = useState("");
   const [currentClassification, setCurrentClassification] = useState([]);
   const [proposedClassification, setProposedClassification] = useState([]);
 
-  //States for section D
-  const[day, setDay] = useState("");
-  const[month, setMonth] = useState("");
-  const[superannuationD, setSuperannuationD] = useState("");
-  const[visa, setVisa] = useState("");
-  
   //Activates to retrive information from the API/DB
   useEffect(() => {
-    populateForm("5f5ebfd51d0c97257d20d68a");
+    populateForm("5f626ac0d315671f680aacf1");
   }, [])
 
   const populateForm = (id) => {
     API.findById(id)
-      .then(res => setForm(res.data))
+      .then(res => setForm({
+       employee_type: res.data.employee_type,
+       employee_classification: res.data.employee_classification,
+       position: res.data.position,
+       incumbent: res.data.incumbent,
+       employee_name: res.data.employee_name,
+       employeeId: res.data.employeeId,
+       typeOfChange: res.data.typeOfChange,
+       change_reasons: res.data.change_reasons,
+       effective_day: res.data.effective_day,
+       effective_month: res.data.effective_month,
+       effective_year: res.data.effective_year,
+       current_title: res.data.current_title,
+       new_title: res.data.new_title,
+       work_country: res.data.work_country,
+       location: res.data.location,
+       function: res.data.function,
+       department: res.data.department,
+       manager: res.data.manager,
+       salary_cost: res.data.salary_cost,
+       travel_cost: res.data.travel_cost,
+       business_unit: res.data.business_unit,
+       haypoint_current: res.data.haypoint_current,
+       haypoint_proposed: res.data.haypoint_proposed,
+       currency_current: res.data.currency_current,
+       currency_proposed: res.data.currency_proposed,
+       baseSalary_current: res.data.baseSalary_current,
+       baseSalary_proposed: res.data.baseSalary_proposed,
+       vehicle_current: res.data.vehicle_current,
+       vehicle_proposed: res.data.vehicle_proposed,
+       sti_current: res.data.sti_current,
+       sti_proposed: res.data.sti_proposed,
+       superannuationB_current: res.data.superannuationB_current,
+       superannuationB_proposed: res.data.superannuationB_proposed,
+       reward_current: res.data.reward_current,
+       reward_proposed: res.data.reward_proposed,
+       percentage_change: res.data.percentage_change,
+       other_allowances_B: res.data.other_allowances_B,
+       hoursB_monday: res.data.hoursB_monday,
+       hoursB_tuesday: res.data.hoursB_tuesday,
+       hoursB_wednesday: res.data.hoursB_wednesday,
+       hoursB_thursday: res.data.hoursB_thursday,
+       hoursB_friday: res.data.hoursB_friday,
+       hoursB_saturday: res.data.hoursB_saturday,
+       hoursB_sunday: res.data.hoursB_sunday,
+       total_hours_B: res.data.total_hours_B,
+       employee_agreement_current: res.data.employee_agreement_current,
+       employee_agreement_proposed: res.data.employee_agreement_proposed,
+       classification_current: res.data.classification_current,
+       classification_proposed: res.data.classification_proposed,
+       locationDB: res.data.location,
+       team_leader_allowance: res.data.team_leader_allowance,
+       leading_hand_allowance: res.data.leading_hand_allowance,
+       dual_trade_allowance: res.data.dual_trade_allowance,
+       other_allowances_C: res.data.other_allowances_C,
+       work_schedule: res.data.work_schedule,
+       shift: res.data.shift,
+       hoursC_monday: res.data.hoursC_monday,
+       hoursC_tuesday: res.data.hoursC_tuesday,
+       hoursC_wednesday: res.data.hoursC_wednesday,
+       hoursC_thursday: res.data.hoursC_thursday,
+       hoursC_friday: res.data.hoursC_friday,
+       hoursC_saturday: res.data.hoursC_saturday,
+       hoursC_sunday: res.data.hoursC_sunday,
+       total_hours_C: res.data.total_hours_C,
+       change_justification: res.data.change_justification,
+       submitted_by_name: res.data.submitted_by_name,
+       submitted_by_position: res.data.submitted_by_position,
+       submission_day: res.data.submission_day,
+       submission_month: res.data.submission_month,
+       submission_year: res.data.submission_year,
+       hr_name: res.data.hr_name,
+       hr_signature: res.data.hr_signature,
+       first_approver_name: res.data.first_approver_name,
+       first_approver_signature: res.data.first_approver_signature,
+       second_approver_name: res.data.second_approver_name,
+       second_approver_signature: res.data.second_approver_signature,
+       hr_central_name: res.data.hr_central_name,
+       hr_central_signature: res.data.hr_central_signature,
+       payroll_name: res.data.payroll_name,
+       payroll_signature: res.data.payroll_signature,
+       payroll_number: res.data.payroll_number,
+       payroll_position: res.data.payroll_position,
+       template: res.data.template,
+       superannuation_D: res.data.superannuation_D,
+       visa_check: res.data_visa_check,
+       comments: res.data.comments,
+       
+      }))
+      .catch(err => console.log(err));
+  }
+
+  useEffect(() => {
+    //Set only cities that have an agreement 
+    const cities = ["Adelaide", "Brisbane", "Melbourne CBD", "Melbourne", "Sydney"];
+    for (let i = 0; i < cities.length; i++) {
+      if (form.location === cities[i]) {
+        for (let j = 0; j < cities.length; j++) {
+          if (cities[j] === form.location) {
+            setCurrentAgreement(Agreement[j]);
+            setProposedAgreement(Agreement[j])
+          }
+          if (form.location === "Melbourne CBD") {
+            setCurrentClassification([]);
+            setProposedClassification([])
+          }
+          if (form.work_country !== "Australia") {
+            setCurrentClassification([]);
+            setProposedClassification([])
+          }
+        }
+      }
+    }
+  }, [form.work_country, form.location]);
+
+  const updateForm = (id) => {
+    API.update(id, form)
+      .then(res => console.log(res.data))
       .catch(err => console.log(err));
   }
   //Create props for section A
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    if (value.length > 0) {
+      setForm({...form, [name]: value});
+    } else { setForm({ ...form, [name]: value}) }
+  }
+
+  const handleDropdown = (e) => {
+    const { name, value } = e.target
+    setForm({...form, [name]: value})
+  }
+  
   //Logic to get dropdown list display the location from the database as selected on page load
   const citiesToDisplay = []
   let cities = []
-  const place = !country ? form.work_country : country
+  const place = form.work_country 
   for (let i = 1; i < Countries.length; i++) {
     if (place === Countries[i].name) {
       cities = Countries[i].cities
@@ -74,123 +179,47 @@ function EmployeeChangeForm() {
     citiesToDisplay.push(cities[j])
   }
   const unique = [...new Set(citiesToDisplay)]
-  //It gets activated onChange from dropdown on SectionA
-  const handleLocation = (selectedCountry) => {
-    setCountry(selectedCountry)
-
-    for (let i = 0; i < Countries.length; i++) {
-      if (selectedCountry === Countries[i].value) {
-        return setActiveLocation(Countries[i].cities)
-      }
-    }
-  }
-  //It gets activated onChange from dropdown on SectionA
-  const handleCity = (selectedCity) => {
-    setCity(selectedCity)
-  }
-
-  const handlePosition = (selectedPosition) => {
-
-    if(selectedPosition === form.position){
-      setRenderPosition(renderPosition)
-    } else setRenderPosition(selectedPosition)
-    
-    if (selectedPosition === "new Position") {
-      return setActivePosition(
-        <div className="five wide column warning">DO NOT PROCEED. Please contact HR central to arrange a Job Evaluation</div>
-      )
-    }
-    if (selectedPosition === "existing Position") {
-      return setActivePosition(
-        <React.Fragment>
-          <div className="two wide column">Name of previous Incumbent</div>
-          <input className="five wide column border" defaultValue={form.incumbent}></input>
-        </React.Fragment>
-      )
-    }
-  }
-
-  const handleEmployeeClassification = (selectedValue) => {
-    setEmployeeClass(selectedValue)
-  }
-
-  const handleTypeOfChange = (selectedValue) => {
-   setRenderTypeOfChange(selectedValue)
-  }
-
-  const handleFunction = (selectedValue) => {
-    setActiveFunction(selectedValue)
-  }
-
-  const handleBusinessUnit = (selectedValue) => {
-    setBusinessUnit(selectedValue)
-  }
-
-  const handleEmployeeType = (selectedValue) => {
-    setEmployeeType(selectedValue)
-  }
-
-  const handleInputName = (e) => {
-    setInputName(e)
-  }
-
-  ////Create props for section B
 
   ////Create props for section C
- 
-  useEffect(() => {
-    //Set only cities that have an agreement 
-    const cities = ["Adelaide", "Brisbane", "Melbourne CBD", "Melbourne", "Sydney"];
-    for (let i = 0; i < cities.length; i++) {
-      if (form.location === cities[i] || city === cities[i]) {
-        for (let j = 0; j < cities.length; j++) {
-          if (cities[j] === city) {
-            setCurrentAgreement(Agreement[j]);
-            setProposedAgreement(Agreement[j])
-          }
-          if (city === "Melbourne CBD") {
-            setCurrentClassification([]);
-            setProposedClassification([])
-          }
-          if (country !== "Australia") {
-            setCurrentClassification([]);
-            setProposedClassification([])
-          }
-        }
-      }
-    }
-  }, [country, city, form.location]);
-
-  const handleWorkSchedule = (selectedValue) => {
-    setRenderWorkSchedule(selectedValue)
+  const manageClassifications =  () => {
+    setCurrentClassification([]);
+    setProposedClassification([])
   }
 
   const handleCurrentClassification = (selectedValue) => {
+    //changes value of agreement current
+    const { name, value } = selectedValue.target
+    setForm({...form, [name]: value})
+  
     Classification.forEach(element => {
       const item = element.agreement
       for (var i = 0; i < item.length; i++) {
-        if (selectedValue === item[i].name) {
+        if (value === item[i].name) {
           return setCurrentClassification(item[i].classification)
         }
       }
     });
   }
-  
+ 
   const handleProposedClassification = (selectedValue) => {
+    //changes value of agreement proposed
+    const { name, value } = selectedValue.target
+    setForm({...form, [name]: value})
     Classification.forEach(element => {
       const item = element.agreement
       for (var i = 0; i < item.length; i++) {
-        if (selectedValue === item[i].name) {
+        if (value === item[i].name) {
           return setProposedClassification(item[i].classification)
         }
       }
     });
   }
- 
+
   //Start with an empty array to push all the agreements that correspond to the group where the agreement from the DB belongs to
   const agrCurrentDisplay = []
+  console.log(form.employee_agreement_current)
   //We store the agreement from the database. Ternary needed to avoid load conflicts.
-  const agrcurrentInDB = form && form.employee_agreement ? form.employee_agreement.current : []
+  const agrcurrentInDB = form.employee_agreement_current
   //Loop through the agreement JSON and store each agreement object to loop through that object on nested loop
   for (let i = 0; i < Agreement.length; i++) {
     let currentagr = Agreement[i]
@@ -205,7 +234,7 @@ function EmployeeChangeForm() {
       }
 
     }
-    break
+    
   }
   const agrCurrentUnique = [...new Set(agrCurrentDisplay)]
 
@@ -214,7 +243,7 @@ function EmployeeChangeForm() {
 
   //AGREEMENT PROPOSED
   const agrProposedDisplay = []
-  const agrProposedInDB = form && form.employee_agreement ? form.employee_agreement.proposed : []
+  const agrProposedInDB = form.employee_agreement_proposed
   for (let i = 0; i < Agreement.length; i++) {
     let proposedagr = Agreement[i]
     for (let j = 0; j < proposedagr.length; j++) {
@@ -224,14 +253,14 @@ function EmployeeChangeForm() {
         agrProposedDisplay.push(proposedagr[j].name)
       }
     }
-    break
+   
   }
- 
+
   const agrProposedUnique = [...new Set(agrProposedDisplay)]
   //CLASSIFICATION CURRENT
-  
+
   const classCurrentDisplay = []
-  const classCurrentInDB = form && form.classification ? form.classification.current : []
+  const classCurrentInDB = form.classification_current
   for (let i = 0; i < Classification.length; i++) {
     let currentClass = Classification[i].agreement
     for (let j = 0; j < currentClass.length; j++) {
@@ -248,15 +277,15 @@ function EmployeeChangeForm() {
         }
       }
     }
-    break
+   
   }
 
   const classCurrentUnique = [...new Set(classCurrentDisplay)]
-  
+
   //CLASSIFICATION PROPOSED
-  
+
   const classProposedDisplay = []
-  const classProposedInDB = form && form.classification ? form.classification.proposed : []
+  const classProposedInDB = form.classification_proposed
   for (let i = 0; i < Classification.length; i++) {
     let proposedClass = Classification[i].agreement
 
@@ -274,169 +303,157 @@ function EmployeeChangeForm() {
         }
       }
     }
-    break
+    
   }
 
   const classProposedUnique = [...new Set(classProposedDisplay)]
 
-  //Props for section D
 
-  const handleDay = (selectedValue) => {
-    setDay(selectedValue)
-  }
-
-  const handleMonth = (selectedValue) => {
-    setMonth(selectedValue)
-  }
-
-  const handleSuperannuation = (selectedValue) => {
-    setSuperannuationD(selectedValue)
-  }
-
-  const handleVisa = (selectedValue) => {
-    setVisa(selectedValue)
-  }
-  
   return (
 
     <Container>
       <div>
-        <Header
-          title="Employee Change Form"
-          mandatory="All fields are considered mandatory"
-          questions="Questions? Need Help? Contact the O-I HR Central Team"
-          phone="Australia +61 3 9326 2525"
-          country="New Zealand and Singapore 2525"
-          message="Please use this form if an Employee is increasing / decreasing their grade and salary or classification and wage rate. For more information, please refer to the form definitions outlined on the HR Central Sharepoint"
-          instruction1="Please ensure you have the following information before attempting to fill the form:"
-          instruction1A="a. Organization Structure Data"
-          instruction1B="b. Obtain Hay point data from HR central or Remuneration and Benefits"
-          instruction2="Upon completion of this form, please submit this via HR.CENTRAL.AP@O-I.COM to initiate approvals"
-          salariedChange="Salaried Change - Complete Section A, Section B and Section D"
-          wagedChange="Waged Change - Complete Section A, Section C and Section D"
-        />
+        <form>
+          <Header
+            title="Employee Change Form"
+            mandatory="All fields are considered mandatory"
+            questions="Questions? Need Help? Contact the O-I HR Central Team"
+            phone="Australia +61 3 9326 2525"
+            country="New Zealand and Singapore 2525"
+            message="Please use this form if an Employee is increasing / decreasing their grade and salary or classification and wage rate. For more information, please refer to the form definitions outlined on the HR Central Sharepoint"
+            instruction1="Please ensure you have the following information before attempting to fill the form:"
+            instruction1A="a. Organization Structure Data"
+            instruction1B="b. Obtain Hay point data from HR central or Remuneration and Benefits"
+            instruction2="Upon completion of this form, please submit this via HR.CENTRAL.AP@O-I.COM to initiate approvals"
+            salariedChange="Salaried Change - Complete Section A, Section B and Section D"
+            wagedChange="Waged Change - Complete Section A, Section C and Section D"
+          />
 
-        <br />
-        <SectionA
-          sectionA="Section A | Organisational Structure"
-          employee_type={form.employee_type}
-          employee_classification={form.employee_classification}
-          position={form.position}
-          employee_name={form.employee_name}
-          employeeId={form.employeeId}
-          typeOfChange={form.typeOfChange}
-          change_reasons={form.change_reasons}
-          effective_date={form.effective_date}
-          current_title={form.current_title}
-          new_title={form.new_title}
-          work_country={form.work_country}
-          location={form.location}
-          function={form.function}
-          department={form.department}
-          manager={form.manager}
-          salary_cost={form.salary_cost}
-          travel_cost={form.travel_cost}
-          business_unit={form.business_unit}
-          handleLocation={handleLocation}
-          handleCity={handleCity}
-          unique={unique}
-          activeLocation={activeLocation}
-          country={country}
-          ///
-          employeeType = {employeeType}
-          activePosition = {activePosition}
-          renderPosition = {renderPosition}
-          employeeClass = {employeeClass}
-          renderTypeOfChange = {renderTypeOfChange}
-          activeFunction = {activeFunction}
-          businessUnit = {businessUnit}
-          inputName = {inputName}
-          handlePosition = {handlePosition}
-          handleEmployeeClassification={handleEmployeeClassification}
-          handleTypeOfChange={handleTypeOfChange}
-          handleFunction={handleFunction}
-          handleBusinessUnit={handleBusinessUnit}
-          handleEmployeeType={handleEmployeeType}
-          handleInputName={handleInputName}
-        />
-        <br />
-        <SectionB
-          SectionB="Section B | Compensation (Salaried)"
-          haypoint={form.haypoint}
-          currency={form.currency}
-          base_salary={form.base_salary}
-          vehicle={form.vehicle}
-          target_sti={form.target_sti}
-          superannuation_B={form.superannuation_B}
-          fixed_annual_reward={form.fixed_annual_reward}
-          percentage_change={form.percentage_change}
-          other_allowances_B={form.other_allowances_B}
-          hours_per_day_B={form.hours_per_day_B}
-          total_hours_B={form.total_hours_B}
-        />
-        <br />
-        <SectionC
-          sectionC="Section C | COMPENSATION (waged employees)"
-          employee_agreement={form.employee_agreement}
-          classification={form.classification}
-          team_leader_allowance={form.team_leader_allowance}
-          leading_hand_allowance={form.leading_hand_allowance}
-          dual_trade_allowance={form.dual_trade_allowance}
-          other_allowances_C={form.other_allowances_C}
-          work_schedule={form.work_schedule}
-          previous_incumbent={form.previous_incumbent}
-          hours_per_day_C={form.hours_per_day_C}
-          total_hours_C={form.total_hours_C}
-          activeLocation={activeLocation}
-          DBlocation={form.location}
-          city={city}
-          country={country}
-          ///
-          currentAgreement={currentAgreement}
-          proposedAgreement={proposedAgreement}
-          currentClassification={currentClassification}
-          proposedClassification={proposedClassification}
-          handleWorkSchedule={handleWorkSchedule}
-          handleCurrentClassification={handleCurrentClassification}
-          handleProposedClassification={handleProposedClassification}
-          agrCurrentUnique={agrCurrentUnique}
-          classProposedUnique={classProposedUnique}
-          agrProposedUnique={agrProposedUnique}
-          classCurrentUnique={classCurrentUnique}
-          agrCurrentDisplay = {agrCurrentDisplay}
-          agrcurrentInDB = {agrcurrentInDB}
-          agrProposedDisplay = {agrProposedDisplay}
-          agrProposedInDB = {agrProposedInDB}
-          classCurrentDisplay = {classCurrentDisplay}
-          classCurrentInDB = {classCurrentInDB}
-          classProposedDisplay = {classProposedDisplay}
-          classProposedInDB = {classProposedInDB}
-          renderWorkSchedule={renderWorkSchedule}
+          <br />
+          <SectionA
+            sectionA="Section A | Organisational Structure"
+            employee_type={form.employee_type}
+            employee_classification={form.employee_classification}
+            position={form.position}
+            incumbent={form.incumbent}
+            employee_name={form.employee_name}
+            employeeId={form.employeeId}
+            typeOfChange={form.typeOfChange}
+            change_reasons={form.change_reasons}
+            effective_day={form.effective_day}
+            effective_month={form.effective_month}
+            effective_year={form.effective_year}
+            current_title={form.current_title}
+            new_title={form.new_title}
+            work_country={form.work_country}
+            location={form.location}
+            function={form.function}
+            department={form.department}
+            manager={form.manager}
+            salary_cost={form.salary_cost}
+            travel_cost={form.travel_cost}
+            business_unit={form.business_unit}
+            unique={unique}
+            handleDropdown={handleDropdown}
+            handleInputChange={handleInputChange}
+            manageClassifications={manageClassifications}
+            effective_date={form.effective_date}
+          />
+          <br />
+          <SectionB
+            SectionB="Section B | Compensation (Salaried)"
+            handleInputChange={handleInputChange}
+            haypoint_current={form.haypoint_current}
+            haypoint_proposed={form.haypoint_proposed}
+            currency_current={form.currency_current}
+            currency_proposed={form.currency_proposed}
+            baseSalary_current={form.baseSalary_current}
+            baseSalary_proposed={form.baseSalary_proposed}
+            vehicle_current={form.vehicle_current}
+            vehicle_proposed={form.vehicle_proposed}
+            sti_current={form.sti_current}
+            sti_proposed={form.sti_proposed}
+            superannuationB_current={form.superannuationB_current}
+            superannuationB_proposed={form.superannuationB_proposed}
+            reward_current={form.reward_current}
+            reward_proposed={form.reward_proposed}
+            percentage_change={form.percentage_change}
+            other_allowances_B={form.other_allowances_B}
+            hoursB_monday={form.hoursB_monday}
+            hoursB_tuesday={form.hoursB_tuesday}
+            hoursB_wednesday={form.hoursB_wednesday}
+            hoursB_thursday={form.hoursB_thursday}
+            hoursB_friday={form.hoursB_friday}
+            hoursB_saturday={form.hoursB_saturday}
+            hoursB_sunday={form.hoursB_sunday}
+            total_hours_B={form.total_hours_B}
+          />
+          <br />
+          <SectionC
+            sectionC="Section C | COMPENSATION (waged employees)"
+            handleDropdown={handleDropdown}
+            handleInputChange={handleInputChange}
+            work_country={form.work_country}
+            location={form.location}
+            locationDB={form.locationDB}
+            team_leader_allowance={form.team_leader_allowance}
+            leading_hand_allowance={form.leading_hand_allowance}
+            dual_trade_allowance={form.dual_trade_allowance}
+            other_allowances_C={form.other_allowances_C}
+            work_schedule={form.work_schedule}
+            shift={form.shift}
+            previous_incumbent={form.previous_incumbent}
+            currentAgreement={currentAgreement}
+            proposedAgreement={proposedAgreement}
+            currentClassification={currentClassification}
+            proposedClassification={proposedClassification}
+            handleCurrentClassification={handleCurrentClassification}
+            handleProposedClassification={handleProposedClassification}
+            agrCurrentUnique={agrCurrentUnique}
+            classProposedUnique={classProposedUnique}
+            agrProposedUnique={agrProposedUnique}
+            classCurrentUnique={classCurrentUnique}
+            hoursC_monday={form.hoursC_monday}
+            hoursC_tuesday={form.hoursC_tuesday}
+            hoursC_wednesday={form.hoursC_wednesday}
+            hoursC_thursday={form.hoursC_thursday}
+            hoursC_friday={form.hoursC_friday}
+            hoursC_saturday={form.hoursC_saturday}
+            hoursC_sunday={form.hoursC_sunday}
+            total_hours_C={form.total_hours_C}
 
-        />
-        <SectionD
-          sectionD="Approvals - Section D"
-          change_justification={form.change_justification}
-          submitted_by={form.submitted_by}
-          submission_date={form.submission_date}
-          hr_name={form.hr_name}
-          first_approver={form.first_approver}
-          second_approver={form.second_approver}
-          hr_central={form.hr_central}
-          payroll={form.payroll}
-          template={form.template}
-          superannuation_D={form.superannuation_D}
-          visa_check={form.visa_check}
-          comments={form.comments}
-          day={day}
-          month={month}
-          superannuationD={superannuationD}
-          visa={visa}
-          handleDay={handleVisa}
-          handleMonth={handleMonth}
-          handleSuperannuation={handleSuperannuation}
-          handleVisa={handleVisa}
-        />
+          />
+          <SectionD
+            sectionD="Approvals - Section D"
+            handleDropdown={handleDropdown}
+            handleInputChange={handleInputChange}
+            change_justification={form.change_justification}
+            submitted_by_name={form.submitted_by_name}
+            submitted_by_position={form.submitted_by_position}
+            submission_day={form.submission_day}
+            submission_month={form.submission_month}
+            submission_year={form.submission_year}
+            hr_name={form.hr_name}
+            hr_signature={form.hr_signature}
+            first_approver_name={form.first_approver_name}
+            first_approver_signature={form.first_approver_signature}
+            second_approver_name={form.second_approver_name}
+            second_approver_signature={form.second_approver_signature}
+            hr_central_name={form.hr_central_name}
+            hr_central_signature={form.hr_central_signature}
+            payroll_name={form.payroll_name}
+            payroll_signature={form.payroll_signature}
+            payroll_number={form.payroll_number}
+            payroll_position={form.payroll_position}
+            template={form.template}
+            superannuation_D={form.superannuation_D}
+            visa_check={form.visa_check}
+            comments={form.comments}
+
+
+          />
+          <button type="submit" onClick={(event) => { event.preventDefault(); updateForm("5f626ac0d315671f680aacf1"); }}>CLick</button>
+        </form>
       </div>
     </Container>
 

@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const EmployeeChangeFormSchema = new Schema({
     //Section A
     employee_type: {
-        salaried: String,
-        waged: String
+        typed: String,
     },
     employee_classification: {
         type: String
@@ -28,10 +27,14 @@ const EmployeeChangeFormSchema = new Schema({
     change_reasons: {
         type: String
     },
-    effective_date: {
-        day: Number,
-        month: Number,
-        year: Number
+    effective_day: {
+        type: String
+    },
+    effective_month: {
+        type: String
+    },
+    effective_year: {
+        type: String
     },
     current_title: {
         type: String
@@ -64,33 +67,47 @@ const EmployeeChangeFormSchema = new Schema({
         type: String
     },
     //Section B
-    haypoint: {
-        current: Number,
-        proposed: Number,
+    haypoint_current: {
+        type: String,
     },
-    currency: {
-        current: String,
-        proposed: String
+    haypoint_proposed: {
+        type: String,
     },
-    base_salary: {
-        current: Number,
-        proposed: Number
+    currency_current: {
+        type: String,
     },
-    vehicle: {
-        current: Number,
-        proposed: Number
+    currency_proposed: {
+        type: String,
     },
-    target_sti: {
-        current: Number,
-        proposed: Number
+    baseSalary_current: {
+        type: String,
     },
-    superannuation_B: {
-        current: String,
-        proposed: String
+    baseSalary_proposed: {
+        type: String,
     },
-    fixed_annual_reward: {
-        current: Number,
-        proposed: Number
+    vehicle_current: {
+        type: String,
+    },
+    vehicle_proposed: {
+        type: String,
+    },
+    sti_current: {
+        type: String,
+    },
+    sti_proposed: {
+        type: String,
+    },
+    superannuationB_current: {
+        type: String,
+    },
+    superannuationB_proposed: {
+        type: String,
+    },
+    reward_current: {
+        type: String,
+    },
+    reward_proposed: {
+        type: String,
     },
     percentage_change: {
         type: Number
@@ -98,26 +115,42 @@ const EmployeeChangeFormSchema = new Schema({
     other_allowances_B: {
         type: String
     },
-    hours_per_day_B: {
-        monday: Number,
-        tuesday: Number,
-        wednesday: Number,
-        thursday: Number,
-        friday: Number,
-        saturday: Number,
-        sunday: Number
+    hoursB_monday: {
+        type: String,
+    },
+    hoursB_tuesday: {
+        type: String,
+    },
+    hoursB_wednesday: {
+        type: String,
+    },
+    hoursB_thursday: {
+        type: String,
+    },
+    hoursB_friday: {
+        type: String,
+    },
+    hoursB_saturday: {
+        type: String,
+    },
+    hoursB_sunday: {
+        type: String,
     },
     total_hours_B: {
         type: Number
     },
     // Section C
-    employee_agreement: {
-        current: String,
-        proposed: String
+    employee_agreement_current: {
+        type: String,
     },
-    classification: {
-        current: String,
-        proposed: String
+    employee_agreement_proposed: {
+        type: String,
+    },
+    classification_current: {
+        type: String,
+    },
+    classification_proposed: {
+        type: String,
     },
     team_leader_allowance: {
         type: String
@@ -134,17 +167,32 @@ const EmployeeChangeFormSchema = new Schema({
     work_schedule: {
         type: String
     },
+    shift: {
+        type: String
+    },
     previous_incumbent: {
         type: String
     },
-    hours_per_day_C: {
-        monday: Number,
-        tuesday: Number,
-        wednesday: Number,
-        thursday: Number,
-        friday: Number,
-        saturday: Number,
-        sunday: Number
+    hoursC_monday: {
+        type: String,
+    },
+    hoursC_tuesday: {
+        type: String,
+    },
+    hoursC_wednesday: {
+        type: String,
+    },
+    hoursC_thursday: {
+        type: String,
+    },
+    hoursC_friday: {
+        type: String,
+    },
+    hoursC_saturday: {
+        type: String,
+    },
+    hoursC_sunday: {
+        type: String,
     },
     total_hours_C: {
         type: Number
@@ -153,36 +201,56 @@ const EmployeeChangeFormSchema = new Schema({
     change_justification: {
         type: String
     },
-    submitted_by: {
-        name: String,
-        position: String
+    submitted_by_name: {
+        type: String,
     },
-    submission_date: {
-        day: Number,
-        month: Number,
-        year: Number
+    submitted_by_position: {
+        type: String,
+    },
+    submission_day: {
+        type: String,
+    },
+    submission_month: {
+        type: String,
+    },
+    submission_year: {
+        type: String,
     },
     hr_name: {
-        name: String,
-        signature: String
+        type: String,
     },
-    first_approver: {
-        name: String,
-        signature: String
+    hr_signature: {
+        type: String,
     },
-    second_approver: {
-        name: String,
-        signature: String
+    first_approver_name: {
+        type: String,
     },
-    hr_central: {
-        name: String,
-        signature: String
+    first_approver_signature: {
+        type: String,
     },
-    payroll: {
-        name: String,
-        signature: String,
-        number: Number,
-        position: Number
+    second_approver_name: {
+        type: String,
+    },
+    second_approver_signature: {
+        type: String,
+    },
+    hr_central_name: {
+        type: String,
+    },
+    hr_central_signature: {
+        type: String,
+    },
+    payroll_name: {
+        type: String,
+    },
+    payroll_signature: {
+        type: String,
+    },
+    payroll_number: {
+        type: String,
+    },
+    payroll_position: {
+        type: String,
     },
     template: {
         type: String

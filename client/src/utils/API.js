@@ -5,8 +5,8 @@ export default {
     findById: function (id) {
         return axios.get(`/changeform/${id}`);
     },
-    update: function (id) {
-        return axios.put(`/changeform/${id}`);
+    update: function (id, formData) {
+        return axios.put(`/changeform/${id}`, formData);
     },
     create: function (formData) {
         return axios.post("/newform", formData)

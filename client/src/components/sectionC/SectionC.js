@@ -15,9 +15,12 @@ function SectionC(props) {
           <div className="five wide column">Employment Agreement:</div>
           <div className="row">
             <div className="five wide column">Current</div>
-            <select className="ten wide column border" onChange={(e) => props.handleCurrentClassification(e.target.value)}>
-              {props.country && props.country !== "Australia" ?
-                <option value="null">N/A</option> : (!props.city && props.agrCurrentUnique[0] === props.agrcurrentInDB ?
+            {console.log(props.location)}
+            {console.log(props.locationDB)}
+            <select name="employee_agreement_current" className="ten wide column border" onChange={(e) => props.handleCurrentClassification(e)}>
+              
+              {props.work_country && props.work_country !== "Australia" ?
+                <option value="null">N/A</option> : (props.location && props.location === props.locationDB ?
                   props.agrCurrentUnique.map(agr => (
                     <option value={`${agr}`} key={agr} >{agr}</option>
                   )) :
@@ -31,14 +34,17 @@ function SectionC(props) {
           <div className="one wide column"></div>
           <div className="row">
             <div className="five wide column">Proposed</div>
-            <select className="ten wide column border" onChange={(e) => props.handleProposedClassification(e.target.value)}>
-              {props.country && props.country !== "Australia" ?
-                <option value="null">N/A</option> : (!props.city && props.agrProposedUnique[0] === props.agrProposedInDB ?
+            <select name="employee_agreement_proposed" className="ten wide column border" onChange={(e) => props.handleProposedClassification(e)}>
+              {props.work_country && props.work_country !== "Australia" ?
+                <option value="null">N/A</option> : (props.location && props.location === props.locationDB ?
                   props.agrProposedUnique.map(agr => (
                     <option value={`${agr}`} key={agr} >{agr}</option>
                   )) :
                   props.proposedAgreement.map(agr => (
+                    // <React.Fragment>
+                    // {console.log(agr.id)}
                     <option value={`${agr.value}`} key={agr.id} >{agr.name}</option>
+                    // </React.Fragment>
                   ))
                 )
               }
@@ -50,10 +56,11 @@ function SectionC(props) {
           <div className="five wide column">Classification:</div>
           <div className="row">
             <div className="five wide column">Current</div>
-            <select className="ten wide column border" >
 
-              {props.country && props.country !== "Australia" ?
-                <option value="null">N/A</option> : (!props.city &&props.currentClassification.length === 0 ?
+            <select name="classification_current" className="ten wide column border" onChange={(e) => props.handleDropdown(e)}>
+              {props.work_country && props.work_country !== "Australia" ?
+                <option value="null">N/A</option> :
+                (props.location && props.location === props.locationDB ?
                   props.classCurrentUnique.map(cl => (
                     <option value={`${cl}`} key={cl} >{cl}</option>)) :
                   props.currentClassification.map(current => (
@@ -66,9 +73,9 @@ function SectionC(props) {
           <div className="one wide column"></div>
           <div className="row">
             <div className="five wide column">Proposed</div>
-            <select className="ten wide column border" >
-              {props.country && props.country !== "Australia" ?
-                <option value="null">N/A</option> : (!props.city && props.proposedClassification.length === 0 ?
+            <select name="classification_proposed" className="ten wide column border" onChange={(e) => props.handleDropdown(e)}>
+              {props.work_country && props.work_country !== "Australia" ?
+                <option value="null">N/A</option> : (props.location && props.location === props.locationDB ?
                   props.classProposedUnique.map(cl => (
                     <option value={`${cl}`} key={cl} >{cl}</option>)) : 
                   props.proposedClassification.map(proposed => (
@@ -84,7 +91,8 @@ function SectionC(props) {
           <input
             type="text"
             placeholder="Team Leader Allowance"
-            defaultValue={props.team_leader_allowance}
+            name="team_leader_allowance"
+            value={props.team_leader_allowance } onChange={(e)=> props.handleInputChange(e)}
           ></input>
         </div>
 
@@ -93,7 +101,8 @@ function SectionC(props) {
           <input
             type="text"
             placeholder="Leading Hand Allowance"
-            defaultValue={props.leading_hand_allowance}
+            name="leading_hand_allowance"
+            value={props.leading_hand_allowance } onChange={(e)=> props.handleInputChange(e)}
           ></input>
         </div>
 
@@ -102,7 +111,8 @@ function SectionC(props) {
           <input
             type="text"
             placeholder="Dual Trade Allowance"
-            defaultValue={props.dual_trade_allowance}
+            name="dual_trade_allowance"
+            value={props.dual_trade_allowance } onChange={(e)=> props.handleInputChange(e)}
           ></input>
         </div>
 
@@ -111,14 +121,15 @@ function SectionC(props) {
           <input
             type="text"
             placeholder="Dual Trade Allowance"
-            defaultValue={props.other_allowances_C}
+            name="other_allowances_C"
+            value={props.other_allowances_C } onChange={(e)=> props.handleInputChange(e)}
           ></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Work Schedule:</div>
           <div className="five wide column">
-            <select value={!props.renderWorkSchedule ? props.work_schedule : props.renderWorkSchedule} onChange={(e) => props.handleWorkSchedule(e.target.value)}>
+            <select name="work_schedule" value={props.work_schedule } onChange={(e)=> props.handleDropdown(e)}>
               <option value="Day">Day</option>
               <option value="Shift">Shift</option>
             </select>
@@ -128,7 +139,7 @@ function SectionC(props) {
         <div className="row">
           <div className="five wide column">Shift:</div>
           <div className="five wide column">
-            <select>
+            <select name="shift" value={props.shift } onChange={(e)=> props.handleDropdown(e)}>
               {Shifts.map(shift => (
                 <option key={shift.value} value={shift.value}>{shift.name}</option>
               ))}
@@ -148,37 +159,37 @@ function SectionC(props) {
 
         <div className="row">
           <div className="five wide column">Monday</div>
-          <input className="five wide column border" defaultValue={props && props.hours_per_day_C ? props.hours_per_day_C.monday : null}></input>
+          <input name="hoursC_monday" className="five wide column border" value={props.hoursC_monday } onChange={(e)=> props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Tuesday</div>
-          <input className="five wide column border" defaultValue={props && props.hours_per_day_C ? props.hours_per_day_C.tuesday : null}></input>
+          <input name="hoursC_tuesday" className="five wide column border" value={props.hoursC_tuesday } onChange={(e)=> props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Wednesday</div>
-          <input className="five wide column border" defaultValue={props && props.hours_per_day_C ? props.hours_per_day_C.wednesday : null}></input>
+          <input name="hoursC_wednesday" className="five wide column border" value={props.hoursC_wednesday } onChange={(e)=> props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Thursday</div>
-          <input className="five wide column border" defaultValue={props && props.hours_per_day_C ? props.hours_per_day_C.thursday : null}></input>
+          <input name="hoursC_thursday" className="five wide column border" value={props.hoursC_thursday } onChange={(e)=> props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Friday</div>
-          <input className="five wide column border" defaultValue={props && props.hours_per_day_C ? props.hours_per_day_C.friday : null}></input>
+          <input name="hoursC_friday" className="five wide column border" value={props.hoursC_friday } onChange={(e)=> props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Saturday</div>
-          <input className="five wide column border" defaultValue={props && props.hours_per_day_C ? props.hours_per_day_C.saturday : null}></input>
+          <input name="hoursC_saturday" className="five wide column border" value={props.hoursC_saturday } onChange={(e)=> props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Sunday</div>
-          <input className="five wide column border" defaultValue={props && props.hours_per_day_C ? props.hours_per_day_C.sunday : null}></input>
+          <input name="hoursC_sunday" className="five wide column border" value={props.hoursC_sunday } onChange={(e)=> props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
@@ -187,7 +198,8 @@ function SectionC(props) {
           </div>
           <input
             className="two wide column border"
-            defaultValue={props.total_hours_C}
+            name="total_hours_C"
+            value={props.total_hours_C } onChange={(e)=> props.handleInputChange(e)}
           ></input>
         </div>
       </div>
