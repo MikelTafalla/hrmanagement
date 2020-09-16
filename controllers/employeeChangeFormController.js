@@ -12,6 +12,7 @@ module.exports = {
       .catch(err => console.log(err))
   },
   update: ({ params, body }, res) => {
+    console.log(body);
     db.EmployeeChangeForm
       .findOneAndUpdate({ _id: params.id }, body)
       .then(dbmodel => res.json(dbmodel))

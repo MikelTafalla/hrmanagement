@@ -12,15 +12,12 @@ const employeeChangeFormSeed = [
     position: "existing position",
     incumbent: "Maria Los Angeles",
     employee_name: "Chris Salgado",
-    employeeId: 123456,
+    employeeId: "123456",
     typeOfChange: "Change in Pay",
     change_reasons: "He is pretty",
-    effective_date:
-    {
-      day: 02,
-      month: 05,
-      year: 2020
-    },
+    effective_day: "02",
+    effective_month: "05",
+    effective_year: "2020",
     current_title: "Software engineer",
     new_title: "Senior Software Architect",
     work_country: "Australia",
@@ -32,122 +29,69 @@ const employeeChangeFormSeed = [
     travel_cost: "10000",
     business_unit: "ANZ",
     //Section B
-    haypoint:
-    {
-      current: 56000,
-      proposed: 80000
-    },
-    currency:
-    {
-      current: "AUD",
-      proposed: "AUD"
-    },
-    base_salary:
-    {
-      current: 70000,
-      proposed: 100000
-    },
-    vehicle:
-    {
-      current: 10000,
-      proposed: 15000
-    },
-    target_sti:
-    {
-      current: 50,
-      proposed: 56
-    },
-    superannuation_B:
-    {
-      current: "4%",
-      proposed: "3%"
-    },
-    fixed_annual_reward:
-    {
-      current: 100,
-      proposed: 1000
-    },
-    percentage_change: 25,
+    haypoint_current: "56000",
+    haypoint_proposed: "80000",
+    currency_current: "AUD",
+    currency_proposed: "AUD",
+    baseSalary_current: "70000",
+    baseSalary_proposed: "100000",
+    vehicle_current: "10000",
+    vehicle_proposed: "15000",
+    sti_current: "50",
+    sti_proposed: "56",
+    superannuationB_current: "4%",
+    superannuationB_proposed: "3%",
+    reward_current: "100",
+    reward_proposed: "1000",
+    percentage_change: "25",
     other_allowances_B: "N/A",
-    hours_per_day_B:
-    {
-      monday: 8,
-      tuesday: 8,
-      wednesday: 8,
-      thursday: 8,
-      friday: 8,
-      saturday: 0,
-      sunday: 0
-    },
-    total_hours_B: 40,
+    hoursB_monday: "8",
+    hoursB_tuesday: "8",
+    hoursB_wednesday: "8",
+    hoursB_thursday: "8",
+    hoursB_friday: "8",
+    hoursB_saturday: "0",
+    hoursB_sunday: "0",
+    total_hours_B: "40",
     // Section C
-    employee_agreement:
-    {
-      current: "Glassworker_Rates_A",
-      proposed: "Maintenance_Rates_Metal_Trades_Mechanical_A"
-    },
-    classification:
-    {
-      current: "G1",
-      proposed: "C8"
-    },
+    employee_agreement_current: "Glassworker_Rates_A",
+    employee_agreement_proposed: "Maintenance_Rates_Metal_Trades_Mechanical_A",
+    classification_current: "G1",
+    classification_proposed: "C8",
     team_leader_allowance: "N/A",
     leading_hand_allowance: "N/A",
     dual_trade_allowance: "N/A",
     other_allowances_C: "N/A",
     work_schedule: "Day",
+    shift: "Shift-C",
     previous_incumbent: "N/A",
-    hours_per_day_C:
-    {
-      monday: 8,
-      tuesday: 8,
-      wednesday: 8,
-      thursday: 8,
-      friday: 8,
-      saturday: 0,
-      sunday: 0
-    },
-    total_hours_C: 40,
+    hoursC_monday: "8",
+    hoursC_tuesday: "8",
+    hoursC_wednesday: "8",
+    hoursC_thursday: "8",
+    hoursC_friday: "8",
+    hoursC_saturday: "0",
+    hoursC_sunday: "0",
+    total_hours_C: "40",
     //Section D
     change_justification: "Just because",
-    submitted_by:
-    {
-      name: "Mikel Rodriguez",
-      position: "HR"
-    },
-    submission_date:
-    {
-      day: 07,
-      month: 09,
-      year: 2020
-    },
-    hr_name:
-    {
-      name: "Shaleem Malik",
-      signature: "SM"
-    },
-    first_approver:
-    {
-      name: "Pablo Vazquez",
-      signature: "PV"
-    },
-    second_approver:
-    {
-      name: "Omar Patel",
-      signature: "OP"
-    },
-    hr_central:
-    {
-      name: "Travis Smith",
-      signature: "TS"
-    },
-    payroll:
-    {
-      name: "Natasah Vilorant",
-      signature: "NV",
-      number: 888565,
-      position: 14
-    },
+    submitted_by_name: "Mikel Rodriguez",
+    submitted_by_position: "HR",
+    submission_day: "07",
+    submission_month: "09",
+    submission_year: "2020",
+    hr_name: "Shaleem Malik",
+    hr_signature: "SM",
+    first_approver_name: "Pablo Vazquez",
+    first_approver_signature: "PV",
+    second_approver_name: "Omar Patel",
+    second_approver_signature: "OP",
+    hr_central_name: "Travis Smith",
+    hr_central_signature: "TS",
+    payroll_name: "Natasah Vilorant",
+    payroll_signature: "NV",
+    payroll_number: "888565",
+    payroll_position: "14",
     template: "Letter Template",
     superannuation_D: "DB Fund",
     visa_check: "Yes",
