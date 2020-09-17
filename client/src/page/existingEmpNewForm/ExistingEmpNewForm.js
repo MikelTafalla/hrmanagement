@@ -454,15 +454,15 @@ const ExistingEmpNewForm = () => {
 
 
           />
-          {/* <button type="submit" onClick={(event) => { event.preventDefault(); updateForm("5f5ebfd51d0c97257d20d68a"); }}>CLick</button> */}
+          <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); postForm(); window.location.reload(true) }}>Save Form </button>
         </form>
       </div>
-      <br></br>
+      {/* <br></br>
       <hr></hr>
-      <div className=''><button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); postForm(); window.location.reload(true) }}>Save Form </button>
+      <div className=''>
       </div>
       <br></br>
-      <br></br>
+      <br></br> */}
 
     </Container>
 
