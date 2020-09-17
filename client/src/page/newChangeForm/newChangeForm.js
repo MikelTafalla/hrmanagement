@@ -4,7 +4,8 @@ import SectionA from "../../components/sectionA/SectionA";
 import SectionB from "../../components/sectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
+import { Link } from 'react-router-dom'
 import Countries from "../../components/sectionA/countries.json";
 import Agreement from "../../components/sectionC/agreement.json";
 import Classification from "../../components/sectionC/classification.json";
@@ -318,7 +319,7 @@ console.log(form.effective_day)
       <div>
         <form>
           <Header
-            title="Employee Change Form"
+            title="New Hire Form"
             mandatory="All fields are considered mandatory"
             questions="Questions? Need Help? Contact the O-I HR Central Team"
             phone="Australia +61 3 9326 2525"
@@ -454,15 +455,9 @@ console.log(form.effective_day)
 
 
           />
-          <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); postNewEmployee()}}>Save Form </button>
+          <Link to='employeedirectory'><Button className='ui violet button stuck attached big' type="submit" onClick={() => postNewEmployee()}>Save Form </Button></Link>
         </form>
       </div>
-      {/* <br></br>
-      <hr></hr>
-      <div className=''><button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault() }}>Save Form </button>
-      </div>
-      <br></br>
-      <br></br> */}
       
     </Container>
 

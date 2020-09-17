@@ -44,8 +44,7 @@ const FormTable = () => {
     <React.Fragment>
     {openStatus.map(item => (
     <Container>
-     <Link to='existingemployeenewform'><i className="file violet alternate huge icon" type="submit" onClick={()=> (e) => storeDbId(e)} value={item._id}></i>
-      <p>Form in progress</p></Link> 
+      <Link to='employeechangeForm'><Button color='violet' type="submit" onClick={(e) => storeDbId(e)} value={item._id}>Continue with Form in Progress</Button></Link>
     </Container>
     ))}
     <Table compact celled definition>
