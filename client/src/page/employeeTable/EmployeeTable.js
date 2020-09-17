@@ -23,6 +23,7 @@ const EmployeeDirectory = (props) => {
   return (
     <div>
       <DepartmentHeader />
+      <br></br>
       <Table
         name={info.employee_name}
         employeeId={info.employeeId}
