@@ -6,7 +6,7 @@ import SectionB from "../../components/sectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
 import API from "../../utils/API";
-import { Container} from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import Countries from "../../components/sectionA/countries.json";
 import Agreement from "../../components/sectionC/agreement.json";
 import Classification from "../../components/sectionC/classification.json";
@@ -15,7 +15,7 @@ import Classification from "../../components/sectionC/classification.json";
 function EmployeeChangeForm() {
   //Store information from database
   const [form, setForm] = useState({});
-  
+
   //States for section C
   const [currentAgreement, setCurrentAgreement] = useState([]);
   const [proposedAgreement, setProposedAgreement] = useState([{}]);
@@ -24,103 +24,102 @@ function EmployeeChangeForm() {
 
   //Activates to retrive information from the API/DB
   useEffect(() => {
-    populateForm("5f626ac0d315671f680aacf1");
+    populateForm("5f627b7717e763061c8d3be3");
   }, [])
 
   const populateForm = (id) => {
     API.findById(id)
       .then(res => setForm({
-       employee_type: res.data.employee_type,
-       employee_classification: res.data.employee_classification,
-       position: res.data.position,
-       incumbent: res.data.incumbent,
-       employee_name: res.data.employee_name,
-       employeeId: res.data.employeeId,
-       typeOfChange: res.data.typeOfChange,
-       change_reasons: res.data.change_reasons,
-       effective_day: res.data.effective_day,
-       effective_month: res.data.effective_month,
-       effective_year: res.data.effective_year,
-       current_title: res.data.current_title,
-       new_title: res.data.new_title,
-       work_country: res.data.work_country,
-       location: res.data.location,
-       function: res.data.function,
-       department: res.data.department,
-       manager: res.data.manager,
-       salary_cost: res.data.salary_cost,
-       travel_cost: res.data.travel_cost,
-       business_unit: res.data.business_unit,
-       haypoint_current: res.data.haypoint_current,
-       haypoint_proposed: res.data.haypoint_proposed,
-       currency_current: res.data.currency_current,
-       currency_proposed: res.data.currency_proposed,
-       baseSalary_current: res.data.baseSalary_current,
-       baseSalary_proposed: res.data.baseSalary_proposed,
-       vehicle_current: res.data.vehicle_current,
-       vehicle_proposed: res.data.vehicle_proposed,
-       sti_current: res.data.sti_current,
-       sti_proposed: res.data.sti_proposed,
-       superannuationB_current: res.data.superannuationB_current,
-       superannuationB_proposed: res.data.superannuationB_proposed,
-       reward_current: res.data.reward_current,
-       reward_proposed: res.data.reward_proposed,
-       percentage_change: res.data.percentage_change,
-       other_allowances_B: res.data.other_allowances_B,
-       hoursB_monday: res.data.hoursB_monday,
-       hoursB_tuesday: res.data.hoursB_tuesday,
-       hoursB_wednesday: res.data.hoursB_wednesday,
-       hoursB_thursday: res.data.hoursB_thursday,
-       hoursB_friday: res.data.hoursB_friday,
-       hoursB_saturday: res.data.hoursB_saturday,
-       hoursB_sunday: res.data.hoursB_sunday,
-       total_hours_B: res.data.total_hours_B,
-       employee_agreement_current: res.data.employee_agreement_current,
-       employee_agreement_proposed: res.data.employee_agreement_proposed,
-       classification_current: res.data.classification_current,
-       classification_proposed: res.data.classification_proposed,
-       locationDB: res.data.location,
-       team_leader_allowance: res.data.team_leader_allowance,
-       leading_hand_allowance: res.data.leading_hand_allowance,
-       dual_trade_allowance: res.data.dual_trade_allowance,
-       other_allowances_C: res.data.other_allowances_C,
-       work_schedule: res.data.work_schedule,
-       shift: res.data.shift,
-       hoursC_monday: res.data.hoursC_monday,
-       hoursC_tuesday: res.data.hoursC_tuesday,
-       hoursC_wednesday: res.data.hoursC_wednesday,
-       hoursC_thursday: res.data.hoursC_thursday,
-       hoursC_friday: res.data.hoursC_friday,
-       hoursC_saturday: res.data.hoursC_saturday,
-       hoursC_sunday: res.data.hoursC_sunday,
-       total_hours_C: res.data.total_hours_C,
-       change_justification: res.data.change_justification,
-       submitted_by_name: res.data.submitted_by_name,
-       submitted_by_position: res.data.submitted_by_position,
-       submission_day: res.data.submission_day,
-       submission_month: res.data.submission_month,
-       submission_year: res.data.submission_year,
-       hr_name: res.data.hr_name,
-       hr_signature: res.data.hr_signature,
-       first_approver_name: res.data.first_approver_name,
-       first_approver_signature: res.data.first_approver_signature,
-       second_approver_name: res.data.second_approver_name,
-       second_approver_signature: res.data.second_approver_signature,
-       hr_central_name: res.data.hr_central_name,
-       hr_central_signature: res.data.hr_central_signature,
-       payroll_name: res.data.payroll_name,
-       payroll_signature: res.data.payroll_signature,
-       payroll_number: res.data.payroll_number,
-       payroll_position: res.data.payroll_position,
-       template: res.data.template,
-       superannuation_D: res.data.superannuation_D,
-       visa_check: res.data_visa_check,
-       comments: res.data.comments,
-       
+        employee_type: res.data.employee_type,
+        employee_classification: res.data.employee_classification,
+        position: res.data.position,
+        incumbent: res.data.incumbent,
+        employee_name: res.data.employee_name,
+        employeeId: res.data.employeeId,
+        typeOfChange: res.data.typeOfChange,
+        change_reasons: res.data.change_reasons,
+        effective_day: res.data.effective_day,
+        effective_month: res.data.effective_month,
+        effective_year: res.data.effective_year,
+        current_title: res.data.current_title,
+        new_title: res.data.new_title,
+        work_country: res.data.work_country,
+        location: res.data.location,
+        function: res.data.function,
+        department: res.data.department,
+        manager: res.data.manager,
+        salary_cost: res.data.salary_cost,
+        travel_cost: res.data.travel_cost,
+        business_unit: res.data.business_unit,
+        haypoint_current: res.data.haypoint_current,
+        haypoint_proposed: res.data.haypoint_proposed,
+        currency_current: res.data.currency_current,
+        currency_proposed: res.data.currency_proposed,
+        baseSalary_current: res.data.baseSalary_current,
+        baseSalary_proposed: res.data.baseSalary_proposed,
+        vehicle_current: res.data.vehicle_current,
+        vehicle_proposed: res.data.vehicle_proposed,
+        sti_current: res.data.sti_current,
+        sti_proposed: res.data.sti_proposed,
+        superannuationB_current: res.data.superannuationB_current,
+        superannuationB_proposed: res.data.superannuationB_proposed,
+        reward_current: res.data.reward_current,
+        reward_proposed: res.data.reward_proposed,
+        percentage_change: res.data.percentage_change,
+        other_allowances_B: res.data.other_allowances_B,
+        hoursB_monday: res.data.hoursB_monday,
+        hoursB_tuesday: res.data.hoursB_tuesday,
+        hoursB_wednesday: res.data.hoursB_wednesday,
+        hoursB_thursday: res.data.hoursB_thursday,
+        hoursB_friday: res.data.hoursB_friday,
+        hoursB_saturday: res.data.hoursB_saturday,
+        hoursB_sunday: res.data.hoursB_sunday,
+        total_hours_B: res.data.total_hours_B,
+        employee_agreement_current: res.data.employee_agreement_current,
+        employee_agreement_proposed: res.data.employee_agreement_proposed,
+        classification_current: res.data.classification_current,
+        classification_proposed: res.data.classification_proposed,
+        locationDB: res.data.location,
+        team_leader_allowance: res.data.team_leader_allowance,
+        leading_hand_allowance: res.data.leading_hand_allowance,
+        dual_trade_allowance: res.data.dual_trade_allowance,
+        other_allowances_C: res.data.other_allowances_C,
+        work_schedule: res.data.work_schedule,
+        shift: res.data.shift,
+        hoursC_monday: res.data.hoursC_monday,
+        hoursC_tuesday: res.data.hoursC_tuesday,
+        hoursC_wednesday: res.data.hoursC_wednesday,
+        hoursC_thursday: res.data.hoursC_thursday,
+        hoursC_friday: res.data.hoursC_friday,
+        hoursC_saturday: res.data.hoursC_saturday,
+        hoursC_sunday: res.data.hoursC_sunday,
+        total_hours_C: res.data.total_hours_C,
+        change_justification: res.data.change_justification,
+        submitted_by_name: res.data.submitted_by_name,
+        submitted_by_position: res.data.submitted_by_position,
+        submission_day: res.data.submission_day,
+        submission_month: res.data.submission_month,
+        submission_year: res.data.submission_year,
+        hr_name: res.data.hr_name,
+        hr_signature: res.data.hr_signature,
+        first_approver_name: res.data.first_approver_name,
+        first_approver_signature: res.data.first_approver_signature,
+        second_approver_name: res.data.second_approver_name,
+        second_approver_signature: res.data.second_approver_signature,
+        hr_central_name: res.data.hr_central_name,
+        hr_central_signature: res.data.hr_central_signature,
+        payroll_name: res.data.payroll_name,
+        payroll_signature: res.data.payroll_signature,
+        payroll_number: res.data.payroll_number,
+        payroll_position: res.data.payroll_position,
+        template: res.data.template,
+        superannuation_D: res.data.superannuation_D,
+        visa_check: res.data_visa_check,
+        comments: res.data.comments,
+
       }))
       .catch(err => console.log(err));
   }
-
   useEffect(() => {
     //Set only cities that have an agreement 
     const cities = ["Adelaide", "Brisbane", "Melbourne CBD", "Melbourne", "Sydney"];
@@ -154,19 +153,19 @@ function EmployeeChangeForm() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (value.length > 0) {
-      setForm({...form, [name]: value});
-    } else { setForm({ ...form, [name]: value}) }
+      setForm({ ...form, [name]: value });
+    } else { setForm({ ...form, [name]: value }) }
   }
 
   const handleDropdown = (e) => {
     const { name, value } = e.target
-    setForm({...form, [name]: value})
+    setForm({ ...form, [name]: value })
   }
-  
+
   //Logic to get dropdown list display the location from the database as selected on page load
   const citiesToDisplay = []
   let cities = []
-  const place = form.work_country 
+  const place = form.work_country
   for (let i = 1; i < Countries.length; i++) {
     if (place === Countries[i].name) {
       cities = Countries[i].cities
@@ -181,7 +180,7 @@ function EmployeeChangeForm() {
   const unique = [...new Set(citiesToDisplay)]
 
   ////Create props for section C
-  const manageClassifications =  () => {
+  const manageClassifications = () => {
     setCurrentClassification([]);
     setProposedClassification([])
   }
@@ -189,8 +188,8 @@ function EmployeeChangeForm() {
   const handleCurrentClassification = (selectedValue) => {
     //changes value of agreement current
     const { name, value } = selectedValue.target
-    setForm({...form, [name]: value})
-  
+    setForm({ ...form, [name]: value })
+
     Classification.forEach(element => {
       const item = element.agreement
       for (var i = 0; i < item.length; i++) {
@@ -200,11 +199,11 @@ function EmployeeChangeForm() {
       }
     });
   }
- 
+
   const handleProposedClassification = (selectedValue) => {
     //changes value of agreement proposed
     const { name, value } = selectedValue.target
-    setForm({...form, [name]: value})
+    setForm({ ...form, [name]: value })
     Classification.forEach(element => {
       const item = element.agreement
       for (var i = 0; i < item.length; i++) {
@@ -234,7 +233,7 @@ function EmployeeChangeForm() {
       }
 
     }
-    
+
   }
   const agrCurrentUnique = [...new Set(agrCurrentDisplay)]
 
@@ -253,7 +252,7 @@ function EmployeeChangeForm() {
         agrProposedDisplay.push(proposedagr[j].name)
       }
     }
-   
+
   }
 
   const agrProposedUnique = [...new Set(agrProposedDisplay)]
@@ -277,7 +276,7 @@ function EmployeeChangeForm() {
         }
       }
     }
-   
+
   }
 
   const classCurrentUnique = [...new Set(classCurrentDisplay)]
@@ -303,7 +302,7 @@ function EmployeeChangeForm() {
         }
       }
     }
-    
+
   }
 
   const classProposedUnique = [...new Set(classProposedDisplay)]
@@ -452,7 +451,7 @@ function EmployeeChangeForm() {
 
 
           />
-          <button type="submit" onClick={(event) => { event.preventDefault(); updateForm("5f626ac0d315671f680aacf1"); }}>CLick</button>
+          <button type="submit" onClick={(event) => { event.preventDefault(); updateForm("5f627b7717e763061c8d3be3"); }}>CLick</button>
         </form>
       </div>
     </Container>
