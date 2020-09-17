@@ -451,11 +451,10 @@ function EmployeeChangeForm() {
 
 
           />
-          <button type="submit" onClick={(event) => { event.preventDefault(); updateForm("5f627b7717e763061c8d3be3"); }}>CLick</button>
+          <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); updateForm("5f627b7717e763061c8d3be3"); }}>Update Form</button>
         </form>
       </div>
 
-      <button>Click</button>
     </Container>
 
   );

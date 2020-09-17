@@ -6,6 +6,7 @@ const Table = props => {
 
 
   return (
+    <div className='six wide column'><Link to="newchangeform"><button className='ui violet button large'>Create A New Hire</button></Link>
     <table className="ui celled table">
       <thead>
         <tr><th>Name</th>
@@ -23,6 +24,7 @@ const Table = props => {
         ))}
       </tbody>
     </table>
+    </div>
   )
 };
 

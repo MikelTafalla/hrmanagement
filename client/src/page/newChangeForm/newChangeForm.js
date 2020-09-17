@@ -140,6 +140,8 @@ console.log(form.effective_day)
     }
   }, [form.work_country, form.location]);
 
+  
+
   //Create props for section A
 
   const handleInputChange = (e) => {
@@ -448,6 +450,13 @@ console.log(form.effective_day)
           {/* <button type="submit" onClick={(event) => { event.preventDefault(); updateForm("5f5ebfd51d0c97257d20d68a"); }}>CLick</button> */}
         </form>
       </div>
+      <br></br>
+      <hr></hr>
+      <div className=''><button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault() }}>Save Form </button>
+      </div>
+      <br></br>
+      <br></br>
+      
     </Container>
 
   );
