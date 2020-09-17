@@ -24,7 +24,7 @@ function EmployeeChangeForm() {
 
   //Activates to retrive information from the API/DB
   useEffect(() => {
-    populateForm("5f627b7717e763061c8d3be3");
+    populateForm("5f5be3eabb8fea1185f5e29e");
   }, [])
 
   const populateForm = (id) => {
@@ -454,6 +454,8 @@ function EmployeeChangeForm() {
           <button type="submit" onClick={(event) => { event.preventDefault(); updateForm("5f627b7717e763061c8d3be3"); }}>CLick</button>
         </form>
       </div>
+
+      <button>Click</button>
     </Container>
 
   );
