@@ -11,6 +11,9 @@ router.route("/changeform/:id")
 router.route("/newform")
     .post(employeeChangeFormController.create);
 
+router.route("/existingemployeenewform")
+    .post(employeeChangeFormController.createExisting);
+
 router.route("/employeedirectory")
     .get(employeeChangeFormController.findAll);
 

@@ -25,6 +25,13 @@ module.exports = {
       )
       .catch(err => console.log(err))
   },
+  createExisting: ({ body }, res) => {
+    db.EmployeeChangeForm
+      .create(body)
+      .then(data => res.json(data)
+      )
+      .catch(err => console.log(err))
+  },
   findAll: (req, res) => {
     db.EmployeeChangeForm
       .find(req.query)
