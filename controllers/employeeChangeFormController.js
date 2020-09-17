@@ -28,8 +28,20 @@ module.exports = {
   findAll: (req, res) => {
     db.EmployeeChangeForm
       .find(req.query)
-      .then(dbmodel => res.json(dbmodel))
+      .then(dbmodel => {
+        // console.log(dbmodel)
+        res.json(dbmodel)
+      })
       .catch(err => console.log(err))
+  },
+  findReport: ({params}, res) => {
+    console.log(params)
+    db.EmployeeChangeForm
+    .find({employeeId: params.id})
+    .then(dbmodel => {
+      console.log(dbmodel)
+      res.json(dbmodel)
+    })
+    .catch(err => console.log(err))
   }
-
 }

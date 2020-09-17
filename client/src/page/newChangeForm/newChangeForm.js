@@ -4,7 +4,6 @@ import SectionA from "../../components/sectionA/SectionA";
 import SectionB from "../../components/sectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
-import API from "../../utils/API";
 import { Container } from "semantic-ui-react";
 import Countries from "../../components/sectionA/countries.json";
 import Agreement from "../../components/sectionC/agreement.json";

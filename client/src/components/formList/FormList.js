@@ -1,12 +1,24 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Icon, Button, Table } from 'semantic-ui-react'
 import "./formlist.css"
 import { Link } from 'react-router-dom'
+import API from "../../utils/API"
 
-const FormTable = () => {
+const FormTable = (props) => {
     const openBtn = (selectedUser) => {
         console.log(selectedUser)
     }
+    console.log(props.activeEmployee)
+    useEffect(() => {
+        populateHistoryReport(props.activeEmployee);
+      }, [props.activeEmployee])
+    
+    const populateHistoryReport= (id) => {
+        API.findReport(id)
+          .then(res => console.log(res.data))
+          .catch(err => console.log(err));
+      }
+
     return (
 
 
