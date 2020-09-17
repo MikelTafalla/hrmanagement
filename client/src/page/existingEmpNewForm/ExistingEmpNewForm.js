@@ -4,11 +4,13 @@ import SectionA from "../../components/sectionA/SectionA";
 import SectionB from "../../components/sectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
+import { Link } from 'react-router-dom'
 import Countries from "../../components/sectionA/countries.json";
 import Agreement from "../../components/sectionC/agreement.json";
 import Classification from "../../components/sectionC/classification.json";
 import API from "../../utils/API"
+
 
 
 const ExistingEmpNewForm = () => {
@@ -454,15 +456,9 @@ const ExistingEmpNewForm = () => {
 
 
           />
-          <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); postForm(); window.location.reload(true) }}>Save Form </button>
+          <Link to='formlistpage'><Button className='ui violet button stuck attached big' type="submit" onClick={() =>  postForm()}>Save Form </Button></Link>
         </form>
       </div>
-      {/* <br></br>
-      <hr></hr>
-      <div className=''>
-      </div>
-      <br></br>
-      <br></br> */}
 
     </Container>
 

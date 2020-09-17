@@ -12,7 +12,7 @@ function HeaderOne(props) {
     <div>
         <Segment  padded='very' vertical color='white'>
             <Image centered src={'./images/hrimage3.png'} size={'tiny'} />
-            <Header as='h1' textAlign='center'>Employee Change Form</Header>
+            <Header as='h1' textAlign='center'>{props.title}</Header>
 
         </Segment>
     
