@@ -10,12 +10,11 @@ import Agreement from "../../components/sectionC/agreement.json";
 import Classification from "../../components/sectionC/classification.json";
 
 
+
 const NewChangeForm = () => {
 
   //Store information from database
-  const [form, setForm] = useState({
-    // employee_name: "",
-  });
+  const [form, setForm] = useState({});
   
   //States for section C
   const [currentAgreement, setCurrentAgreement] = useState([]);
@@ -115,6 +114,8 @@ const NewChangeForm = () => {
       
      })
   }, [])
+
+
 console.log(form.effective_day)
   useEffect(() => {
     //Set only cities that have an agreement 

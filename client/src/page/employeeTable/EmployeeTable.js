@@ -4,7 +4,7 @@ import DepartmentHeader from "../../components/header/DepartmentHeader"
 import API from "../../utils/API"
 
 
-const EmployeeDirectory = (props) => {
+const EmployeeDirectory = () => {
   const [info, setInfo] = useState([]);
   
 
@@ -17,8 +17,6 @@ const EmployeeDirectory = (props) => {
       .then(results => setInfo(results.data))
       .catch(err => console.log(err))
   };
-  
-  const storeId = props.storeId
 
   return (
     <div>
@@ -28,7 +26,6 @@ const EmployeeDirectory = (props) => {
         name={info.employee_name}
         employeeId={info.employeeId}
         db={info}
-        storeId={storeId}
       />
     </div>
   );

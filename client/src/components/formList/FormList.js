@@ -1,57 +1,64 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Icon, Button, Table } from 'semantic-ui-react'
 import "./formlist.css"
 import { Link } from 'react-router-dom'
 import API from "../../utils/API"
 
-const FormTable = (props) => {
-    const openBtn = (selectedUser) => {
-        console.log(selectedUser)
-    }
-    console.log(props.activeEmployee)
+const FormTable = () => {
+    //State to store information from the API call populateHistoryReport
+    const[dbInfo, setDbInfo] = useState([])
+
+    const EmployeeLSId = JSON.parse(localStorage.getItem("EmployeeId"))
     useEffect(() => {
-        populateHistoryReport(props.activeEmployee);
-      }, [props.activeEmployee])
+        const EmployeeId = JSON.parse(localStorage.getItem("EmployeeId"))
+        populateHistoryReport(EmployeeId);
+      }, [])
     
     const populateHistoryReport= (id) => {
         API.findReport(id)
-          .then(res => console.log(res.data))
+          .then(res => setDbInfo(res.data))
           .catch(err => console.log(err));
       }
 
+      //Set id in looking storage to be able to access it after update refresh
+    const storeDbId = (e) => {
+    const dbId = e.target.value
+    localStorage.setItem("DBid", JSON.stringify(dbId))
+    }
     return (
-
 
         <Table compact celled definition>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell />
-                    <Table.HeaderCell>Name</Table.HeaderCell>
+                    <Table.HeaderCell>Employee Name</Table.HeaderCell>
                     <Table.HeaderCell>Created Date</Table.HeaderCell>
                     <Table.HeaderCell>Created By</Table.HeaderCell>
                 </Table.Row>
             </Table.Header>
 
             <Table.Body>
-                <Table.Row>
+                {dbInfo.map(history => (
+                <Table.Row key={history._id}>
                     <Table.Cell collapsing>
-                        <Button color='violet' onClick={(e) => openBtn(e.target.value)} value='open'>View Form</Button>
+                    <Link to='employeechangeForm'><Button color='violet' type="submit" onClick={(e) =>   storeDbId(e)} value={history._id}>View Form</Button></Link>
                     </Table.Cell>
-                    <Table.Cell>John Lilki</Table.Cell>
-                    <Table.Cell>September 14, 2013</Table.Cell>
-                    <Table.Cell>jhlilk22@yahoo.com</Table.Cell>
+                    <Table.Cell>{history.employee_name}</Table.Cell>
+                    <Table.Cell>{history.submission_day} / {history.submission_month} / {history.submission_year}</Table.Cell>
+                    <Table.Cell>{history.hr_name}</Table.Cell>
                 </Table.Row>
+                ))}
             </Table.Body>
 
             <Table.Footer fullWidth>
                 <Table.Row>
                     <Table.HeaderCell />
                     <Table.HeaderCell colSpan='4'>
-                       <Link to='employeechangeform'> <Button 
+                       <Link to='existingemployeenewform'> <Button 
                             floated='right'
                             icon labelPosition='left'
                             size='small'
-                            color='violet' onClick={(e) => openBtn(e.target.value)} value='EmployeeID'>
+                            color='violet' value={EmployeeLSId}>
                       
                             <Icon name='user' /> Create a New Form
                         </Button> </Link>
@@ -65,32 +72,5 @@ const FormTable = (props) => {
 
 }
 
-export default FormTable
+export default FormTable;
 
-// function Table(props) {
-//     return (
-//         <table className="table table-light">
-//             <thead>
-//                 <tr>
-//                     <th scope="col">Name<span onClick={props.sortedUsers}><i className={props.className} id="name"></i></span></th>
-//                     <th scope="col">Created Date<span onClick={props.sortedUsers}><i className={props.className} id="phone"></i></span></th>
-//                     <button  className='ui violet inverted fluid button '>View<span onClick={props.sortedUsers}><i className={props.className} id="email"></i></span></button>
-//                 </tr>
-
-//             </thead>
-//             {/* <tbody>
-//                 {props.users.map(user => (
-//                     <tr key={user.phone}>
-//                         <td><img src={user.picture.large} alt="user" /></td>
-//                         <td>{user.name.last}, {user.name.first}</td>
-//                         <td>{user.phone}</td>
-//                         <td>{user.email}</td>
-//                         <td>{user.location.country}</td>
-//                     </tr>
-//                 ))}
-//             </tbody> */}
-//         </table >
-//     )
-// };
-
-// export default Table;

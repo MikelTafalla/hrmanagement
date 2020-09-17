@@ -11,6 +11,9 @@ export default {
     create: function (formData) {
         return axios.post("/newform", formData)
     },
+    createExisting: function (form) {
+        return axios.post("/existingemployeenewform", form)
+    },
     findAll: function () {
         return axios.get("/employeedirectory")
     },
