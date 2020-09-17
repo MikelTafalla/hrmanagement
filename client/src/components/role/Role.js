@@ -1,24 +1,34 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
-import "./Role.css"
+import { Card, Grid, Image, Container } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-const CardColored = () => {
-    const cardClick = (selectedCard) => {
-        console.log(selectedCard)
-    }
-    return (
+const RoleSection = () => {
+  const cardClick = (selectedCard) => {
+    console.log(selectedCard)
+  }
+  return (
 
-        
+    <Grid centered stackable container columns={3}>
+      <Grid.Column>
+        <Image src='./images/manager.png' size='large' />
+        <Link to='employeetable'><button className='ui violet inverted fluid button large' onClick={(e) => cardClick(e.target.value)} value='manager'>Manager</button></Link>
+      </Grid.Column>
+      <Grid.Column>
+        <Image src='./images/hrimage4.png' size='large' />
+        <Link to='employeetable'><button className='ui violet inverted fluid button large' onClick={(e) => cardClick(e.target.value)} value='humanResource'>Human Resource</button></Link>
+      </Grid.Column>
+      <Grid.Column>
+        <Image src='./images/payroll.png' size='large' />
+        <Link to='employeetable'><button className='ui violet inverted fluid button large' onClick={(e) => cardClick(e.target.value)} value='payroll'>Payroll</button></Link>
+      </Grid.Column>
+    </Grid>
 
-        <Card.Group centered stackable itemsPerRow={3}>
-            <Link to='employeetable'><div><Card name='manager' color='blue' image={'./images/manager.png'} /><button className='ui violet inverted fluid button large' onClick={(e) => cardClick(e.target.value)} value='manager'>Management Department</button></div></Link>
-            <Link to='employeetable'><div><Card name='humanResource' color='violet' image={'./images/hrimage4.png'} /><button className='ui violet inverted fluid button large' onClick={(e) => cardClick(e.target.value)} value='humanResource'>HR Department</button></div></Link>
-            <Link to='employeetable'><div><Card name='payroll' color='green' image={'./images/payroll.png'} /><button className='ui violet inverted fluid button large' onClick={(e) => cardClick(e.target.value)} value='payroll'>Payroll Department</button></div></Link>
-        </Card.Group>
 
-    )
+
+
+
+  )
 
 }
 
-export default CardColored
+export default RoleSection

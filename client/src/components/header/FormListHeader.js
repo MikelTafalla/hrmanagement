@@ -10,11 +10,11 @@ function FormHeader() {
     return (
 
 
-        <Segment inverted padded='very' vertical color='violet'>
-            <Image centered src={'./images/hrimage3.png'} size={'tiny'} />
-            <Header as='h1' textAlign='center'>Employee Change Form List</Header>
+        <div id='head' className='ui sixteen wide column padded' >
+            <br></br>
+            <div id='h1'><Header as='h1' textAlign='center'>Employee Form List</Header></div>
 
-        </Segment>
+        </div>
 
     )
 

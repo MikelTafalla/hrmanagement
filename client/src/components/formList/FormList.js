@@ -1,6 +1,7 @@
 import React from 'react'
 import { Icon, Button, Table } from 'semantic-ui-react'
 import "./formlist.css"
+import { Link } from 'react-router-dom'
 
 const FormTable = () => {
     const openBtn = (selectedUser) => {
@@ -34,14 +35,14 @@ const FormTable = () => {
                 <Table.Row>
                     <Table.HeaderCell />
                     <Table.HeaderCell colSpan='4'>
-                        <Button
+                       <Link to='employeechangeform'> <Button 
                             floated='right'
                             icon labelPosition='left'
                             size='small'
-                            color='violet'
-                        >
+                            color='violet' onClick={(e) => openBtn(e.target.value)} value='EmployeeID'>
+                      
                             <Icon name='user' /> Create a New Form
-                        </Button>
+                        </Button> </Link>
                     </Table.HeaderCell>
                 </Table.Row>
             </Table.Footer>

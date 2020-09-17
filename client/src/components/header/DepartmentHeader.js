@@ -1,23 +1,20 @@
 import React from "react";
-import {
-    Segment,
-    Header,
-    Image
-} from 'semantic-ui-react'
+import {Header} from 'semantic-ui-react';
+import "./DepartmentStyle.css";
 
 
 function DepartmentHeader() {
     return (
 
 
-        <Segment inverted padded='very' vertical color='violet'>
-            <Image centered src={'./images/hrimage3.png'} size={'small'} />
-            <Header as='h1' textAlign='center'>Welcome to the Deparment Validation Page</Header>
-            <Header as='h2' textAlign='center'>Please Choose your Role</Header>
 
-        </Segment>
 
-    )
+        <div id='head' className='ui sixteen wide column padded' >
+            <br></br>
+            <div id='h3'><Header as='h3'textAlign='center'>WelcomeTo</Header></div>
+            <div id='h1head'><Header as='h1' color='violet' textAlign='center'>HR Operations</Header></div>
+        </div>
+        )
 
 
 

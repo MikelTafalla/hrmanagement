@@ -10,14 +10,14 @@ function HeaderOne(props) {
   return (
 
     <div>
-      <Segment  padded='very' vertical color='violet'>
+        <Segment  padded='very' vertical color='white'>
             <Image centered src={'./images/hrimage3.png'} size={'tiny'} />
             <Header as='h1' textAlign='center'>Employee Change Form</Header>
 
         </Segment>
     
     
-    <div className="ui equal width padded grid container">
+    <div className="ui equal width padded grid container inverted">
       <div className="eight wide column">
         <ul className="bold">
           <li>{props.mandatory}</li>
