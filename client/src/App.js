@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import EmployeeChangeForm from "./page/employeeChangeForm/EmployeeChangeForm";
 import DepartmentValidationForm from "./page/departmentValidationForm/DepartmentValidationForm";
@@ -9,13 +9,27 @@ import newChangeForm from "./page/newChangeForm/newChangeForm";
 
 
 function App() {
+  const [activeEmployee, setActiveEmployee] = useState([])
+
+  const storeId = (e) => {
+
+    setActiveEmployee(e.target.value);
+    console.log("Id stored")
+  }
+
   return (
     <Router>
       <Switch>
 
         <Route path="/" exact component={DepartmentValidationForm} />
-        <Route path="/employeedirectory" component={EmployeeDirectory} />
-        <Route path="/formlistpage" component={FormListPage} />
+        <Route path="/employeedirectory" component={() => 
+        <EmployeeDirectory 
+          storeId = {storeId}
+        />} />
+        <Route path="/formlistpage" component={()=> 
+        <FormListPage
+          activeEmployee={activeEmployee}
+        />} />
         <Route path="/employeechangeForm" component={EmployeeChangeForm} />
         <Route path="/newchangeform"
           component={newChangeForm} />

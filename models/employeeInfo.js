@@ -19,7 +19,7 @@ const EmployeeChangeFormSchema = new Schema({
         type: String
     },
     employeeId: {
-        type: Number
+        type: String
     },
     typeOfChange: {
         type: String

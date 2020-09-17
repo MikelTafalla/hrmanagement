@@ -14,4 +14,7 @@ router.route("/newform")
 router.route("/employeedirectory")
     .get(employeeChangeFormController.findAll);
 
+router.route("/formlistpage/:id")
+    .get(employeeChangeFormController.findReport);
+
 module.exports = router;

@@ -2,12 +2,15 @@ import React from "react";
 import FormListHeader from "../../components/header/FormListHeader";
 import FormList from "../../components/formList/FormList";
 
-function FormHeader() {
+function FormHeader(props) {
+  const activeEmployee = props.activeEmployee
     return (
       <div>
         <FormListHeader />
         <br></br>
-        <FormList />
+        <FormList 
+        activeEmployee = {activeEmployee}
+        />
     
       </div>
     );

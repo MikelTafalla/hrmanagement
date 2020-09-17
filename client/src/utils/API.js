@@ -13,5 +13,8 @@ export default {
     },
     findAll: function () {
         return axios.get("/employeedirectory")
+    },
+    findReport: function (id) {
+        return axios.get(`/formlistpage/${id}`)
     }
 };

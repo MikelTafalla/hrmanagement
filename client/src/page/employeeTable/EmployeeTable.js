@@ -4,9 +4,9 @@ import DepartmentHeader from "../../components/header/DepartmentHeader"
 import API from "../../utils/API"
 
 
-const EmployeeDirectory = () => {
+const EmployeeDirectory = (props) => {
   const [info, setInfo] = useState([]);
-  // const [forms, setForms] = useState();
+  
 
   useEffect(() => {
     loadTable();
@@ -17,14 +17,8 @@ const EmployeeDirectory = () => {
       .then(results => setInfo(results.data))
       .catch(err => console.log(err))
   };
-
-  // const goToForms = (e) => {
-  //   console.log("You have Clicked!!!")
-  //   const link = "https://localhost3000/newchangeform"
-  //   setForms(link);
-  // }
-
-
+  
+  const storeId = props.storeId
 
   return (
     <div>
@@ -33,6 +27,7 @@ const EmployeeDirectory = () => {
         name={info.employee_name}
         employeeId={info.employeeId}
         db={info}
+        storeId={storeId}
       />
     </div>
   );
