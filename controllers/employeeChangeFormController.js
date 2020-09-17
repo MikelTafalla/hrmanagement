@@ -21,11 +21,15 @@ module.exports = {
   create: ({ body }, res) => {
     db.EmployeeChangeForm
       .create(body)
-      .then(data => {
-        console.log(data)
-        res.json(data)
-      })
-      .catch(err => console.log("You Fucked Up!!"))
+      .then(data => res.json(data)
+      )
+      .catch(err => console.log(err))
+  },
+  findAll: (req, res) => {
+    db.EmployeeChangeForm
+      .find(req.query)
+      .then(dbmodel => res.json(dbmodel))
+      .catch(err => console.log(err))
   }
 
 }

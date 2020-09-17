@@ -11,4 +11,7 @@ router.route("/changeform/:id")
 router.route("/newform")
     .post(employeeChangeFormController.create);
 
+router.route("/employeedirectory")
+    .get(employeeChangeFormController.findAll);
+
 module.exports = router;
