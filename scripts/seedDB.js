@@ -284,7 +284,7 @@ const employeeChangeFormSeed = [
     superannuation_D: "DB Fund",
     visa_check: "Yes",
     comments: "No Comments",
-    open: true
+    open: false
 
 
   },

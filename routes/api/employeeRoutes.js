@@ -8,7 +8,7 @@ router.route("/changeform/:id")
     .put(employeeChangeFormController.update);
 
 
-router.route("/newform")
+router.route("/newchangeform")
     .post(employeeChangeFormController.create);
 
 router.route("/existingemployeenewform")

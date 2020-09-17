@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom"
 
 
@@ -14,17 +14,18 @@ const Table = props => {
   let EmployeesArr = []
   props.db.map(item =>{
     EmployeesArr.push({employeeId: item.employeeId, employee_name:item.employee_name})
+    return EmployeesArr
   })
 
   const removeDuplicates = (originalArray, id) => {
     let newArray = [];
     let object = {};
     
-    for(var key in originalArray) {
-      object[originalArray[key][id]] = originalArray[key]
+    for(var i in originalArray) {
+      object[originalArray[i][id]] = originalArray[i]
     }
-    for(key in object) {
-      newArray.push(object[key]);
+    for(i in object) {
+      newArray.push(object[i]);
     }
     return newArray
   }

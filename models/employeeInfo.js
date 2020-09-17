@@ -265,7 +265,8 @@ const EmployeeChangeFormSchema = new Schema({
         type: String
     },
     open: {
-        type: Boolean
+        type: Boolean,
+        default: true
     }
 });
 

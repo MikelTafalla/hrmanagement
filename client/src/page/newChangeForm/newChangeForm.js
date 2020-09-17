@@ -8,6 +8,7 @@ import { Container } from "semantic-ui-react";
 import Countries from "../../components/sectionA/countries.json";
 import Agreement from "../../components/sectionC/agreement.json";
 import Classification from "../../components/sectionC/classification.json";
+import API from "../../utils/API"
 
 
 
@@ -141,7 +142,12 @@ console.log(form.effective_day)
     }
   }, [form.work_country, form.location]);
 
-  
+  //Create database new entry 
+  const postNewEmployee = () => {
+    API.createExisting(form)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+  }
 
   //Create props for section A
 
@@ -448,15 +454,15 @@ console.log(form.effective_day)
 
 
           />
-          {/* <button type="submit" onClick={(event) => { event.preventDefault(); updateForm("5f5ebfd51d0c97257d20d68a"); }}>CLick</button> */}
+          <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); postNewEmployee()}}>Save Form </button>
         </form>
       </div>
-      <br></br>
+      {/* <br></br>
       <hr></hr>
       <div className=''><button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault() }}>Save Form </button>
       </div>
       <br></br>
-      <br></br>
+      <br></br> */}
       
     </Container>
 

@@ -9,7 +9,7 @@ export default {
         return axios.put(`/changeform/${id}`, formData);
     },
     create: function (formData) {
-        return axios.post("/newform", formData)
+        return axios.post("/newchangeform", formData)
     },
     createExisting: function (form) {
         return axios.post("/existingemployeenewform", form)
