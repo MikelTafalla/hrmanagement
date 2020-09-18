@@ -9,3 +9,12 @@ th {
 .icon {
     cursor: pointer
 }
+
+#tbl{
+
+    background-color: #DFD3EA;
+}
+
+#formbtn{
+    margin-left: 450px;
+}

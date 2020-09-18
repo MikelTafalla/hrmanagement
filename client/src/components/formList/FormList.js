@@ -3,7 +3,6 @@ import { Icon, Button, Table } from 'semantic-ui-react'
 import "./formlist.css"
 import { Link } from 'react-router-dom'
 import API from "../../utils/API"
-import { Container } from "semantic-ui-react";
 
 const FormTable = () => {
   //State to store information from the API call populateHistoryReport
@@ -42,16 +41,19 @@ const FormTable = () => {
   divideDbInfo()
   return (
     <React.Fragment>
+      <Link to='employeedirectory'><div><Button className='ui violet inverted' >Go To Employee Directory</Button></div></Link>
     {openStatus.map(item => (
-    <Container>
-      <Link to='employeechangeForm'><Button color='violet' type="submit" onClick={(e) => storeDbId(e)} value={item._id}>Continue with Form in Progress</Button></Link>
-    </Container>
-    ))}
-    <Table compact celled definition>
       
-      <Table.Header>
+      <div id='formbtn'>
+      <Link to='employeechangeForm'><Button  size='large' color='violet' onClick={(e) => storeDbId(e)} value={item._id}><Icon name='file' /> Continue with Form In Progress</Button></Link>
+      </div>
+      
+    ))}
+    <Table id='tbl' singleLine sortable textAlign='center'>
+      
+      <Table.Header >
         <Table.Row>
-          <Table.HeaderCell />
+          <Table.HeaderCell>Closed Forms</Table.HeaderCell>
           <Table.HeaderCell>Employee Name</Table.HeaderCell>
           <Table.HeaderCell>Created Date</Table.HeaderCell>
           <Table.HeaderCell>Created By</Table.HeaderCell>
@@ -59,8 +61,11 @@ const FormTable = () => {
       </Table.Header>
     
       <Table.Body>
+        
+        
         {closedStatus.map(history => (
           <Table.Row key={history._id}>
+            
             <Table.Cell collapsing>
               <Link to='employeechangeForm'><Button color='violet' type="submit" onClick={(e) => storeDbId(e)} value={history._id}>View Form</Button></Link>
             </Table.Cell>
@@ -94,4 +99,3 @@ const FormTable = () => {
 }
 
 export default FormTable;
-
