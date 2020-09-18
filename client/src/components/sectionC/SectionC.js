@@ -3,7 +3,7 @@ import Shifts from "./shift.json";
 
 
 function SectionC(props) {
-  
+
   return (
     <div>
       <div className="ui padded grid container">
@@ -15,10 +15,8 @@ function SectionC(props) {
           <div className="five wide column">Employment Agreement:</div>
           <div className="row">
             <div className="five wide column">Current</div>
-            {console.log(props.location)}
-            {console.log(props.locationDB)}
             <select name="employee_agreement_current" className="ten wide column border" onChange={(e) => props.handleCurrentClassification(e)}>
-              
+
               {props.work_country && props.work_country !== "Australia" ?
                 <option value="null">N/A</option> : (props.location && props.location === props.locationDB ?
                   props.agrCurrentUnique.map(agr => (
@@ -74,7 +72,7 @@ function SectionC(props) {
               {props.work_country && props.work_country !== "Australia" ?
                 <option value="null">N/A</option> : (props.location && props.location === props.locationDB ?
                   props.classProposedUnique.map(cl => (
-                    <option value={`${cl}`} key={cl} >{cl}</option>)) : 
+                    <option value={`${cl}`} key={cl} >{cl}</option>)) :
                   props.proposedClassification.map(proposed => (
                     <option value={proposed} key={proposed}>{proposed}</option>))
                 )}
@@ -89,7 +87,7 @@ function SectionC(props) {
             type="text"
             placeholder="Team Leader Allowance"
             name="team_leader_allowance"
-            value={props.team_leader_allowance } onChange={(e)=> props.handleInputChange(e)}
+            value={props.team_leader_allowance} onChange={(e) => props.handleInputChange(e)}
           ></input>
         </div>
 
@@ -99,7 +97,7 @@ function SectionC(props) {
             type="text"
             placeholder="Leading Hand Allowance"
             name="leading_hand_allowance"
-            value={props.leading_hand_allowance } onChange={(e)=> props.handleInputChange(e)}
+            value={props.leading_hand_allowance} onChange={(e) => props.handleInputChange(e)}
           ></input>
         </div>
 
@@ -109,7 +107,7 @@ function SectionC(props) {
             type="text"
             placeholder="Dual Trade Allowance"
             name="dual_trade_allowance"
-            value={props.dual_trade_allowance } onChange={(e)=> props.handleInputChange(e)}
+            value={props.dual_trade_allowance} onChange={(e) => props.handleInputChange(e)}
           ></input>
         </div>
 
@@ -119,14 +117,14 @@ function SectionC(props) {
             type="text"
             placeholder="Dual Trade Allowance"
             name="other_allowances_C"
-            value={props.other_allowances_C } onChange={(e)=> props.handleInputChange(e)}
+            value={props.other_allowances_C} onChange={(e) => props.handleInputChange(e)}
           ></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Work Schedule:</div>
           <div className="five wide column">
-            <select name="work_schedule" value={props.work_schedule } onChange={(e)=> props.handleDropdown(e)}>
+            <select name="work_schedule" value={props.work_schedule} onChange={(e) => props.handleDropdown(e)}>
               <option value="Day">Day</option>
               <option value="Shift">Shift</option>
             </select>
@@ -136,7 +134,7 @@ function SectionC(props) {
         <div className="row">
           <div className="five wide column">Shift:</div>
           <div className="five wide column">
-            <select name="shift" value={props.shift } onChange={(e)=> props.handleDropdown(e)}>
+            <select name="shift" value={props.shift} onChange={(e) => props.handleDropdown(e)}>
               {Shifts.map(shift => (
                 <option key={shift.value} value={shift.value}>{shift.name}</option>
               ))}
@@ -156,37 +154,37 @@ function SectionC(props) {
 
         <div className="row">
           <div className="five wide column">Monday</div>
-          <input name="hoursC_monday" className="five wide column border" value={props.hoursC_monday } onChange={(e)=> props.handleInputChange(e)}></input>
+          <input name="hoursC_monday" className="five wide column border" value={props.hoursC_monday} onChange={(e) => props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Tuesday</div>
-          <input name="hoursC_tuesday" className="five wide column border" value={props.hoursC_tuesday } onChange={(e)=> props.handleInputChange(e)}></input>
+          <input name="hoursC_tuesday" className="five wide column border" value={props.hoursC_tuesday} onChange={(e) => props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Wednesday</div>
-          <input name="hoursC_wednesday" className="five wide column border" value={props.hoursC_wednesday } onChange={(e)=> props.handleInputChange(e)}></input>
+          <input name="hoursC_wednesday" className="five wide column border" value={props.hoursC_wednesday} onChange={(e) => props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Thursday</div>
-          <input name="hoursC_thursday" className="five wide column border" value={props.hoursC_thursday } onChange={(e)=> props.handleInputChange(e)}></input>
+          <input name="hoursC_thursday" className="five wide column border" value={props.hoursC_thursday} onChange={(e) => props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Friday</div>
-          <input name="hoursC_friday" className="five wide column border" value={props.hoursC_friday } onChange={(e)=> props.handleInputChange(e)}></input>
+          <input name="hoursC_friday" className="five wide column border" value={props.hoursC_friday} onChange={(e) => props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Saturday</div>
-          <input name="hoursC_saturday" className="five wide column border" value={props.hoursC_saturday } onChange={(e)=> props.handleInputChange(e)}></input>
+          <input name="hoursC_saturday" className="five wide column border" value={props.hoursC_saturday} onChange={(e) => props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
           <div className="five wide column">Sunday</div>
-          <input name="hoursC_sunday" className="five wide column border" value={props.hoursC_sunday } onChange={(e)=> props.handleInputChange(e)}></input>
+          <input name="hoursC_sunday" className="five wide column border" value={props.hoursC_sunday} onChange={(e) => props.handleInputChange(e)}></input>
         </div>
 
         <div className="row">
@@ -196,7 +194,7 @@ function SectionC(props) {
           <input
             className="two wide column border"
             name="total_hours_C"
-            value={props.total_hours_C } onChange={(e)=> props.handleInputChange(e)}
+            value={props.total_hours_C} onChange={(e) => props.handleInputChange(e)}
           ></input>
         </div>
       </div>

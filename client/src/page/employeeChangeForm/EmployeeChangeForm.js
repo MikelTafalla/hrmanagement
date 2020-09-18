@@ -7,7 +7,6 @@ import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
 import API from "../../utils/API";
 import { Container, Button } from "semantic-ui-react";
-import { StickyContainer, Sticky } from 'react-sticky';
 import { Link } from "react-router-dom";
 import Countries from "../../components/sectionA/countries.json";
 import Agreement from "../../components/sectionC/agreement.json";
@@ -162,7 +161,7 @@ function EmployeeChangeForm() {
 
   //Function and conditional to render open or close form button
   const toggleFunction = (id) => {
-    if(form.open === true){
+    if (form.open === true) {
       closeForm(id)
     } else {
       openForm(id)
@@ -488,28 +487,28 @@ function EmployeeChangeForm() {
           <hr></hr>
           {role === "payroll" ?
             <Container textAlign='center' className='distance'>
-           
-            <Link to="formlistpage"><Button size='large' centered color='violet' type="submit" onClick={() => {toggleFunction(idLSupdate)}}>{OpenClose}</Button></Link>
-              
-            <Button size='large' color='violet' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</Button> 
-            
-            <br></br>
-            <br></br>
-            <br></br>
+
+              <Link to="formlistpage"><Button size='large' centered color='violet' type="submit" onClick={() => { toggleFunction(idLSupdate) }}>{OpenClose}</Button></Link>
+
+              <Button size='large' color='violet' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</Button>
+
+              <br></br>
+              <br></br>
+              <br></br>
             </Container>
-            
+
             :
-            (form.open === true 
-            ?
-            <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button> 
-            : <Container textAlign='center' className='distance'><button class="ui orange button huge">Please Contact Payroll to Re-Open if changes are required</button>
+            (form.open === true
+              ?
+              <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button>
+              : <Container textAlign='center' className='distance'><button class="ui orange button huge">Please Contact Payroll to Re-Open if changes are required</button>
               </Container>
 
             )
-            
+
 
           }
-          
+
 
         </form>
       </div>
