@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import Table from "../../components/table/Table";
 import DepartmentHeader from "../../components/header/DepartmentHeader"
 import API from "../../utils/API"
+import { Container } from "semantic-ui-react";
 
 
 const EmployeeDirectory = () => {
   const [info, setInfo] = useState([]);
-  
+
 
   useEffect(() => {
     loadTable();
@@ -19,14 +20,20 @@ const EmployeeDirectory = () => {
   };
 
   return (
+
     <div>
       <DepartmentHeader />
-      <br></br>
-      <Table
-        name={info.employee_name}
-        employeeId={info.employeeId}
-        db={info}
-      />
+      <Container>
+        <div>
+
+          <br></br>
+          <Table
+            name={info.employee_name}
+            employeeId={info.employeeId}
+            db={info}
+          />
+        </div>
+      </Container>
     </div>
   );
 };
