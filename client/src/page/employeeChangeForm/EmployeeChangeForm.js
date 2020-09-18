@@ -7,10 +7,12 @@ import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
 import API from "../../utils/API";
 import { Container, Button } from "semantic-ui-react";
+import { StickyContainer, Sticky } from 'react-sticky';
 import { Link } from "react-router-dom";
 import Countries from "../../components/sectionA/countries.json";
 import Agreement from "../../components/sectionC/agreement.json";
 import Classification from "../../components/sectionC/classification.json";
+import "./employeechange.css";
 ////start changes
 
 function EmployeeChangeForm() {
@@ -483,19 +485,31 @@ function EmployeeChangeForm() {
 
 
           />
+          <hr></hr>
           {role === "payroll" ?
-            <React.Fragment>
-            <Link to="formlistpage"><Button className='ui Red button stuck attached big' type="submit" onClick={() => {toggleFunction(idLSupdate)}}>{OpenClose}</Button></Link>
-
-            <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button> 
-            </React.Fragment>
+            <Container textAlign='center' className='distance'>
+           
+            <Link to="formlistpage"><Button size='large' centered color='violet' type="submit" onClick={() => {toggleFunction(idLSupdate)}}>{OpenClose}</Button></Link>
+              
+            <Button size='large' color='violet' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</Button> 
+            
+            <br></br>
+            <br></br>
+            <br></br>
+            </Container>
+            
             :
             (form.open === true 
             ?
             <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button> 
-            : <a class="ui orange label huge">Please Contact Payroll to Re-Open if changes are required</a>)
+            : <Container textAlign='center' className='distance'><button class="ui orange button huge">Please Contact Payroll to Re-Open if changes are required</button>
+              </Container>
+
+            )
+            
 
           }
+          
 
         </form>
       </div>
