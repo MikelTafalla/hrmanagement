@@ -3,9 +3,10 @@ import { Grid, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 const RoleSection = () => {
-  const cardClick = (selectedCard) => {
-    console.log(selectedCard)
+  const cardClick = (role) => {
+    localStorage.setItem("Role", JSON.stringify(role));
   }
+  
   return (
 
     <Grid centered stackable container columns={3}>

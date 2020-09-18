@@ -41,10 +41,7 @@ function SectionC(props) {
                     <option value={`${agr}`} key={agr} >{agr}</option>
                   )) :
                   props.proposedAgreement.map(agr => (
-                    // <React.Fragment>
-                    // {console.log(agr.id)}
-                    <option value={`${agr.value}`} key={agr.id} >{agr.name}</option>
-                    // </React.Fragment>
+                    <option value={`${agr.value}`} key={agr} >{agr.name}</option>
                   ))
                 )
               }
