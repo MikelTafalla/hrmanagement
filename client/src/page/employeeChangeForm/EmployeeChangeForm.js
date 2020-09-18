@@ -493,7 +493,7 @@ function EmployeeChangeForm() {
             (form.open === true 
             ?
             <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button> 
-            : "")
+            : <a class="ui orange label huge">Please Contact Payroll to Re-Open if changes are required</a>)
 
           }
 
