@@ -456,7 +456,13 @@ const ExistingEmpNewForm = () => {
 
 
           />
-          <Link to='formlistpage'><Button className='ui violet button stuck attached big' type="submit" onClick={() =>  postForm()}>Save Form </Button></Link>
+          <hr></hr>
+         <Container textAlign='center' className='distance'>
+          <Link to='formlistpage'><Button className='ui violet button large' type="submit" onClick={() =>  postForm()}>Save Form </Button></Link>
+          </Container>
+          <br></br>
+          <br></br>
+
         </form>
       </div>
 

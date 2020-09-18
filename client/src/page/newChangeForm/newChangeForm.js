@@ -455,12 +455,17 @@ console.log(form.effective_day)
 
 
           />
-          <Link to='employeedirectory'><Button className='ui violet button stuck attached big' type="submit" onClick={() => postNewEmployee()}>Save Form </Button></Link>
+          <hr></hr>
+          <Container textAlign='center' className='distance'>
+          
+          <Link to='employeedirectory'><Button className='ui violet button large' type="submit" onClick={() => postNewEmployee()}>Save Form </Button></Link>
+          </Container>
         </form>
       </div>
-      
+      <br></br>
+      <br></br>
     </Container>
-
+  
   );
 }
 export default NewChangeForm;
