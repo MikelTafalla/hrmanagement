@@ -1,18 +1,18 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom"
 import { Table } from "semantic-ui-react"
 import "./table.css"
 
 
 const TableList = props => {
-  const[searchName, setSearchName] = useState("");
-  const[filteredUsers, setFilterdUsers] = useState([])
+  const [searchName, setSearchName] = useState("");
+  const [filteredUsers, setFilterdUsers] = useState([])
   //Stores employeeId onlocalStorage from employeedirectory to use it on formlistpage 
   const storeEmpId = (id, name) => {
     localStorage.setItem("EmployeeId", JSON.stringify(id));
     localStorage.setItem("EmployeeName", JSON.stringify(name))
   }
- 
+
   //Avoid duplicates in our employee directory
 
   let EmployeesArr = []
@@ -36,7 +36,7 @@ const TableList = props => {
   const uniqueDirectory = removeDuplicates(EmployeesArr, "employeeId")
 
   const handleChange = (e) => {
-    const {value} = e.target
+    const { value } = e.target
     setSearchName(value)
     // This if statement is for when someone hits backspace and makes input empty
     if (value === "") {
@@ -49,23 +49,21 @@ const TableList = props => {
       setFilterdUsers(filteredUsers);
     }
   };
-  console.log(filteredUsers)
-
   return (
     <div className='six wide column'><Link to="newchangeform"><button className='ui violet button large'>Create A New Hire</button></Link>
-    {/* Search Bar */}
+      {/* Search Bar */}
       <div className="ui grid center aligned">
         <div className="sixteen wide column"></div>
         <div className="ui search searchbar">
           <div className="ui icon input">
-            <input 
-            className="prompt" 
-            type="text" 
-            placeholder="Search Employee" 
-            onChange={(e) => handleChange(e)}
-            aria-label="Search"
-            name="search"
-            value={searchName}
+            <input
+              className="prompt"
+              type="text"
+              placeholder="Search Employee"
+              onChange={(e) => handleChange(e)}
+              aria-label="Search"
+              name="search"
+              value={searchName}
             />
             <i className="search icon"></i>
           </div>
@@ -90,7 +88,7 @@ const TableList = props => {
                   onClick={(e) => storeEmpId(item.employeeId, item.employee_name)}>Go to Forms</button></Link></td>
               </tr>
             ))
-          :
+            :
             filteredUsers.map(item => (
               <tr key={item.employeeId}>
                 <td data-label="Name">{item.employee_name}</td>
