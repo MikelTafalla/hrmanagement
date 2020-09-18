@@ -6,13 +6,14 @@ import SectionB from "../../components/sectionB/SectionB";
 import SectionC from "../../components/sectionC/SectionC";
 import SectionD from "../../components/sectionD/SectionD";
 import API from "../../utils/API";
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import Countries from "../../components/sectionA/countries.json";
 import Agreement from "../../components/sectionC/agreement.json";
 import Classification from "../../components/sectionC/classification.json";
 ////start changes
 
-function EmployeeChangeForm(props) {
+function EmployeeChangeForm() {
   //Store information from database
   const [form, setForm] = useState({});
 
@@ -21,6 +22,9 @@ function EmployeeChangeForm(props) {
   const [proposedAgreement, setProposedAgreement] = useState([{}]);
   const [currentClassification, setCurrentClassification] = useState([]);
   const [proposedClassification, setProposedClassification] = useState([]);
+
+  //get Role value from localStorage to conditionally render buttons
+  const role = JSON.parse(localStorage.getItem("Role"))
 
   //Activates to retrive information from the API/DB
   const idLSupdate = JSON.parse(localStorage.getItem("DBid"))
@@ -32,6 +36,7 @@ function EmployeeChangeForm(props) {
   const populateForm = (id) => {
     API.findById(id)
       .then(res => setForm({
+        open: res.data.open,
         employee_type: res.data.employee_type,
         employee_classification: res.data.employee_classification,
         position: res.data.position,
@@ -148,6 +153,29 @@ function EmployeeChangeForm(props) {
   }, [form.work_country, form.location]);
 
   const updateForm = (id) => {
+    API.update(id, form)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+  }
+
+  //Function and conditional to render open or close form button
+  const toggleFunction = (id) => {
+    if(form.open === true){
+      closeForm(id)
+    } else {
+      openForm(id)
+    }
+  }
+  const OpenClose = form.open === true ? "Close Form" : "Open Form"
+
+  const closeForm = (id) => {
+    form.open = false
+    API.update(id, form)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+  }
+  const openForm = (id) => {
+    form.open = true
     API.update(id, form)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
@@ -455,7 +483,20 @@ function EmployeeChangeForm(props) {
 
 
           />
-          <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button>
+          {role === "payroll" ?
+            <React.Fragment>
+            <Link to="formlistpage"><Button className='ui Red button stuck attached big' type="submit" onClick={() => {toggleFunction(idLSupdate)}}>{OpenClose}</Button></Link>
+
+            <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button> 
+            </React.Fragment>
+            :
+            (form.open === true 
+            ?
+            <button className='ui violet button stuck attached big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button> 
+            : "")
+
+          }
+
         </form>
       </div>
 
