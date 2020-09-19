@@ -20,7 +20,7 @@ app.use(routes);
 //Mongo Database connection
 //===============================================
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hrmanagement", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://shalim:Shajee123!@veiramal.ehpyu.mongodb.net/hrmanagement?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
