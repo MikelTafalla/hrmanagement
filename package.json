@@ -19,7 +19,7 @@
     "concurrently": "^5.3.0",
     "nodemon": "^1.18.7"
   },
-  "homepage": "https://github.com/Shaleem90/hrmanagement#readme",
+  "homepage": "https://vieramal.herokuapp.com/",
   "dependencies": {
     "express": "^4.17.1",
     "if-env": "^1.0.4",
