@@ -3,10 +3,10 @@ import axios from "axios";
 
 export default {
     findById: function (id) {
-        return axios.get(`/api/changeform/${id}`);
+        return axios.get(`/api/employeechangeForm/${id}`);
     },
     update: function (id, formData) {
-        return axios.put(`/api/changeform/${id}`, formData);
+        return axios.put(`/api/employeechangeForm/${id}`, formData);
     },
     create: function (formData) {
         return axios.post("/api/newchangeform", formData)
