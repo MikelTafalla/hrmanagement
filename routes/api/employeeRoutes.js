@@ -3,7 +3,7 @@ const employeeChangeFormController = require("../../controllers/employeeChangeFo
 
 
 
-router.route("/changeform/:id")
+router.route("/employeechangeForm/:id")
     .get(employeeChangeFormController.findById)
     .put(employeeChangeFormController.update);
 

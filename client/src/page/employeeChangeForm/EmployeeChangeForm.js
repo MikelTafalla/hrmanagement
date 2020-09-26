@@ -498,7 +498,7 @@ function EmployeeChangeForm() {
             </Container>
 
             :
-            (form.open === true
+            (role !== "payroll"
               ?
               <Container textAlign='center' className='distance'><button className='ui violet button big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button>
               </Container>
