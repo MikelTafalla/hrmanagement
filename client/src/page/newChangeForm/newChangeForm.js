@@ -145,6 +145,7 @@ console.log(form.effective_day)
 
   //Create database new entry 
   const postNewEmployee = () => {
+    localStorage.setItem("Click", JSON.stringify("clicked"))
     API.createExisting(form)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
