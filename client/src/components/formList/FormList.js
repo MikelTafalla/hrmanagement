@@ -14,7 +14,7 @@ const FormTable = () => {
     populateHistoryReport(EmployeeId);
     
   }, [])
-
+  
   const populateHistoryReport = (id) => {
     API.findReport(id)
       .then(res => setDbInfo(res.data))
@@ -36,15 +36,26 @@ const FormTable = () => {
       openStatus = dbInfo.filter(status => status.open === true)
       closedStatus = dbInfo.filter(status => status.open === false)
 
-    }
+    } 
+    
   }
   divideDbInfo()
+  console.log(openStatus)
+  console.log(closedStatus)
+
+  const clicked = JSON.parse(localStorage.getItem("Click"))
+  if(clicked === "clicked"){
+    localStorage.setItem("Click", JSON.stringify(""))
+    window.location.reload()
+    
+  }
+
   return (
     <React.Fragment>
-      <Link to='employeedirectory'><div><Button className='ui violet inverted' >Go To Employee Directory</Button></div></Link>
+      <Link to='employeedirectory'><Button className='ui violet inverted' >Go To Employee Directory</Button></Link>
     {openStatus.map(item => (
       
-      <div id='formbtn'>
+      <div key={item._id} id='formbtn'>
       <Link to='employeechangeForm'><Button  size='large' color='violet' onClick={(e) => storeDbId(e)} value={item._id}><Icon name='file' /> Continue with Form In Progress</Button></Link>
       </div>
       

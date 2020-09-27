@@ -162,8 +162,10 @@ function EmployeeChangeForm() {
   //Function and conditional to render open or close form button
   const toggleFunction = (id) => {
     if (form.open === true) {
+      localStorage.setItem("Click", JSON.stringify("clicked"))
       closeForm(id)
     } else {
+      localStorage.setItem("Click", JSON.stringify("clicked"))
       openForm(id)
     }
   }
@@ -249,7 +251,7 @@ function EmployeeChangeForm() {
 
   //Start with an empty array to push all the agreements that correspond to the group where the agreement from the DB belongs to
   const agrCurrentDisplay = []
-  console.log(form.employee_agreement_current)
+
   //We store the agreement from the database. Ternary needed to avoid load conflicts.
   const agrcurrentInDB = form.employee_agreement_current
   //Loop through the agreement JSON and store each agreement object to loop through that object on nested loop
@@ -488,7 +490,7 @@ function EmployeeChangeForm() {
           {role === "payroll" ?
             <Container textAlign='center' className='distance'>
 
-              <Link to="formlistpage"><Button size='large' centered color='violet' type="submit" onClick={() => { toggleFunction(idLSupdate) }}>{OpenClose}</Button></Link>
+              <Link to="formlistpage"><Button size='large' centered="true" color='violet' type="submit" onClick={() => { toggleFunction(idLSupdate) }}>{OpenClose}</Button></Link>
 
               <Button size='large' color='violet' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</Button>
 
