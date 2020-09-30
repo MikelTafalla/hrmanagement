@@ -1,15 +1,18 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
-const SignUp = () => {
+
+
+
+const LogIn = () => {
   return (
 
     <div className="ui two column middle aligned center aligned grid container">
       <div className="column">
         <h2 className="ui teal image header">
           <div className="content">
-            Create Account
+            Log-in to your account
         </div>
         </h2>
         <form className="ui large form">
@@ -26,13 +29,16 @@ const SignUp = () => {
                 <input type="password" name="password" placeholder="Password" />
               </div>
             </div>
-            <div className="ui fluid large teal submit button">Sign Up</div>
+            <div className="ui fluid large teal submit button">Login</div>
           </div>
           <div className="ui error message"></div>
         </form>
+        <div className="ui message">
+          New to us? <Link to="signup"><button>Sign up</button></Link>
+        </div>
       </div>
     </div >
   )
 };
 
-export default SignUp;
+export default LogIn;
