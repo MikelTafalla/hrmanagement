@@ -8,6 +8,7 @@ import ExistingEmpNewForm from "./page/existingEmpNewForm/ExistingEmpNewForm";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import newChangeForm from "./page/newChangeForm/newChangeForm";
 import SignUp from "./components/registerUser/SignUp";
+import Login from "./components/registerUser/LogIn";
 
 
 
@@ -18,7 +19,8 @@ function App() {
       <Switch>
 
         {/* <Route path="/" exact component={DepartmentValidationForm} /> */}
-        <Route path="/" exact component={SignUp} />
+        <Route path="/" exact component={Login} />
+        <Route path="/signup" component={SignUp} />
         <Route path="/employeedirectory" component={EmployeeDirectory} />
         <Route path="/formlistpage" component={FormListPage} />
         <Route path="/employeechangeForm" component={EmployeeChangeForm} />

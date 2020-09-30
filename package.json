@@ -21,11 +21,17 @@
   },
   "homepage": "https://vieramal.herokuapp.com",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "if-env": "^1.0.4",
     "mongodb": "^3.6.1",
     "mongoose": "^5.10.3",
     "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "react-router-dom": "^5.2.0",
     "react-sticky": "^6.0.3"

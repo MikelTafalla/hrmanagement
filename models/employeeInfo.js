@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const EmployeeChangeFormSchema = new Schema({
     //Section A
     employee_type: {
-        typed: String,
+        type: String,
     },
     employee_classification: {
         type: String
