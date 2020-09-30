@@ -7,6 +7,7 @@ import EmployeeDirectory from "./page/employeeTable/EmployeeTable";
 import ExistingEmpNewForm from "./page/existingEmpNewForm/ExistingEmpNewForm";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import newChangeForm from "./page/newChangeForm/newChangeForm";
+import SignUp from "./components/registerUser/SignUp";
 
 
 
@@ -16,10 +17,11 @@ function App() {
     <Router>
       <Switch>
 
-        <Route path="/" exact component={DepartmentValidationForm} />
+        {/* <Route path="/" exact component={DepartmentValidationForm} /> */}
+        <Route path="/" exact component={SignUp} />
         <Route path="/employeedirectory" component={EmployeeDirectory} />
         <Route path="/formlistpage" component={FormListPage} />
-        <Route path="/employeechangeForm" component={EmployeeChangeForm } />
+        <Route path="/employeechangeForm" component={EmployeeChangeForm} />
         <Route path="/newchangeform"
           component={newChangeForm} />
         <Route path="/existingemployeenewform"
