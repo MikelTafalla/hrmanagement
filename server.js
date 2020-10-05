@@ -20,6 +20,18 @@ const session = require("express-session");//express auth session
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors({
+  origin: "http://localhost:3000", //<-- location of react app connected to
+  credentials: true
+}));
+
+app.use(session({
+  secret: "secretcode",
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(cookieParser("secretcode"))
 
 // Routes
 //===============================================

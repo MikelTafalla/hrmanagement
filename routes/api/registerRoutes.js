@@ -3,3 +3,5 @@ const registerRoutesController = require("../../controllers/registerRoutesContro
 
 router.route("/")
     .post(registerRoutesController.signup);
+
+module.exports = router;
