@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
-const routes = require("./routes/api/employeeRoutes")
+const routes = require("./routes/api");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -40,7 +40,13 @@ app.use(routes);
 //Mongo Database connection
 //===============================================
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://shalim:Shajee123!@veiramal.ehpyu.mongodb.net/hrmanagement?retryWrites=true&w=majority", {
+// mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://shalim:Shajee123!@veiramal.ehpyu.mongodb.net/hrmanagement?retryWrites=true&w=majority", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useFindAndModify: false,
+//   useCreateIndex: true
+// });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hrmanagement", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
