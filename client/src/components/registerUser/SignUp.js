@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import API from "../../utils/API";
 // import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
+  const [createUser, setCreateUser] = useState({ email: "", password: "" });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    console.log(value);
+    setCreateUser({ ...createUser, [name]: value })
+  }
+  const registerUser = () => {
+    API.register(createUser)
+      .then(response => console.log(response.data))
+      .catch(err => console.log(err))
+  }
   return (
 
     <div className="ui two column middle aligned center aligned grid container">
@@ -17,16 +30,19 @@ const SignUp = () => {
             <div className="field">
               <div className="ui left icon input">
                 <i className="user icon" />
-                <input type="email" name="email" placeholder="E-mail address" />
+                <input type="email" name="email" placeholder="E-mail address" value={createUser.email} onChange={(e) => handleInputChange(e)} />
               </div>
             </div>
             <div className="field">
               <div className="ui left icon input">
                 <i className="lock icon" />
-                <input type="password" name="password" placeholder="Password" />
+                <input type="password" name="password" placeholder="Password" value={createUser.password} onChange={(e) => handleInputChange(e)} />
               </div>
             </div>
-            <div className="ui fluid large teal submit button">Sign Up</div>
+            <button
+              className="ui fluid large teal" type="submit"
+              onClick={() => registerUser()}
+            >Sign Up</button>
           </div>
           <div className="ui error message"></div>
         </form>

@@ -20,7 +20,7 @@ function App() {
 
         {/* <Route path="/" exact component={DepartmentValidationForm} /> */}
         <Route path="/" exact component={Login} />
-        <Route path="/signup" component={SignUp} />
+        <Route path="/register" component={SignUp} />
         <Route path="/employeedirectory" component={EmployeeDirectory} />
         <Route path="/formlistpage" component={FormListPage} />
         <Route path="/employeechangeForm" component={EmployeeChangeForm} />

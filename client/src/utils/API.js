@@ -19,5 +19,8 @@ export default {
     },
     findReport: function (id) {
         return axios.get(`/api/formlistpage/${id}`)
+    },
+    register: function (info) {
+        return axios.post(`/api/register`, info)
     }
 };

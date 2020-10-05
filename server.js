@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
-const routes = require("./routes/api");
+const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -10,9 +10,7 @@ const app = express();
 //================================================
 const cors = require("cors");// cors auth for routes
 const passport = require("passport");// passport package
-const passportLocal = require("passport-local").Strategy;// local strategy
 const cookieParser = require("cookie-parser");// cookie storing
-const bcrypt = require("bcryptjs");// for hash/salt 
 const session = require("express-session");//express auth session
 
 // Middleware 
@@ -31,7 +29,10 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use(cookieParser("secretcode"))
+app.use(cookieParser("secretcode"));
+app.use(passport.initialize());
+app.use(passport.session());
+require("./passportConfig/passportConfig")(passport);
 
 // Routes
 //===============================================
