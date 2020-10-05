@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const RegisterInfo = new Schema({
+
+const RegisterInfoSchema = new Schema({
 
     email: {
         type: String,
@@ -15,6 +16,6 @@ const RegisterInfo = new Schema({
 
 });
 
-const RegisterInfo = mongoose.model("RegisterInfo", RegisterInfo);
+const RegisterInfo = mongoose.model("RegisterInfo", RegisterInfoSchema);
 
 module.exports = RegisterInfo;

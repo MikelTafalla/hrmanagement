@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const registerRoutesController = require("../../controllers/registerRoutesController");
 
-router.route("/")
-    .post(registerRoutesController.signup);
+router.route("/register")
+    .post(registerRoutesController.register);
 
 module.exports = router;
