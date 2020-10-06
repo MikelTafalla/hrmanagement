@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
@@ -13,7 +13,7 @@ const SignUp = () => {
   }
   const registerUser = () => {
     API.register(createUser)
-      .then(response => console.log(response.data))
+      .then(response => console.log(response))
       .catch(err => console.log(err))
   }
   return (
@@ -39,10 +39,10 @@ const SignUp = () => {
                 <input type="password" name="password" placeholder="Password" value={createUser.password} onChange={(e) => handleInputChange(e)} />
               </div>
             </div>
-            <button
+            <Link to="/"><button
               className="ui fluid large teal" type="submit"
               onClick={() => registerUser()}
-            >Sign Up</button>
+            >Sign Up</button></Link>
           </div>
           <div className="ui error message"></div>
         </form>

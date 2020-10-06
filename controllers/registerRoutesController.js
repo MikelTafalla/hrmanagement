@@ -1,5 +1,6 @@
 const db = require("../models");
 const { RegisterInfo } = require("../models");
+const bcrypt = require("bcryptjs");
 
 
 

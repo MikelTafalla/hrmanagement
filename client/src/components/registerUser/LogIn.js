@@ -34,7 +34,7 @@ const LogIn = () => {
           <div className="ui error message"></div>
         </form>
         <div className="ui message">
-          New to us? <Link to="signup"><button>Sign up</button></Link>
+          New to us? <Link to="register"><button>Sign up</button></Link>
         </div>
       </div>
     </div >
