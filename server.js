@@ -34,6 +34,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./passportConfig/passportConfig")(passport);
 
+//Needed for deployment heroku
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 // Routes
 //===============================================
 app.use(routes);
