@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const routes = require("./routes");
-
+const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -15,6 +15,8 @@ const session = require("express-session");//express auth session
 
 // Middleware 
 //================================================
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,6 +24,11 @@ app.use(cors({
   origin: "http://localhost:3000", //<-- location of react app connected to
   credentials: true
 }));
+
+//Needed for deployment heroku
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 app.use(session({
   secret: "secretcode",
@@ -34,10 +41,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 require("./passportConfig/passportConfig")(passport);
 
-//Needed for deployment heroku
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
 // Routes
 //===============================================

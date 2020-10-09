@@ -1,6 +1,5 @@
 import axios from "axios";
 
-
 export default {
     findById: function (id) {
         return axios.get(`/api/employeechangeForm/${id}`);
@@ -21,6 +20,9 @@ export default {
         return axios.get(`/api/formlistpage/${id}`)
     },
     register: function (info) {
-        return axios.post(`/api/register`, info)
+        return axios.post(`/api/register`, info, {withCredentials:true})
+    },
+    login: function (data) {
+        return axios.post(`/api`, data, {withCredentials:true})
     }
 };

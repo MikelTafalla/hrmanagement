@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const RegisterInfoSchema = new Schema({
 
-    email: {
+    username: {
         type: String,
     },
     password: {

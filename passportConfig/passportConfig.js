@@ -1,13 +1,17 @@
-const db = require("../models");
+const db = require("../models/registerInfo");
 const bcrypt = require("bcryptjs");
-const passportLocal = require("passport-local").Strategy;
+const LocalStrategy = require("passport-local").Strategy;
 
-
-
-module.exports = (passport) => {
-    passport.use(
-        new passportLocal((email, password, done) => {
-            db.RegisterInfo.findOne({ email: email }, (err, user) => {
+module.exports = function (passport) {
+    passport.use("local",
+        new LocalStrategy({
+            usernameField: 'username',
+            passwordField: 'password',
+            passReqToCallback: true
+        }, (username, password, done) => {
+            console.log("here Config" + " "+ user)
+            db.findOne({ username: username }, (err, user) => {
+                console.log("here Config" + " "+ user)
                 if (err) throw (err);
                 if (!user) return done(null, false);
                 bcrypt.compare(password, user.password, (err, result) => {
@@ -19,15 +23,16 @@ module.exports = (passport) => {
                     }
                 })
             })
-        })
+        }),
+        
     );
-    passport.serializeUser((user, cb) => {
+    passport.serializeUser((user, cb) => {     
         cb(null, user.id)
     })
     passport.deserializeUser((id, cb) => {
-        db.RegisterInfo.findOne({ _id: id }, (err, user) => {
+        db.findOne({ _id: id }, (err, user) => {
             const userInfo = {
-                email: user.email
+                username: user.username
             };
             cb(err, userInfo)
         })
