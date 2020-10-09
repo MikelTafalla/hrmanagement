@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
-  const [createUser, setCreateUser] = useState({ email: "", password: "" });
+  const [createUser, setCreateUser] = useState({ username: "", password: "" });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -30,7 +30,7 @@ const SignUp = () => {
             <div className="field">
               <div className="ui left icon input">
                 <i className="user icon" />
-                <input type="email" name="email" placeholder="E-mail address" value={createUser.email} onChange={(e) => handleInputChange(e)} />
+                <input type="email" name="username" placeholder="E-mail address" value={createUser.username} onChange={(e) => handleInputChange(e)} />
               </div>
             </div>
             <div className="field">
