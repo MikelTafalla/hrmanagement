@@ -11,9 +11,19 @@ const SignUp = () => {
     console.log(value);
     setCreateUser({ ...createUser, [name]: value })
   }
-  const registerUser = () => {
+  const registerUser = () => {  
     API.register(createUser)
-      .then(response => console.log(response))
+      .then(response => {
+        console.log(response)
+        // if (!response.data.errmsg) {
+				// 	console.log('successful signup')
+				// 	this.setState({ //redirect to login page
+				// 		redirectTo: '/login'
+				// 	})
+				// } else {
+				// 	console.log('username already taken')
+				// }
+      })
       .catch(err => console.log(err))
   }
   return (

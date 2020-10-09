@@ -3,27 +3,16 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const routes = require("./routes");
 const bodyParser = require("body-parser");
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-// Passport Authentication???
-//================================================
-const cors = require("cors");// cors auth for routes
 const passport = require("passport");// passport package
-const cookieParser = require("cookie-parser");// cookie storing
 const session = require("express-session");//express auth session
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 // Middleware 
 //================================================
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger("dev"));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors({
-  origin: "http://localhost:3000", //<-- location of react app connected to
-  credentials: true
-}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //Needed for deployment heroku
 if (process.env.NODE_ENV === "production") {
@@ -32,15 +21,12 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(session({
   secret: "secretcode",
-  resave: true,
-  saveUninitialized: true
+  resave: false,
+  saveUninitialized: false
 }));
 
-app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
-require("./passportConfig/passportConfig")(passport);
-
 
 // Routes
 //===============================================

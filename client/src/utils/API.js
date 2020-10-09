@@ -20,9 +20,9 @@ export default {
         return axios.get(`/api/formlistpage/${id}`)
     },
     register: function (info) {
-        return axios.post(`/api/register`, info, {withCredentials:true})
+        return axios.post(`/api/register`, info)
     },
     login: function (data) {
-        return axios.post(`/api`, data, {withCredentials:true})
+        return axios.post(`/api`, data)
     }
 };
