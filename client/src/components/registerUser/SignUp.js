@@ -16,18 +16,18 @@ const SignUp = () => {
     console.log(value)
     setCreateUser({ ...createUser, [name]: value })
   }
-  const registerUser = () => {  
+  const registerUser = () => {
     API.register(createUser)
       .then(response => {
         console.log(response)
         // if (!response.data.errmsg) {
-				// 	console.log('successful signup')
-				// 	this.setState({ //redirect to login page
-				// 		redirectTo: '/login'
-				// 	})
-				// } else {
-				// 	console.log('username already taken')
-				// }
+        // 	console.log('successful signup')
+        // 	this.setState({ //redirect to login page
+        // 		redirectTo: '/login'
+        // 	})
+        // } else {
+        // 	console.log('username already taken')
+        // }
       })
       .catch(err => console.log(err))
   }
@@ -59,7 +59,7 @@ const SignUp = () => {
                 <option value="null">Select Your Role</option>
                 <option value="manager">Manager</option>
                 <option value="payroll">Payroll</option>
-                <option value="hr">Human Resources</option>
+                <option value="humanResource">Human Resources</option>
               </select>
             </div>
             <Link to="/"><button

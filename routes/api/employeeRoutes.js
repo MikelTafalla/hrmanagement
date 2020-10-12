@@ -15,7 +15,10 @@ router.route("/existingemployeenewform")
     .post(employeeChangeFormController.createExisting);
 
 router.route("/employeedirectory")
-    .get(employeeChangeFormController.findAll);
+    .get(employeeChangeFormController.findAll)
+
+router.route("/employeedirectory/:username")
+    .get(employeeChangeFormController.findRole);
 
 router.route("/formlistpage/:id")
     .get(employeeChangeFormController.findReport);

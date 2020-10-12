@@ -24,5 +24,8 @@ export default {
     },
     login: function (data) {
         return axios.post(`/api`, data)
+    },
+    findRole: function (role) {
+        return axios.get(`/api/employeedirectory/${role}`)
     }
 };
