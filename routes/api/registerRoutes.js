@@ -7,7 +7,7 @@ router.post("/register",
 ({ body }, res) => {
     console.log("user signup");
 
-    const {username, password} = body
+    const {username, password, role} = body
     //Add Validation
     db.RegisterInfo.findOne({ username: username }, (err, user) => {
       if (err) {
@@ -17,7 +17,8 @@ router.post("/register",
       } else {
         const newUser = new RegisterInfo({
           username: username,
-          password: password
+          password: password,
+          role: role
         });
         newUser.save((err, user));
         if (err) return res.json(err)
@@ -41,6 +42,7 @@ router.post("/",
         res.send(userInfo);
     }
 )
+
 
 
 module.exports = router;

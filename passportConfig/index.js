@@ -6,6 +6,7 @@ const RegisterInfo = require('../models/registerInfo.js')
 passport.serializeUser((user, done) => {
 	console.log('*** serializeUser called, user: ')
 	console.log(user) // the whole raw user object!
+	console.log(user.role)
 	console.log('---------')
 	done(null, { _id: user._id })
 })

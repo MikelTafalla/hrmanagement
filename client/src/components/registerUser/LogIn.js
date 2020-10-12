@@ -10,9 +10,19 @@ const LogIn = () => {
     console.log(value);
     setUser({ ...user, [name]: value })
   }
+
   const loginUser = () => {
     API.login(user)
-      .then(response => console.log(response))
+      .then(response => {
+        console.log(response)
+        if (response.status === 200) {
+            console.log('successful login')
+            localStorage.setItem("ActiveLoggedInUser", JSON.stringify(response.data.username))
+            window.location = "/employeedirectory"
+          } else {
+            console.log('wrong credentials')
+          }
+      })
       .catch(err => console.log(err))
   }
   return (
