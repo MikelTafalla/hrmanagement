@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 
 
 const SignUp = () => {
-  const [createUser, setCreateUser] = useState({ username: "", password: "" });
+  const [createUser, setCreateUser] = useState({ username: "", password: "", role: "null" });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log(value);
+    console.log(value)
+    setCreateUser({ ...createUser, [name]: value })
+  }
+  const handleDropdown = (e) => {
+    const { name, value } = e.target;
+    console.log(value)
     setCreateUser({ ...createUser, [name]: value })
   }
   const registerUser = () => {  
@@ -48,6 +53,14 @@ const SignUp = () => {
                 <i className="lock icon" />
                 <input type="password" name="password" placeholder="Password" value={createUser.password} onChange={(e) => handleInputChange(e)} />
               </div>
+            </div>
+            <div className="field">
+              <select name="role" value={createUser.role} onChange={(e) => handleDropdown(e)}>
+                <option value="null">Select Your Role</option>
+                <option value="manager">Manager</option>
+                <option value="payroll">Payroll</option>
+                <option value="hr">Human Resources</option>
+              </select>
             </div>
             <Link to="/"><button
               className="ui fluid large teal" type="submit"

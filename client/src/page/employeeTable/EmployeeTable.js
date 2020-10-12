@@ -4,10 +4,8 @@ import DepartmentHeader from "../../components/header/DepartmentHeader"
 import API from "../../utils/API"
 import { Container } from "semantic-ui-react";
 
-
 const EmployeeDirectory = () => {
   const [info, setInfo] = useState([]);
-
 
   useEffect(() => {
     loadTable();
