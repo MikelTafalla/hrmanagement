@@ -8,7 +8,10 @@ const EmployeeDirectory = () => {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
+    const role = JSON.parse(localStorage.getItem("ActiveLoggedInUser"));
+
     loadTable();
+    getRole(role);
   }, []);
 
   const loadTable = () => {
@@ -16,6 +19,16 @@ const EmployeeDirectory = () => {
       .then(results => setInfo(results.data))
       .catch(err => console.log(err))
   };
+
+  const getRole = (role) => {
+    API.findRole(role)
+      .then(response => {
+        console.log(response)
+        localStorage.setItem("Role", JSON.stringify(response.data[0].role))
+      })
+      .catch(err => console.log(err))
+  };
+
 
   return (
 
