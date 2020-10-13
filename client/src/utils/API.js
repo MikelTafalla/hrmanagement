@@ -27,5 +27,8 @@ export default {
     },
     findRole: function (role) {
         return axios.get(`/api/employeedirectory/${role}`)
+    },
+    terminationForm: function (id) {
+        return axios.get(`/api/separationform/${id}`)
     }
 };

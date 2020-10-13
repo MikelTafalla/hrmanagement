@@ -1,12 +1,10 @@
 const router = require("express").Router();
 const employeeChangeFormController = require("../../controllers/employeeChangeFormController");
-
-
+const separationFormController = require("../../controllers/separationFormController");
 
 router.route("/employeechangeForm/:id")
     .get(employeeChangeFormController.findById)
     .put(employeeChangeFormController.update);
-
 
 router.route("/newchangeform")
     .post(employeeChangeFormController.create);
@@ -22,5 +20,8 @@ router.route("/employeedirectory/:username")
 
 router.route("/formlistpage/:id")
     .get(employeeChangeFormController.findReport);
+
+router.route("/separationform/:id")
+    .get(separationFormController.terminationForm);
 
 module.exports = router;
