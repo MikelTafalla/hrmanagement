@@ -1,0 +1,53 @@
+[
+  {
+    "name": "null",
+    "value": "null",
+    "reasons": [
+      "First Select Separation Type"
+    ]
+  },
+  {
+    "name": "termination",
+    "value": "termination",
+    "reasons": [
+      "90 Day Trial Period",
+      "Attendance/Punctuality",
+      "Contract End",
+      "Dishonesty/Falsification",
+      "Imprisonment",
+      "Medical Disqualification",
+      "Misconduct",
+      "Other",
+      "Other Policy Violations",
+      "Performance Issue",
+      "Probationary Period",
+      "Redundancy Mutual Agreement"
+    ]
+  },
+  {
+    "name": "resignation",
+    "value": "resignation",
+    "reasons": [
+      "Advancement Opportunities",
+      "Commute",
+      "Deceased",
+      "Flexible Work Arrangements",
+      "Issues With Industry",
+      "Job Content",
+      "Leaving Labor Market",
+      "Peers/ Co-workers",
+      "Issues With Management",
+      "Medical/Health",
+      "Military Service",
+      "Mutual Agreement"
+    ]
+  },
+  {
+    "name": "redundancy",
+    "value": "redundancy",
+    "reasons": [
+      "Restructure",
+      "Position no longer required"
+    ]
+  }
+]
