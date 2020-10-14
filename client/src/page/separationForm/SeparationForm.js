@@ -1,38 +1,54 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import HeaderTermination from "../../components/terminationForm/HeaderTermination";
 import TerminationForm from "../../components/terminationForm/Separation";
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
 import API from "../../utils/API";
 import Countries from "../../components/sectionA/countries.json";
 import SeparationReasons from "../../components/terminationForm/SeparationReasons.json";
+import { Link } from "react-router-dom";
+
 
 const SeparationForm = () => {
   //Store information from database
   const [form, setForm] = useState({});
-  const [dropdowns, setDropdowns] = useState(
-    {
-      separationType: "null",
-      reasonSeparation: "null"
-    });
- 
+
 
   useEffect(() => {
-    const idLocalStorage = JSON.parse(localStorage.getItem("DBid"))
-    terminationForm(idLocalStorage);
+    setForm({
+      employee_name: "",
+      work_country: "",
+      location: "",
+      function: "",
+      fullNoticePeriod: "",
+      employeeBackfilled: "",
+      employeeManager: "",
+      paymentOption: "",
+      submissionDay: "",
+      submissionMonth: "",
+      lastWorkYear: "",
+      lastEmploymentYear: "",
+      reportUponExit: "",
+      additionalComments: "",
+      submitted: "",
+      submissionYear: "",
+      submittedByPosition: "",
+      approverOne: "",
+      signatureOne: "",
+      approverTwo: "",
+      signatureTwo: "",
+      hrCentral: "",
+      payrollNumber: "",
+      hrSignature: "",
+      positionNumber: "",
+      payrollName: "",
+      payrollSignature: "",
+      comments: ""
+    })
   }, [])
 
-  const terminationForm = (id) => {
-    API.findById(id)
-      .then(res => {
-        console.log(res)
-        setForm({
-        open: res.data.open,
-        employee_name: res.data.employee_name,
-        work_country: res.data.work_country,
-        location: res.data.location,
-        function: res.data.function
-      })
-    })
+  const terminationForm = () => {
+    API.createTerminationForm(form)
+      .then(res => console.log(res.data))
       .catch(err => console.log(err));
   }
   //Logic to get dropdown list display the location from the database as selected on page load
@@ -54,8 +70,8 @@ const SeparationForm = () => {
 
   //Logic to display reasons for separation depending on separation type
   let displayReasons = ["First Select Separation Type"]
-  for (let i= 0; i < SeparationReasons.length; i++){
-    if(dropdowns.separationType === SeparationReasons[i].name){
+  for (let i = 0; i < SeparationReasons.length; i++) {
+    if (form.separationType === SeparationReasons[i].name) {
       displayReasons = SeparationReasons[i].reasons;
     }
   }
@@ -64,13 +80,17 @@ const SeparationForm = () => {
     const { name, value } = e.target;
     if (value.length > 0) {
       setForm({ ...form, [name]: value });
-    } else { setForm({ ...form, [name]: value }) }
+
+    } else {
+      setForm({ ...form, [name]: value })
+
+    }
   }
 
   const handleDropdown = (e) => {
     const { name, value } = e.target
     setForm({ ...form, [name]: value });
-    setDropdowns({...dropdowns, [name]:value});
+
   }
 
   return (
@@ -86,20 +106,50 @@ const SeparationForm = () => {
             country="New Zealand and Singapore 2525"
             message="This form is to be filled out by the Manager and sent to HR Central via HR.Central.AP@o-i.com to inform of Employee's exit."
           />
-          <TerminationForm 
-          employee_name={form.employee_name}
-          work_country={form.work_country}
-          location={form.location}
-          function={form.function}
-          unique={unique}
-          separationType ={dropdowns.separationType}
-          reasonSeparation={dropdowns.reasonSeparation}
-          displayReasons = {displayReasons}
-          reasonSeparation={dropdowns.reasonSeparation}
-          handleDropdown={handleDropdown}
-          handleInputChange={handleInputChange}
+          <TerminationForm
+            employee_name={form.employee_name}
+            work_country={form.work_country}
+            location={form.location}
+            function={form.function}
+            unique={unique}
+            separationType={form.separationType}
+            reasonSeparation={form.reasonSeparation}
+            displayReasons={displayReasons}
+            reasonSeparation={form.reasonSeparation}
+            lastWorkDay={form.lastWorkDay}
+            lastWorkMonth={form.lastWorkMonth}
+            lastWorkYear={form.lastWorkYear}
+            lastEmploymentDay={form.lastEmploymentDay}
+            lastEmploymentMonth={form.lastEmploymentMonth}
+            lastEmploymentYear={form.lastEmploymentYear}
+            fullNoticePeriod={form.fullNoticePeriod}
+            employeeBackfilled={form.employeeBackfilled}
+            employeeManager={form.employeeManager}
+            paymentOption={form.paymentOption}
+            submissionDay={form.submissionDay}
+            submissionMonth={form.submissionMonth}
+            reportUponExit={form.reportUponExit}
+            additionalComments={form.additionalComments}
+            submitted={form.submitted}
+            submissionYear={form.submissionYear}
+            submittedByPosition={form.submittedByPosition}
+            approverOne={form.approverOne}
+            signatureOne={form.signatureOne}
+            approverTwo={form.approverTwo}
+            signatureTwo={form.signatureTwo}
+            hrCentral={form.hrCentral}
+            payrollNumber={form.payrollNumber}
+            hrSignature={form.hrSignature}
+            positionNumber={form.positionNumber}
+            payrollName={form.payrollName}
+            payrollSignature={form.payrollSignature}
+            comments={form.comments}
+            handleDropdown={handleDropdown}
+            handleInputChange={handleInputChange}
           />
-
+          <Container textAlign='center' className='distance'>
+            <Link to='formlistpage'><Button className='ui violet button large' type="submit" onClick={() => terminationForm()}>Save Form </Button></Link>
+          </Container>
         </form>
       </div>
 
