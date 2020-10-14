@@ -21,7 +21,7 @@ router.route("/employeedirectory/:username")
 router.route("/formlistpage/:id")
     .get(employeeChangeFormController.findReport);
 
-router.route("/separationform/:id")
-    .get(separationFormController.terminationForm);
+router.route("/separationform")
+    .post(separationFormController.createTerminationForm);
 
 module.exports = router;

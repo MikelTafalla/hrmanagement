@@ -1,10 +1,10 @@
 const db = require("../models");
 
 module.exports = {
-  terminationForm: ({ params }, res) => {
-    console.log(params.id)
-    db.EmployeeChangeForm
-      .findById(params.id)
+  createTerminationForm: ({ body }, res) => {
+
+    db.TerminationForm
+      .create(body)
       .then(dbmodel => {
         console.log(dbmodel);
         res.json(dbmodel)
