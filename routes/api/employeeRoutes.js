@@ -26,5 +26,9 @@ router.route("/separationform")
 
 router.route("/terminationlistpage/:id")
     .get(separationFormController.findTermination);
+
+router.route("/existingseparationform/:id")
+    .get(separationFormController.findterminatedemployee)
+    .put(separationFormController.updateTerminationForm);
     
 module.exports = router;

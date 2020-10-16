@@ -54,7 +54,7 @@ const TerminationTable = () => {
       {terminationOpen.map(item => (
 
         <div key={item._id} id='formbtn'>
-          <Link to='separationform'><Button size='large' color='violet' onClick={(e) => storeDbId(e)} value={item._id}><Icon name='file' /> Continue with Separation Form In Progress</Button></Link>
+          <Link to='existingseparationform'><Button size='large' color='violet' onClick={(e) => storeDbId(e)} value={item._id}><Icon name='file' /> Continue with Separation Form In Progress</Button></Link>
         </div>
 
       ))}
@@ -76,7 +76,7 @@ const TerminationTable = () => {
             <Table.Row key={history._id}>
 
               <Table.Cell collapsing>
-                <Link to='separationform'><Button color='violet' type="submit" onClick={(e) => storeDbId(e)} value={history._id}>View Form</Button></Link>
+                <Link to='existingseparationform'><Button color='violet' type="submit" onClick={(e) => storeDbId(e)} value={history._id}>View Form</Button></Link>
               </Table.Cell>
               <Table.Cell>{history.employee_name}</Table.Cell>
               <Table.Cell>Separation Form</Table.Cell>

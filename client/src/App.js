@@ -11,6 +11,7 @@ import SignUp from "./components/registerUser/SignUp";
 import Login from "./components/registerUser/LogIn";
 import SeparationForm from "./page/separationForm/SeparationForm";
 import TerminationListPage from "./page/terminationListPage/TerminationListPage";
+import ExistingSeparationForm from "./page/existingSeparationForm/ExistingSeparationForm.js";
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/existingemployeenewform" component={ExistingEmpNewForm} />
         <Route path="/separationform" component={SeparationForm} />
         <Route path="/terminationlistpage" component={TerminationListPage} />
+        <Route path="/existingseparationform" component={ExistingSeparationForm} />
 
       </Switch>
     </Router>
