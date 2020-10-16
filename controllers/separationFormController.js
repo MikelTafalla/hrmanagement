@@ -10,5 +10,15 @@ module.exports = {
         res.json(dbmodel)
       })
       .catch(err => console.log(err))
+  },
+  findTermination: ({ params }, res) => {
+    console.log(params)
+    db.TerminationForm
+      .find({ employee_id: params.id })
+      .then(data => {
+        console.log(data)
+        res.json(data)
+      })
+      .catch(err => console.log(err))
   }
 }
