@@ -30,5 +30,8 @@ export default {
     },
     createTerminationForm: function (form) {
         return axios.post(`/api/separationform`, form)
+    },
+    findTermination: function (id) {
+        return axios.get(`/api/terminationlistpage/${id}`)
     }
 };

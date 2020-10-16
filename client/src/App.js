@@ -9,7 +9,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import newChangeForm from "./page/newChangeForm/newChangeForm";
 import SignUp from "./components/registerUser/SignUp";
 import Login from "./components/registerUser/LogIn";
-import SeparationForm from "./page/separationForm/SeparationForm"
+import SeparationForm from "./page/separationForm/SeparationForm";
+import TerminationListPage from "./page/terminationListPage/TerminationListPage";
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/newchangeform" component={newChangeForm} />
         <Route path="/existingemployeenewform" component={ExistingEmpNewForm} />
         <Route path="/separationform" component={SeparationForm} />
+        <Route path="/terminationlistpage" component={TerminationListPage} />
 
       </Switch>
     </Router>

@@ -24,4 +24,7 @@ router.route("/formlistpage/:id")
 router.route("/separationform")
     .post(separationFormController.createTerminationForm);
 
+router.route("/terminationlistpage/:id")
+    .get(separationFormController.findTermination);
+    
 module.exports = router;

@@ -6,6 +6,9 @@ const TerminationFormSchema = new Schema({
     employee_name: {
         type: String
     },
+    employee_id: {
+        type: String
+    },
     work_country: {
         type: String
     },

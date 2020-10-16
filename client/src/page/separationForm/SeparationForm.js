@@ -14,8 +14,10 @@ const SeparationForm = () => {
 
 
   useEffect(() => {
+    const EmpId = JSON.parse(localStorage.getItem("EmployeeId"))
     setForm({
       employee_name: "",
+      employee_id: EmpId, 
       work_country: "",
       location: "",
       function: "",
@@ -108,14 +110,14 @@ const SeparationForm = () => {
           />
           <TerminationForm
             employee_name={form.employee_name}
+            employee_id={form.employee_id}
             work_country={form.work_country}
             location={form.location}
             function={form.function}
             unique={unique}
             separationType={form.separationType}
             reasonSeparation={form.reasonSeparation}
-            displayReasons={displayReasons}
-            reasonSeparation={form.reasonSeparation}
+            displayReasons={displayReasons}           
             lastWorkDay={form.lastWorkDay}
             lastWorkMonth={form.lastWorkMonth}
             lastWorkYear={form.lastWorkYear}
@@ -148,7 +150,7 @@ const SeparationForm = () => {
             handleInputChange={handleInputChange}
           />
           <Container textAlign='center' className='distance'>
-            <Link to='formlistpage'><Button className='ui violet button large' type="submit" onClick={() => terminationForm()}>Save Form </Button></Link>
+            <Link to='terminationlistpage'><Button className='ui violet button large' type="submit" onClick={() => terminationForm()}>Save Form </Button></Link>
           </Container>
         </form>
       </div>

@@ -18,6 +18,11 @@ const Termination = (props) => {
         </div>
 
         <div className="row">
+          <div className="five wide column">Employee ID</div>
+          <input type="text" name="employee_id" value={props.employee_id} className="ten wide column border" onChange={(e) => props.handleInputChange(e)} />
+        </div>
+
+        <div className="row">
           <div className="five wide column">Work Country</div>
           <div className="five wide column">
             <select name="work_country" value={props.work_country} onChange={(e) => props.handleDropdown(e)} >
