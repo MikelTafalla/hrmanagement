@@ -501,10 +501,10 @@ function EmployeeChangeForm() {
 
             :
             (role !== "payroll"
-              ?
-              <Container textAlign='center' className='distance'><button className='ui violet button big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button>
+              ?             
+               <Container textAlign='center' className='distance'><button class="ui orange button huge">Please Contact Payroll to Re-Open if changes are required</button>
               </Container>
-              : <Container textAlign='center' className='distance'><button class="ui orange button huge">Please Contact Payroll to Re-Open if changes are required</button>
+              : <Container textAlign='center' className='distance'><button className='ui violet button big' type="submit" onClick={(event) => { event.preventDefault(); updateForm(idLSupdate); window.location.reload(true) }}>Update Form</button>
               </Container>
 
             )

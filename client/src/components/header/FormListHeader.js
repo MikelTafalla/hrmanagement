@@ -5,18 +5,13 @@ import {
 import "./formheader.css"
 
 
-function FormHeader() {
-
-    //get Name from localStorage 
-    const name = JSON.parse(localStorage.getItem("EmployeeName"))
-    
-    
+function FormHeader(props) {
+      
     return (
-
 
         <div id='head' className='ui sixteen wide column padded' >
             <br></br>
-            <div id='h1'><Header as='h1' inverted textAlign='center'>History Report for <span className='name'>{name}</span> </Header></div>
+            <div id='h1'><Header as='h1' inverted textAlign='center'>{props.title}<span className='name'>{props.name}</span></Header></div>
 
         </div>
 

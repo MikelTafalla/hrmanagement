@@ -33,5 +33,11 @@ export default {
     },
     findTermination: function (id) {
         return axios.get(`/api/terminationlistpage/${id}`)
+    },
+    updateTerminationForm: function (id, form) {
+        return axios.put(`/api/existingseparationform/${id}`, form);
+    },
+    findterminatedemployee: function (id) {
+        return axios.get(`/api/existingseparationform/${id}`);
     }
 };

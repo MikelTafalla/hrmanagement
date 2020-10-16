@@ -4,9 +4,13 @@ import TerminationList from "../../components/terminationList/TerminationList";
 import { Container } from "semantic-ui-react";
 
 function TerminationListReport() {
-
-  return (
-    <div><FormListHeader />
+//get Name from localStorage 
+const name = JSON.parse(localStorage.getItem("EmployeeName"));
+return (
+  <div><FormListHeader 
+  title= "Termination Report for "
+  name = {name}
+  />
       <Container>
         <div>
 
