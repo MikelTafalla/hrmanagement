@@ -15,8 +15,6 @@ import NewHireForm from "./page/newHirePage/NewHirePage";
 import NewHireFormContinue from "./page/newHireContinuePage/NewHireContinuePage";
 import NewHireListPage from "./page/newHireListPage/NewHireListPage";
 
-
-
 function App() {
 
   return (
