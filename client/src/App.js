@@ -11,7 +11,7 @@ import Login from "./components/registerUser/LogIn";
 import SeparationForm from "./page/separationForm/SeparationForm";
 import TerminationListPage from "./page/terminationListPage/TerminationListPage";
 import ExistingSeparationForm from "./page/existingSeparationForm/ExistingSeparationForm";
-import NewHireForm from "./page/newHirePage/NewHirePage.js";
+import NewHireForm from "./page/newHirePage/NewHirePage";
 import NewHireFormContinue from "./page/newHireContinuePage/NewHireContinuePage";
 import NewHireListPage from "./page/newHireListPage/NewHireListPage";
 
