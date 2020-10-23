@@ -1,0 +1,9 @@
+.border {
+    border: 1px solid;
+}
+.warning {
+    color: red;
+}
+label {
+    margin-right: 2px;
+}

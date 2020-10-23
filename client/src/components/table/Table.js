@@ -51,7 +51,7 @@ const TableList = props => {
     }
   };
   return (
-    <div className='six wide column'><Link to="newchangeform"><button className='ui violet button large'>Create A New Hire</button></Link>
+    <div className='six wide column'><Link to="newhireform"><button className='ui violet button large'>Create A New Hire</button></Link>
       {/* Search Bar */}
       <div className="ui grid center aligned">
         <div className="sixteen wide column"></div>
@@ -71,7 +71,7 @@ const TableList = props => {
           <div className="results"></div>
         </div>
       </div>
-
+      
       <Table id='tbl' textAlign='center' singleLine sortable>
         <thead className='thead'>
           <tr><th>Name</th>
@@ -85,7 +85,7 @@ const TableList = props => {
               <tr key={item.employeeId}>
                 <td data-label="Name">{item.employee_name}</td>
                 <td data-label="ID">{item.employeeId}</td>
-                <td><Link to="formlistpage"><button className='ui violet button small' type="submit" value={item.employeeId, item.employee_name}
+                <td><Link to="formtypes"><button className='ui violet button small' type="submit" value={item.employeeId, item.employee_name}
                   onClick={(e) => storeEmpId(item.employeeId, item.employee_name)}>Go to Forms</button></Link></td>
               </tr>
             ))
@@ -94,7 +94,7 @@ const TableList = props => {
               <tr key={item.employeeId}>
                 <td data-label="Name">{item.employee_name}</td>
                 <td data-label="ID">{item.employeeId}</td>
-                <td><Link to="formlistpage"><button className='ui violet button small' type="submit" value={item.employeeId, item.employee_name}
+                <td><Link to="formtypes"><button className='ui violet button small' type="submit" value={item.employeeId, item.employee_name}
                   onClick={(e) => storeEmpId(item.employeeId, item.employee_name)}>Go to Forms</button></Link></td>
               </tr>
             ))

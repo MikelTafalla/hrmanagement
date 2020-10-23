@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { Icon, Button, Table } from 'semantic-ui-react'
-import "./terminationlist.css"
+import "./newhirelist.css"
 import { Link } from 'react-router-dom'
 import API from "../../utils/API"
 
-const TerminationTable = () => {
+const NewHireTable = () => {
   //State to store information from the API call populateHistoryReport
-  const [dbtermination, setDbTermination] = useState([])
+  const [dbnewhire, setDbNewHire] = useState([])
 
   useEffect(() => {
     const EmployeeId = JSON.parse(localStorage.getItem("EmployeeId"))
-    terminationReport(EmployeeId);
+    newHireReport(EmployeeId);
 
   }, [])
 
-  const terminationReport = (id) => {
-    API.findTermination(id)
-      .then(resp => setDbTermination(resp.data))
+  const newHireReport = (id) => {
+    API.findHiringReport(id)
+      .then(resp => setDbNewHire(resp.data))
       .catch(err => console.log(err))
   }
 
@@ -27,18 +27,18 @@ const TerminationTable = () => {
   }
 
   //Create function to divide database in two arrays. One would contain all the objects whose status is open and the other would contain the ones with status closed
-  let terminationOpen = [];
-  let terminationClosed = [];
-  const divideTerminationDb = () => {
-    if (dbtermination.length > 0) {
+  let newHireOpen = [];
+  let newHireClosed = [];
+  const divideNewHireDb = () => {
+    if (dbnewhire.length > 0) {
       //if key in object contains true then push object to openStatus. else push to closedStatus
-      terminationOpen = dbtermination.filter(status => status.open === true)
-      terminationClosed = dbtermination.filter(status => status.open === false)
+      newHireOpen = dbnewhire.filter(status => status.open === true)
+      newHireClosed = dbnewhire.filter(status => status.open === false)
 
     }
 
   }
-  divideTerminationDb()
+  divideNewHireDb()
 
   const clicked = JSON.parse(localStorage.getItem("Click"))
   if (clicked === "clicked") {
@@ -51,10 +51,10 @@ const TerminationTable = () => {
     <React.Fragment>
       <Link to='employeedirectory'><Button className='ui violet inverted' >Go To Employee Directory</Button></Link>
 
-      {terminationOpen.map(item => (
+      {newHireOpen.map(item => (
 
         <div key={item._id} id='formbtn'>
-          <Link to='existingseparationform'><Button size='large' color='violet' onClick={(e) => storeDbId(e)} value={item._id}><Icon name='file' /> Continue with Separation Form In Progress</Button></Link>
+          <Link to='newhirecontinue'><Button size='large' color='violet' onClick={(e) => storeDbId(e)} value={item._id}><Icon name='file' /> Continue with New Hire Form In Progress</Button></Link>
         </div>
 
       ))}
@@ -72,35 +72,20 @@ const TerminationTable = () => {
 
         <Table.Body>
 
-          {terminationClosed.map(history => (
+          {newHireClosed.map(history => (
             <Table.Row key={history._id}>
 
               <Table.Cell collapsing>
-                <Link to='existingseparationform'><Button color='violet' type="submit" onClick={(e) => storeDbId(e)} value={history._id}>View Form</Button></Link>
+                <Link to='newhirecontinue'><Button color='violet' type="submit" onClick={(e) => storeDbId(e)} value={history._id}>View Form</Button></Link>
               </Table.Cell>
               <Table.Cell>{history.employee_name}</Table.Cell>
-              <Table.Cell>Separation Form</Table.Cell>
-              <Table.Cell>{history.submissionDay} / {history.submissionMonth} / {history.submissionYear}</Table.Cell>
+              <Table.Cell>New Hire Form</Table.Cell>
+              <Table.Cell>{history.day} / {history.month} / {history.year}</Table.Cell>
               <Table.Cell>{history.hrCentral}</Table.Cell>
             </Table.Row>
           ))}
 
         </Table.Body>
-        <Table.Footer fullWidth>
-        <Table.Row>
-            <Table.HeaderCell />
-            <Table.HeaderCell colSpan='4'>
-              <Link to='separationform'> <Button
-                floated='right'
-                icon labelPosition='left'
-                size='small'
-                color='violet' value="">
-
-                <Icon name='user' /> Create Termination Form
-                        </Button> </Link>
-            </Table.HeaderCell>
-          </Table.Row>
-          </Table.Footer>
 
       </Table>
     </React.Fragment>
@@ -109,4 +94,4 @@ const TerminationTable = () => {
 
 }
 
-export default TerminationTable;
+export default NewHireTable;

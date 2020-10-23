@@ -18,27 +18,11 @@ module.exports = {
       .then(dbmodel => res.json(dbmodel))
       .catch(err => console.log(err));
   },
-  create: ({ body }, res) => {
-    db.EmployeeChangeForm
-      .create(body)
-      .then(data => res.json(data)
-      )
-      .catch(err => console.log(err))
-  },
   createExisting: ({ body }, res) => {
     db.EmployeeChangeForm
       .create(body)
       .then(data => res.json(data)
       )
-      .catch(err => console.log(err))
-  },
-  findAll: (req, res) => {
-    db.EmployeeChangeForm
-      .find(req.query)
-      .then(dbmodel => {
-        // console.log(dbmodel)
-        res.json(dbmodel)
-      })
       .catch(err => console.log(err))
   },
   findReport: ({ params }, res) => {

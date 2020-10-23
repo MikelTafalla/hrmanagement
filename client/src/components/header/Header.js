@@ -37,6 +37,8 @@ function HeaderOne(props) {
               <li>{props.instruction1B}</li>
             </ul>
           </li>
+          <br></br>
+          <p>{props.note}</p>
           <li>{props.instruction2}</li>
         </ol>
       </div>

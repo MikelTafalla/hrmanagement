@@ -129,7 +129,7 @@ const SectionD = (props) => {
             <label className="three wide column">Signature</label>
             <input type="text" className="four wide column" name="payroll_signature" value={props.payroll_signature} onChange={(e) => props.handleInputChange(e)} />
             <label className="three wide column">Comments</label>
-            <textarea rows={2} className="textarea" name="comments" value={props.comments} onChange={(e) => props.handleDropdown(e)} />
+            <textarea rows={2} className="textarea" name="comments" value={props.comments} onChange={(e) => props.handleInputChange(e)} />
           </div>
         </div>
       </div>

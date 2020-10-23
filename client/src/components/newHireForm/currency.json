@@ -1,0 +1,22 @@
+[
+    {
+        "country": "Australia",
+        "currency": "AUD"
+    },
+    {
+        "country": "New Zealand",
+        "currency": "NZD"
+    },
+    {
+        "country": "Singapore",
+        "currency": "SGD"
+    },
+    {
+        "country": "Indonesia",
+        "currency": "INR"
+    },
+    {
+        "country": "null",
+        "currency": "Select Country"
+    }
+]

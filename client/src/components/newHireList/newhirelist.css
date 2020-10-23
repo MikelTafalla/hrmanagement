@@ -1,0 +1,20 @@
+th {
+    color: #1c75bc;
+    background-color: whitesmoke;
+}
+
+#clickable {
+    cursor: pointer
+}
+.icon {
+    cursor: pointer
+}
+
+#tbl{
+
+    background-color:#e6e6fa;
+}
+
+#formbtn{
+    margin-left: 450px;
+}
