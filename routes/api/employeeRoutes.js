@@ -1,20 +1,16 @@
 const router = require("express").Router();
 const employeeChangeFormController = require("../../controllers/employeeChangeFormController");
 const separationFormController = require("../../controllers/separationFormController");
+const newHireFormController = require("../../controllers/newHireFormController");
 
 router.route("/employeechangeForm/:id")
     .get(employeeChangeFormController.findById)
     .put(employeeChangeFormController.update);
 
-router.route("/newchangeform")
-    .post(employeeChangeFormController.create);
-
 router.route("/existingemployeenewform")
     .post(employeeChangeFormController.createExisting);
 
-router.route("/employeedirectory")
-    .get(employeeChangeFormController.findAll)
-
+    
 router.route("/employeedirectory/:username")
     .get(employeeChangeFormController.findRole);
 
@@ -30,5 +26,17 @@ router.route("/terminationlistpage/:id")
 router.route("/existingseparationform/:id")
     .get(separationFormController.findterminatedemployee)
     .put(separationFormController.updateTerminationForm);
-    
+
+router.route("/newhirecontinue/:id")
+    .get(newHireFormController.findNewHire)
+    .put(newHireFormController.updateNewHire);
+
+router.route("/newhirelistpage/:id")
+    .get(newHireFormController.findHiringReport)
+
+router.route("/employeedirectory")
+    .get(newHireFormController.findAll)
+
+router.route("/newhireform")
+    .post(newHireFormController.postNewHire);
 module.exports = router;

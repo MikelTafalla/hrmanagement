@@ -7,6 +7,7 @@ const passport = require("passport");// passport package
 const session = require("express-session");//express auth session
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 // Middleware 
 //================================================
 app.use(logger("dev"));
@@ -40,6 +41,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://shalim:Shajee123!@vei
 //   useFindAndModify: false,
 //   useCreateIndex: true
 // });
+
 //Server Port connection
 //=================================================
 app.listen(PORT, function () {

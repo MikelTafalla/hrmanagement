@@ -252,7 +252,7 @@ function EmployeeChangeForm() {
   //Start with an empty array to push all the agreements that correspond to the group where the agreement from the DB belongs to
   const agrCurrentDisplay = []
 
-  //We store the agreement from the database. Ternary needed to avoid load conflicts.
+  //We store the agreement from the database.
   const agrcurrentInDB = form.employee_agreement_current
   //Loop through the agreement JSON and store each agreement object to loop through that object on nested loop
   for (let i = 0; i < Agreement.length; i++) {
@@ -500,7 +500,7 @@ function EmployeeChangeForm() {
             </Container>
 
             :
-            (role !== "payroll"
+            (role !== "payroll" && form.open === false
               ?             
                <Container textAlign='center' className='distance'><button class="ui orange button huge">Please Contact Payroll to Re-Open if changes are required</button>
               </Container>

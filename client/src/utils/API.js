@@ -2,13 +2,10 @@ import axios from "axios";
 
 export default {
     findById: function (id) {
-        return axios.get(`/api/employeechangeForm/${id}`);
+        return axios.get(`/api/employeechangeForm/${id}`)
     },
     update: function (id, formData) {
-        return axios.put(`/api/employeechangeForm/${id}`, formData);
-    },
-    create: function (formData) {
-        return axios.post("/api/newchangeform", formData)
+        return axios.put(`/api/employeechangeForm/${id}`, formData)
     },
     createExisting: function (form) {
         return axios.post("/api/existingemployeenewform", form)
@@ -35,9 +32,21 @@ export default {
         return axios.get(`/api/terminationlistpage/${id}`)
     },
     updateTerminationForm: function (id, form) {
-        return axios.put(`/api/existingseparationform/${id}`, form);
+        return axios.put(`/api/existingseparationform/${id}`, form)
     },
     findterminatedemployee: function (id) {
-        return axios.get(`/api/existingseparationform/${id}`);
+        return axios.get(`/api/existingseparationform/${id}`)
+    },
+    findNewHire: function (id) {
+        return axios.get(`/api/newhirecontinue/${id}`)
+    },
+    findHiringReport: function (id) {
+        return axios.get(`/api/newhirelistpage/${id}`)
+    },
+    postNewHire: function (form) {
+        return axios.post(`/api/newhireform/`, form)
+    },
+    updateNewHire: function (id, form) {
+        return axios.put(`/api/newhirecontinue/${id}`, form)
     }
 };

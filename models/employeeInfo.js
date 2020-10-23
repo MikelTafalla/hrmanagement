@@ -153,13 +153,16 @@ const EmployeeChangeFormSchema = new Schema({
         type: String,
     },
     team_leader_allowance: {
-        type: String
+        type: Boolean,
+        default: false
     },
     leading_hand_allowance: {
-        type: String
+        type: Boolean,
+        default: false
     },
     dual_trade_allowance: {
-        type: String
+        type: Boolean,
+        default: false
     },
     other_allowances_C: {
         type: String

@@ -198,14 +198,15 @@ const ExistingSeparationForm = () => {
             </Container>
 
             :
-            (role !== "payroll"
+            (role !== "payroll" && form.open === false
               ?  
-              <Container textAlign='center' className='distance'>
-              <Link to='terminationlistpage'><Button className='ui violet button large' type="submit" onClick={(event) => { event.preventDefault(); UpdateTerminationForm(idUpdateAndGet); window.location.reload(true) }}>Update Form </Button></Link>
-            </Container>           
-               
-              : <Container textAlign='center' className='distance'><button class="ui orange button huge">Please Contact Payroll to Re-Open if changes are required</button>
+              <Container textAlign='center' className='distance'><button class="ui orange button huge">Please Contact Payroll to Re-Open if changes are required</button>
               </Container>
+                       
+               
+              : <Container textAlign='center' className='distance'>
+              <Link to='terminationlistpage'><Button className='ui violet button large' type="submit" onClick={(event) => { event.preventDefault(); UpdateTerminationForm(idUpdateAndGet); window.location.reload(true) }}>Update Form </Button></Link>
+            </Container>  
 
             )
 
