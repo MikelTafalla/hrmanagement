@@ -11,11 +11,9 @@ import Login from "./components/registerUser/LogIn";
 import SeparationForm from "./page/separationForm/SeparationForm";
 import TerminationListPage from "./page/terminationListPage/TerminationListPage";
 import ExistingSeparationForm from "./page/existingSeparationForm/ExistingSeparationForm";
-import Test from "./page/newApplicant/NewApplicant"
+import NewHireForm from "./page/newHirePage/NewHirePage";
 import NewHireFormContinue from "./page/newHireContinuePage/NewHireContinuePage";
 import NewHireListPage from "./page/newHireListPage/NewHireListPage";
-
-
 
 function App() {
 
@@ -33,7 +31,7 @@ function App() {
         <Route path="/separationform" component={SeparationForm} />
         <Route path="/terminationlistpage" component={TerminationListPage} />
         <Route path="/existingseparationform" component={ExistingSeparationForm} />
-        <Route path="/newhireform" component={Test} />
+        <Route path="/newhireform" component={NewHireForm} />
         <Route path="/newhirecontinue" component={NewHireFormContinue} />
         <Route path="/newhirelistpage" component={NewHireListPage} />
 

@@ -1,4 +1,4 @@
-const { default: NewHireForm } = require("../client/src/page/newHirePage/newHirePage.js");
+
 
 module.exports = {
     EmployeeChangeForm: require("./employeeInfo"),

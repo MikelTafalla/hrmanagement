@@ -27,8 +27,10 @@ app.use(passport.session());
 // Routes
 //===============================================
 app.use(routes);
-//Mongo Database connection
-//===============================================
+
+
+// Mongo Database connection
+// ===============================================
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://shalim:Shajee123!@veiramal.ehpyu.mongodb.net/hrmanagement?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
