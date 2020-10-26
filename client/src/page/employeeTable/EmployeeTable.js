@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../components/table/Table";
-import DepartmentHeader from "../../components/header/DepartmentHeader"
+import DepartmentHeader from "../../components/header/DepartmentHeader";
 import API from "../../utils/API"
 import { Container } from "semantic-ui-react";
+
 
 const EmployeeDirectory = () => {
   const [info, setInfo] = useState([]);
@@ -29,9 +30,11 @@ const EmployeeDirectory = () => {
       .catch(err => console.log(err))
   };
 
-
+//Create a Key to clean localstorage on browser close
+localStorage.setItem("key", "key")
+const email = JSON.parse(localStorage.getItem("ActiveLoggedInUser"))
   return (
-
+    !email ? window.location = "/" : (
     <div>
       <DepartmentHeader />
       <Container>
@@ -45,7 +48,7 @@ const EmployeeDirectory = () => {
           />
         </div>
       </Container>
-    </div>
+    </div> )
   );
 };
 

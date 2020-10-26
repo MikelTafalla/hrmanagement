@@ -313,9 +313,10 @@ const ExistingEmpNewForm = () => {
   }
 
   const classProposedUnique = [...new Set(classProposedDisplay)]
-
+  
+  const email = JSON.parse(localStorage.getItem("ActiveLoggedInUser"))
   return (
-
+    !email ? window.location = "/" : (
     <Container>
       <div>
         <form>
@@ -466,7 +467,7 @@ const ExistingEmpNewForm = () => {
         </form>
       </div>
 
-    </Container>
+    </Container>)
 
   );
 }

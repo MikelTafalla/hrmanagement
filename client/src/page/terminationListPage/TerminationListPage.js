@@ -6,7 +6,10 @@ import { Container } from "semantic-ui-react";
 function TerminationListReport() {
 //get Name from localStorage 
 const name = JSON.parse(localStorage.getItem("EmployeeName"));
+
+const email = JSON.parse(localStorage.getItem("ActiveLoggedInUser"))
 return (
+  !email ? window.location = "/" : (
   <div><FormListHeader 
   title= "Termination Report for "
   name = {name}
@@ -19,7 +22,7 @@ return (
 
         </div>
       </Container>
-    </div>
+    </div> )
   );
 }
 export default TerminationListReport;

@@ -342,9 +342,9 @@ function EmployeeChangeForm() {
 
   const classProposedUnique = [...new Set(classProposedDisplay)]
 
-
+  const email = JSON.parse(localStorage.getItem("ActiveLoggedInUser"))
   return (
-
+    !email ? window.location = "/" : (
     <Container>
       <div>
         <form>
@@ -516,7 +516,7 @@ function EmployeeChangeForm() {
         </form>
       </div>
 
-    </Container>
+    </Container> )
 
   );
 }
