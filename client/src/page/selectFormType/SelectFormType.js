@@ -6,7 +6,10 @@ import FormType from "../../components/formType/FormType";
 function SelectForm() {
     //get Name from localStorage 
     const name = JSON.parse(localStorage.getItem("EmployeeName"));
+    
+    const email = JSON.parse(localStorage.getItem("ActiveLoggedInUser"))
     return (
+      !email ? window.location = "/" : (
       <div><FormListHeader 
       title= "Select the Type of Form for "
       name = {name}
@@ -19,7 +22,7 @@ function SelectForm() {
         <FormType />
 
        
-      </div>
+      </div> )
     );
   }
   export default SelectForm;

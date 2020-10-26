@@ -150,8 +150,9 @@ function NewHireForm() {
         setForm({ ...form, [name]: value })
     }
 
+    const email = JSON.parse(localStorage.getItem("ActiveLoggedInUser"))
     return (
-
+    !email ? window.location = "/" : (
         <Container>
             <div>
                 <form>
@@ -261,7 +262,7 @@ function NewHireForm() {
                 </form>
             </div>
 
-        </Container>
+        </Container> )
 
     );
 }

@@ -6,7 +6,10 @@ import { Container } from "semantic-ui-react";
 function FormHeader() {
   //get Name from localStorage 
   const name = JSON.parse(localStorage.getItem("EmployeeName"));
+  
+  const email = JSON.parse(localStorage.getItem("ActiveLoggedInUser"))
   return (
+    !email ? window.location = "/" : (
     <div><FormListHeader 
     title= "History Report for "
     name = {name}
@@ -19,7 +22,7 @@ function FormHeader() {
 
         </div>
       </Container>
-    </div>
+    </div> )
   );
 }
 export default FormHeader;

@@ -195,9 +195,9 @@ function NewHireForm() {
     const value = target.type === "checkbox" ? target.checked : target.value;
     setForm({ ...form, [name]: value })
   }
-
+  const email = JSON.parse(localStorage.getItem("ActiveLoggedInUser"))
   return (
-
+    !email ? window.location = "/" : (
     <Container>
       <div>
         <form>
@@ -331,7 +331,7 @@ function NewHireForm() {
         </form>
       </div>
 
-    </Container>
+    </Container> )
 
   );
 }

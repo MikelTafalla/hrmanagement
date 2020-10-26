@@ -95,8 +95,9 @@ const SeparationForm = () => {
 
   }
 
+  const email = JSON.parse(localStorage.getItem("ActiveLoggedInUser"))
   return (
-
+    !email ? window.location = "/" : (
     <Container>
       <div>
         <form>
@@ -155,7 +156,7 @@ const SeparationForm = () => {
         </form>
       </div>
 
-    </Container>
+    </Container> )
 
   );
 }
