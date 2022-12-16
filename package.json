@@ -17,7 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "nodemon": "^1.18.7"
+    "nodemon": "^2.0.20"
   },
   "homepage": "https://vieramal.herokuapp.com",
   "dependencies": {
